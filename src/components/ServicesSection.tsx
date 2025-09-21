@@ -228,11 +228,17 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
 
                 {/* Icon */}
                 <motion.div
-                  className={`w-16 h-16 rounded-xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-6`}
+                  className={`w-16 h-16 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center mb-6`}
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
-                  {/* <IconComponent className="w-8 h-8 text-white" /> */}
+                  <img
+                    src={`${import.meta.env.VITE_REACT_APP_API_URL}/${
+                      service.icon
+                    }`}
+                    alt={service.title}
+                    className="w-11 h-11 text-white"
+                  />
                 </motion.div>
 
                 {/* Content */}
@@ -302,21 +308,23 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
         </div>
 
         {/* CTA Section */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.button
-            className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
+        <a href="#contact">
+          <motion.div
+            className="text-center mt-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
-            ابدأ اليوم
-          </motion.button>
-        </motion.div>
+            <motion.button
+              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              ابدأ اليوم
+            </motion.button>
+          </motion.div>
+        </a>
       </div>
     </section>
   );

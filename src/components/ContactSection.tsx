@@ -1,7 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { usePostContact } from "../hooks/contactUsHooks/usePostContact";
+import { toast } from "react-toastify";
 
 interface ContactSectionProps {
   isDark: boolean;
@@ -19,15 +21,18 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
     reset,
   } = useForm<FormData>();
 
-  const onSubmit = async (data: FormData) => {
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log("Form submitted:", data);
-    reset();
+  const { mutate, isLoading: isSubmitting } = usePostContact();
+
+  const onSubmit = (data: FormData) => {
+    mutate(data, {
+      onSuccess: () => {
+        reset();
+      },
+    });
   };
 
   const contactInfo = [
@@ -75,7 +80,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
             viewport={{ once: true }}
           >
             تواصل
-            <span className="text-purple-600 ms-3">معنا</span>
+            <span className="text-purple-600 ms-3"> معنا </span>
           </motion.h2>
 
           <motion.p
@@ -186,32 +191,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                     {errors.email.message}
                   </p>
                 )}
-              </motion.div>
-
-              {/* Company Field */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <label
-                  className={`block text-sm font-medium mb-2 ${
-                    isDark ? "text-gray-300" : "text-gray-700"
-                  }`}
-                >
-                  الشركة
-                </label>
-                <input
-                  type="text"
-                  {...register("company")}
-                  className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none ${
-                    isDark
-                      ? "border-gray-700 bg-gray-800 text-white focus:border-purple-500"
-                      : "border-gray-300 bg-white text-gray-900 focus:border-purple-500"
-                  }`}
-                  placeholder="اسم شركتك"
-                />
               </motion.div>
 
               {/* Subject Field */}

@@ -26,7 +26,6 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
     { name: "خدماتنا", href: "#services" },
     { name: "أعمالنا", href: "#work" },
     { name: "فريقنا", href: "#team" },
-    { name: "المدونة", href: "#blog" },
     { name: "تواصل معنا", href: "#contact" },
   ];
 
@@ -56,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
             />
             <span
               className={`text-xl font-bold ${
-                isDark ? "text-white" : "text-gray-900"
+                isDark || !isScrolled ? "text-white" : "text-gray-900"
               }`}
             >
               ZH-CODING
@@ -70,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
                 key={item.name}
                 href={item.href}
                 className={`${
-                  isDark
+                  isDark || !isScrolled
                     ? "hover:text-purple-400 text-white"
                     : "hover:text-purple-600 text-black"
                 } transition-colors duration-200  font-medium`}

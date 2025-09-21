@@ -3,6 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { toast } from "react-toastify";
 
 interface SlideData {
   id: number;
@@ -20,30 +21,40 @@ interface HeroSliderProps {
 const slides: SlideData[] = [
   {
     id: 1,
-    title: "حلول برمجية مبتكرة ومتطورة",
-    subtitle: "نحول أفكارك المبدعة إلى واقع رقمي متميز",
+    title: "تطوير الواجهات الأمامية",
+    subtitle: "تجربة مستخدم سلسة وعصرية",
     description:
-      "نحن نبني تطبيقات وحلول برمجية متطورة تدفع نمو أعمالك وتحقق التحول الرقمي المطلوب بأحدث التقنيات العالمية.",
-    cta: "ابدأ مشروعك معنا",
-    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "نصمم ونطور واجهات أمامية تفاعلية باستخدام أحدث تقنيات مثل React و Vue و Angular لنمنح عملاءك تجربة استخدام استثنائية.",
+    cta: "ابدأ بناء واجهتك الأمامية",
+    background: "linear-gradient(135deg, #c31432 0%, #240b36 100%)",
   },
   {
     id: 2,
-    title: "الذكاء الاصطناعي والتعلم الآلي",
-    subtitle: "حلول ذكية مدعومة بأحدث تقنيات الذكاء الاصطناعي",
+    title: "تطوير الأنظمة الخلفية",
+    subtitle: "قوة وأداء عالي مع أمان متكامل",
     description:
-      "نستخدم قوة الذكاء الاصطناعي والتعلم الآلي لإنشاء حلول برمجية ذكية وأكثر كفاءة تلبي احتياجات عملك المستقبلية.",
-    cta: "اكتشف حلول الذكاء الاصطناعي",
-    background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+      "نقوم بتطوير أنظمة خلفية مرنة وقابلة للتوسع باستخدام Node.js, Laravel, Django وغيرها، مع ضمان أمان البيانات وأداء عالي.",
+    cta: "تعرف على حلول الباك إند",
+    background:
+      "linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)",
   },
   {
     id: 3,
-    title: "الحوسبة السحابية المتقدمة",
-    subtitle: "بنية تحتية قابلة للتوسع وآمنة ومرنة",
+    title: "تطبيقات الموبايل",
+    subtitle: "تجربة غنية على iOS و Android",
     description:
-      "نبني تطبيقات قوية وقابلة للتوسع باستخدام أحدث تقنيات الحوسبة السحابية مع ضمان الأمان والموثوقية العالية.",
-    cta: "تعرف على خدماتنا السحابية",
-    background: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+      "نطور تطبيقات موبايل أصلية وهجينة باستخدام Flutter و React Native لتمنح جمهورك تجربة متكاملة على مختلف المنصات.",
+    cta: "ابدأ مشروع تطبيقك الآن",
+    background: "linear-gradient(135deg, #42275a 0%, #734b6d 100%)",
+  },
+  {
+    id: 4,
+    title: "بيع واستضافة السيرفرات",
+    subtitle: "بنية تحتية قوية وآمنة لمشاريعك",
+    description:
+      "نوفر سيرفرات مخصصة وVPS وحلول استضافة موثوقة مع أداء عالي وأمان كامل لضمان استمرارية أعمالك بدون انقطاع.",
+    cta: "احجز سيرفرك الآن",
+    background: "linear-gradient(135deg, #16222a 0%, #3a6073 100%)",
   },
 ];
 
@@ -138,7 +149,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
                           transition={{ duration: 0.8, ease: "easeOut" }}
                         >
                           <motion.h1
-                            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight text-right"
+                            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-10 text-right drop-shadow-2xl"
                             initial={{ opacity: 0, x: -100 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.2, duration: 0.8 }}
@@ -169,16 +180,19 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
                             {slide.description}
                           </motion.p>
 
-                          <motion.button
-                            className="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold text-base md:text-lg hover:bg-purple-50 transition-all duration-300 shadow-lg hover:shadow-xl"
-                            whileHover={{ scale: 1.05, y: -2 }}
-                            whileTap={{ scale: 0.95 }}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.8, duration: 0.8 }}
-                          >
-                            {slide.cta}
-                          </motion.button>
+                          <a href="#contact">
+                            {" "}
+                            <motion.button
+                              className="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold text-base md:text-lg hover:bg-purple-50 transition-all duration-300 shadow-lg hover:shadow-xl"
+                              whileHover={{ scale: 1.05, y: -2 }}
+                              whileTap={{ scale: 0.95 }}
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: 0.8, duration: 0.8 }}
+                            >
+                              {slide.cta}
+                            </motion.button>
+                          </a>
                         </motion.div>
                       )}
                     </AnimatePresence>

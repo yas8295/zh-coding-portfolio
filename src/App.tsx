@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { motion, AnimatePresence } from "framer-motion";
-import { Project } from "./components/PortfolioSection";
+
 
 // Components
 import AnimatedCursor from "./components/AnimatedCursor";
@@ -14,6 +14,7 @@ import TeamSection from "./components/TeamSection";
 import BlogSection from "./components/BlogSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import { Project } from "./components/PortfolioSection";
 import ProjectModal from "./components/ProjectModal";
 
 // Hooks
@@ -162,25 +163,19 @@ function App() {
         <main className="relative">
           {/* Hero Section */}
           <HeroSlider isDark={isDark} />
-
           {/* About Section */}
           <AboutSection isDark={isDark} />
-
           {/* Services Section */}
           <ServicesSection isDark={isDark} />
-
           {/* Portfolio Section */}
           <PortfolioSection
             isDark={isDark}
             onProjectClick={handleProjectClick}
           />
-
           {/* Team Section */}
           <TeamSection isDark={isDark} />
-
           {/* Blog Section */}
           {/* <BlogSection isDark={isDark} /> */}
-
           {/* Contact Section */}
           <ContactSection isDark={isDark} />
         </main>

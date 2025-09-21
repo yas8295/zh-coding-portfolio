@@ -14,11 +14,12 @@ const mutateContact = async (data) => {
       }
     );
     if (!res.ok) {
-      throw new Error("Network response was not ok");
+      const errorData = await res.json().catch(() => ({}));
+      throw new Error(errorData.message || "Network response was not ok");
     }
     return await res.json();
   } catch (error) {
-    throw new Error(error);
+    throw error;
   }
 };
 
@@ -26,12 +27,12 @@ export const usePostContact = () => {
   const queryClient = useQueryClient();
 
   const { mutate, isLoading } = useMutation({
-    mutationFn: ({ data }) => mutateContact(data),
+    mutationFn: (data) => mutateContact(data),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: "contact" });
+      queryClient.invalidateQueries({ queryKey: ["contact"] });
       toast.success("تم ارسال الطلب بنجاح");
     },
-    onError: () => toast.error("حدث خطأ، حاول مرة اخرى"),
+    onError: (error) => toast.error(error.message || "حدث خطأ، حاول مرة اخرى"),
   });
 
   return { mutate, isLoading };

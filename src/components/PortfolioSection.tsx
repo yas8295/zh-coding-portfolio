@@ -11,37 +11,25 @@ interface PortfolioSectionProps {
 export interface Project {
   id: number;
   title: string;
-  category: string;
   description: string;
-  fullDescription: string;
   image: string;
-  images: string[];
-  technologies: string[];
-  liveUrl?: string;
-  githubUrl?: string;
-  features: string[];
-  challenges: string[];
-  results: string[];
+  project_type: string;
+  live_link?: string;
+  github_link?: string;
+  fullDescription?: string;
+  images?: string[];
+  technologies?: string[];
+  features?: string[];
+  challenges?: string[];
+  results?: string[];
 }
 
-const categories = [
-  "الكل",
-  "تطوير المواقع",
-  "تطوير التطبيقات",
-  "الذكاء الاصطناعي",
-  "الحوسبة السحابية",
-  "إنترنت الأشياء",
-  "البلوك تشين",
-];
+const categories = ["الكل", "تطوير المواقع", "تطوير التطبيقات"];
 
 const categoryMapping: { [key: string]: string } = {
   الكل: "All",
-  "تطوير المواقع": "Web Development",
-  "تطوير التطبيقات": "Mobile Development",
-  "الذكاء الاصطناعي": "AI & Machine Learning",
-  "الحوسبة السحابية": "Cloud Architecture",
-  "إنترنت الأشياء": "IoT",
-  "البلوك تشين": "Blockchain",
+  "تطوير المواقع": "Web Application",
+  "تطوير التطبيقات": "Mobile application",
 };
 
 const PROJECTS_PER_PAGE = 6;
@@ -51,7 +39,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   onProjectClick,
 }) => {
   const { data: projects, isLoading, isError, error, refetch } = useProjects();
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("الكل");
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const [visibleProjects, setVisibleProjects] = useState(PROJECTS_PER_PAGE);
 
@@ -177,11 +165,11 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   }
 
   const filteredProjects =
-    selectedCategory === "All" || !projects
-      ? projects || []
-      : (projects || []).filter(
-          (project) => project.category === categoryMapping[selectedCategory]
-        );
+    projects?.filter(
+      (project) =>
+        selectedCategory === "الكل" ||
+        project.project_type === categoryMapping[selectedCategory]
+    ) || [];
 
   const displayedProjects = filteredProjects.slice(0, visibleProjects);
   const hasMoreProjects = visibleProjects < filteredProjects.length;
@@ -290,22 +278,21 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
         </motion.div>
 
         {/* Projects Grid */}
-        <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" layout>
-          <AnimatePresence>
+        <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="wait">
             {displayedProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                layout
                 initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer ${
+                className={`group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl cursor-pointer ${
                   isDark ? "bg-gray-800" : "bg-white"
                 }`}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
-                whileHover={{ y: -10 }}
                 onClick={() => onProjectClick(project)}
               >
                 {/* Image */}
@@ -329,9 +316,9 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                     transition={{ duration: 0.3 }}
                   >
                     <div className="flex space-x-4">
-                      {project.liveUrl && (
+                      {project.live_link && (
                         <motion.a
-                          href={project.liveUrl}
+                          href={project.live_link}
                           onClick={(e) => e.stopPropagation()}
                           className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-200"
                           whileHover={{ scale: 1.1 }}
@@ -340,9 +327,9 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                           <ExternalLink className="w-6 h-6" />
                         </motion.a>
                       )}
-                      {project.githubUrl && (
+                      {project.github_link && (
                         <motion.a
-                          href={project.githubUrl}
+                          href={project.github_link}
                           onClick={(e) => e.stopPropagation()}
                           className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-200"
                           whileHover={{ scale: 1.1 }}
@@ -370,7 +357,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                     animate={{ opacity: 1 }}
                     transition={{ delay: index * 0.1 + 0.2 }}
                   >
-                    {project.category}
+                    {project.project_type}
                   </motion.div>
 
                   <motion.h3

@@ -9,6 +9,7 @@ import {
   Twitter,
   Mail,
 } from "lucide-react";
+import { useTeam } from "../hooks/teamHooks/useTeam";
 
 interface TeamSectionProps {
   isDark: boolean;
@@ -153,6 +154,7 @@ const teamMembers: TeamMember[] = [
 ];
 
 const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
+  const { data: team, isLoading } = useTeam();
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "start",

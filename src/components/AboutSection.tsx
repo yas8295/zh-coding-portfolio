@@ -50,9 +50,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDark }) => {
               transition={{ delay: 0.4, duration: 0.8 }}
               viewport={{ once: true }}
             >
-              نحن فريق من المطورين والمصممين المتحمسين المتخصصين في إنشاء تجارب
-              رقمية استثنائية. مهمتنا هي تحويل الأفكار المبتكرة إلى حلول برمجية
-              قوية تدفع نجاح الأعمال وتحقق النمو المستدام.
+              نحن شركة متخصصة في تطوير الحلول البرمجية الشاملة، تضم فريقاً من
+              الخبراء في مجالات هندسة البرمجيات، تصميم الواجهات وتجربة المستخدم،
+              وتطوير الأنظمة المعقدة. نلتزم بتقديم خدمات عالية الجودة وفق أفضل
+              الممارسات العالمية لضمان نجاح عملائنا وتحقيق أهدافهم الاستراتيجية.
             </motion.p>
 
             <motion.p
@@ -64,22 +65,12 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDark }) => {
               transition={{ delay: 0.6, duration: 0.8 }}
               viewport={{ once: true }}
             >
-              بخبرة تشمل تطوير المواقع الإلكترونية وتطبيقات الهاتف المحمول ودمج
-              الذكاء الاصطناعي والهندسة السحابية، نقدم حلولاً متطورة مصممة
-              خصيصاً لتلبية احتياجات عملك الفريدة.
+              تمتد خبراتنا لتشمل تطوير المواقع الإلكترونية والتطبيقات الذكية،
+              بناء الأنظمة الخلفية المتقدمة، تطوير تطبيقات الهاتف المحمول،
+              إضافةً إلى توفير حلول تعتمد على الذكاء الاصطناعي والبنية السحابية.
+              نسعى دائماً لتقديم حلول مبتكرة وموثوقة تساهم في تعزيز الكفاءة
+              التشغيلية وتمكين المؤسسات من مواكبة التحول الرقمي بثقة وفاعلية.
             </motion.p>
-
-            <motion.button
-              className="bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              تعرف علينا أكثر
-            </motion.button>
           </motion.div>
 
           {/* Image with Parallax */}

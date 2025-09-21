@@ -1,11 +1,11 @@
 import { useQuery } from "react-query";
 
-const fetchSkills = async () => {
+const fetchTeam = async () => {
   const token = JSON.parse(localStorage.getItem("token"))?.access_token;
 
   try {
     const response = await fetch(
-      `${import.meta.env.VITE_REACT_APP_API_URL}/api/skills`,
+      `${import.meta.env.VITE_REACT_APP_API_URL}/api/team-members`,
       {
         method: "GET",
         headers: {
@@ -22,10 +22,10 @@ const fetchSkills = async () => {
   }
 };
 
-export const useSkills = () => {
+export const useTeam = () => {
   const { data, isLoading } = useQuery({
-    queryKey: [`skills`],
-    queryFn: () => fetchSkills(),
+    queryKey: [`team`],
+    queryFn: () => fetchTeam(),
   });
 
   return {
