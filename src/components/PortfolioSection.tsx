@@ -12,16 +12,19 @@ export interface Project {
   id: number;
   title: string;
   description: string;
-  image: string;
-  project_type: string;
-  live_link?: string;
-  github_link?: string;
+  image: string | null;
+  project_type: string | null;
+  live_link?: string | null;
+  github_link?: string | null;
   fullDescription?: string;
   images?: string[];
   technologies?: string[];
   features?: string[];
   challenges?: string[];
   results?: string[];
+  duration?: string | null;
+  end_date?: string | null;
+  location?: string | null;
 }
 
 const categories = ["الكل", "تطوير المواقع", "تطوير التطبيقات"];
@@ -297,14 +300,22 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
               >
                 {/* Image */}
                 <div className="relative h-64 overflow-hidden">
-                  <motion.img
-                    src={`${import.meta.env.VITE_REACT_APP_API_URL}/${
-                      project.image
-                    }`}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    whileHover={{ scale: 1.1 }}
-                  />
+                  {project.image ? (
+                    <motion.img
+                      src={`${import.meta.env.VITE_REACT_APP_API_URL}/${
+                        project.image
+                      }`}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      whileHover={{ scale: 1.1 }}
+                    />
+                  ) : (
+                    <div
+                      className={`w-full h-full ${
+                        isDark ? "bg-gray-700" : "bg-gray-300"
+                      }`}
+                    />
+                  )}
 
                   {/* Overlay */}
                   <motion.div
@@ -319,6 +330,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                       {project.live_link && (
                         <motion.a
                           href={project.live_link}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
                           className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-200"
                           whileHover={{ scale: 1.1 }}
@@ -330,6 +343,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                       {project.github_link && (
                         <motion.a
                           href={project.github_link}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
                           className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-200"
                           whileHover={{ scale: 1.1 }}

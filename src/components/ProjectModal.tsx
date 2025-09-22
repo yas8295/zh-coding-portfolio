@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, Github, Calendar, Users, Award } from "lucide-react";
+import { X, ExternalLink, Github, Calendar, Award, MapPin } from "lucide-react";
 import { Project } from "./PortfolioSection";
 
 interface ProjectModalProps {
@@ -62,25 +62,35 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
 
             {/* Hero Image */}
             <div className="relative h-80 overflow-hidden rounded-t-2xl">
-              <img
-                src={`${import.meta.env.VITE_REACT_APP_API_URL}/${
-                  project.image
-                }`}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
+              {project.image ? (
+                <img
+                  src={`${import.meta.env.VITE_REACT_APP_API_URL}/${
+                    project.image
+                  }`}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <div
+                  className={`w-full h-full ${
+                    isDark ? "bg-gray-800" : "bg-gray-200"
+                  }`}
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
               {/* Project Title Overlay */}
               <div className="absolute bottom-6 left-6 right-6">
-                <motion.div
-                  className="text-sm text-purple-300 font-medium mb-2"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  {project.project_type}
-                </motion.div>
+                {project.project_type && (
+                  <motion.div
+                    className="text-sm text-purple-300 font-medium mb-2"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    {project.project_type}
+                  </motion.div>
+                )}
                 <motion.h1
                   className="text-4xl font-bold text-white mb-4"
                   initial={{ opacity: 0, y: 20 }}
@@ -100,23 +110,27 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                   {project.live_link && (
                     <motion.a
                       href={project.live_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center space-x-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <ExternalLink className="w-4 h-4" />
-                      <span>Live Demo</span>
+                      <span>عرض مباشر</span>
                     </motion.a>
                   )}
                   {project.github_link && (
                     <motion.a
                       href={project.github_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center space-x-2 px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-colors duration-200"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Github className="w-4 h-4" />
-                      <span>Source Code</span>
+                      <span>الكود المصدري</span>
                     </motion.a>
                   )}
                 </motion.div>
@@ -140,7 +154,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                         isDark ? "text-white" : "text-gray-900"
                       }`}
                     >
-                      Project Overview
+                      نظرة عامة على المشروع
                     </h2>
                     <p
                       className={`text-lg leading-relaxed ${
@@ -164,7 +178,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                           isDark ? "text-white" : "text-gray-900"
                         }`}
                       >
-                        Key Features
+                        الميزات الرئيسية
                       </h3>
                       <div className="grid md:grid-cols-2 gap-3">
                         {project.features?.map((feature, index) => (
@@ -204,7 +218,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                           isDark ? "text-white" : "text-gray-900"
                         }`}
                       >
-                        Technical Challenges
+                        التحديات التقنية
                       </h3>
                       <div className="space-y-3">
                         {project.challenges?.map((challenge, index) => (
@@ -242,7 +256,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                           isDark ? "text-white" : "text-gray-900"
                         }`}
                       >
-                        Results & Impact
+                        النتائج والتأثير
                       </h3>
                       <div className="grid md:grid-cols-2 gap-4">
                         {project.results?.map((result, index) => (
@@ -288,47 +302,79 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                         isDark ? "text-white" : "text-gray-900"
                       }`}
                     >
-                      Project Details
+                      تفاصيل المشروع
                     </h3>
                     <div className="space-y-4">
-                      <div className="flex items-center space-x-3">
-                        <Calendar className="w-5 h-5 text-purple-600" />
-                        <div>
-                          <div
-                            className={`text-sm ${
-                              isDark ? "text-gray-400" : "text-gray-500"
-                            }`}
-                          >
-                            Duration
-                          </div>
-                          <div
-                            className={
-                              isDark ? "text-gray-300" : "text-gray-700"
-                            }
-                          >
-                            3-6 months
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <Users className="w-5 h-5 text-purple-600" />
-                        <div>
-                          <div
-                            className={`text-sm ${
-                              isDark ? "text-gray-400" : "text-gray-500"
-                            }`}
-                          >
-                            Team Size
-                          </div>
-                          <div
-                            className={
-                              isDark ? "text-gray-300" : "text-gray-700"
-                            }
-                          >
-                            4-8 developers
+                      {project.duration && (
+                        <div className="flex items-center space-x-3">
+                          <Calendar className="w-5 h-5 text-purple-600" />
+                          <div>
+                            <div
+                              className={`text-sm ${
+                                isDark ? "text-gray-400" : "text-gray-500"
+                              }`}
+                            >
+                              المدة
+                            </div>
+                            <div
+                              className={
+                                isDark ? "text-gray-300" : "text-gray-700"
+                              }
+                            >
+                              {project.duration}
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      )}
+                      {project.location && (
+                        <div className="flex items-center space-x-3">
+                          <MapPin className="w-5 h-5 text-purple-600" />
+                          <div>
+                            <div
+                              className={`text-sm ${
+                                isDark ? "text-gray-400" : "text-gray-500"
+                              }`}
+                            >
+                              الموقع
+                            </div>
+                            <div
+                              className={
+                                isDark ? "text-gray-300" : "text-gray-700"
+                              }
+                            >
+                              {project.location}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                      {project.end_date && (
+                        <div className="flex items-center space-x-3">
+                          <Award className="w-5 h-5 text-purple-600" />
+                          <div>
+                            <div
+                              className={`text-sm ${
+                                isDark ? "text-gray-400" : "text-gray-500"
+                              }`}
+                            >
+                              تاريخ الانتهاء
+                            </div>
+                            <div
+                              className={
+                                isDark ? "text-gray-300" : "text-gray-700"
+                              }
+                            >
+                              {new Date(project.end_date).toLocaleDateString(
+                                "en",
+                                {
+                                  year: "numeric",
+                                  month: "long",
+                                  day: "numeric",
+                                }
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </motion.div>
 
@@ -347,7 +393,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                           isDark ? "text-white" : "text-gray-900"
                         }`}
                       >
-                        Project Gallery
+                        معرض المشروع
                       </h3>
                       <div className="grid grid-cols-2 gap-3">
                         {project.images.slice(1, 5).map((image, index) => (

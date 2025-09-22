@@ -216,8 +216,8 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
             transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Meet
-            <span className="text-purple-600 me-3">Our Team</span>
+            تعرف على
+            <span className="text-purple-600 ms-3">فريقنا</span>
           </motion.h2>
 
           <motion.p
@@ -229,8 +229,8 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
             transition={{ delay: 0.4, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Our diverse team of experts brings together years of experience and
-            passion for creating exceptional digital solutions.
+            يجمع فريقنا المتنوع من الخبراء سنوات من الخبرة والشغف لإنشاء حلول
+            رقمية استثنائية.
           </motion.p>
         </motion.div>
 

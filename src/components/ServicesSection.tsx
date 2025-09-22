@@ -228,7 +228,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
 
                 {/* Icon */}
                 <motion.div
-                  className={`w-16 h-16 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center mb-6`}
+                  className={`w-24 h-24 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center mb-6`}
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
@@ -237,7 +237,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
                       service.icon
                     }`}
                     alt={service.title}
-                    className="w-11 h-11 text-white"
+                    className="w-16 h-16 text-white"
                   />
                 </motion.div>
 
@@ -255,6 +255,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
                 </motion.h3>
 
                 <motion.p
+                  dangerouslySetInnerHTML={{ __html: service.description }}
                   className={`${
                     isDark ? "text-gray-300" : "text-gray-600"
                   } mb-6`}
@@ -262,9 +263,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: index * 0.1 + 0.4, duration: 0.6 }}
                   viewport={{ once: true }}
-                >
-                  {service.description}
-                </motion.p>
+                ></motion.p>
 
                 {/* Features */}
                 {/* <motion.ul

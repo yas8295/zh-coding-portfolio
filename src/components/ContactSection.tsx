@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, ChevronDown } from "lucide-react";
 import { usePostContact } from "../hooks/contactUsHooks/usePostContact";
-import { toast } from "react-toastify";
+import { useServices } from "../hooks/servicesHooks/useServices";
 
 interface ContactSectionProps {
   isDark: boolean;
@@ -12,8 +12,8 @@ interface ContactSectionProps {
 interface FormData {
   name: string;
   email: string;
-  company?: string;
-  subject: string;
+  phone: string;
+  service: string;
   message: string;
 }
 
@@ -25,6 +25,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
     reset,
   } = useForm<FormData>();
 
+  const { data: services, isLoading: isLoadingServices } = useServices();
   const { mutate, isLoading: isSubmitting } = usePostContact();
 
   const onSubmit = (data: FormData) => {
@@ -193,7 +194,46 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                 )}
               </motion.div>
 
-              {/* Subject Field */}
+              {/* Phone Field */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <label
+                  className={`block text-sm font-medium mb-2 ${
+                    isDark ? "text-gray-300" : "text-gray-700"
+                  }`}
+                >
+                  رقم الهاتف *
+                </label>
+                <input
+                  type="tel"
+                  {...register("phone", {
+                    required: "رقم الهاتف مطلوب",
+                    pattern: {
+                      value: /^[0-9+-]+$/,
+                      message: "رقم هاتف غير صحيح",
+                    },
+                  })}
+                  className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none ${
+                    errors.phone
+                      ? "border-red-500"
+                      : isDark
+                      ? "border-gray-700 bg-gray-800 text-white focus:border-purple-500"
+                      : "border-gray-300 bg-white text-gray-900 focus:border-purple-500"
+                  }`}
+                  placeholder="رقم هاتفك"
+                />
+                {errors.phone && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors.phone.message}
+                  </p>
+                )}
+              </motion.div>
+
+              {/* Service Field */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -205,23 +245,38 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                     isDark ? "text-gray-300" : "text-gray-700"
                   }`}
                 >
-                  الموضوع *
+                  الخدمة المطلوبة *
                 </label>
-                <input
-                  type="text"
-                  {...register("subject", { required: "الموضوع مطلوب" })}
-                  className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none ${
-                    errors.subject
-                      ? "border-red-500"
-                      : isDark
-                      ? "border-gray-700 bg-gray-800 text-white focus:border-purple-500"
-                      : "border-gray-300 bg-white text-gray-900 focus:border-purple-500"
-                  }`}
-                  placeholder="ما هو موضوع رسالتك؟"
-                />
-                {errors.subject && (
+                <div className="relative">
+                  <select
+                    {...register("service", { required: "الرجاء اختيار خدمة" })}
+                    disabled={isLoadingServices}
+                    className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none appearance-none ${
+                      errors.service
+                        ? "border-red-500"
+                        : isDark
+                        ? "border-gray-700 bg-gray-800 text-white focus:border-purple-500"
+                        : "border-gray-300 bg-white text-gray-900 focus:border-purple-500"
+                    }`}
+                  >
+                    <option value="">
+                      {isLoadingServices
+                        ? "جاري تحميل الخدمات..."
+                        : "اختر خدمة"}
+                    </option>
+                    {services?.map((service: { id: string; title: string }) => (
+                      <option key={service.id} value={service.title}>
+                        {service.title}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center px-3 text-gray-400">
+                    <ChevronDown className="h-5 w-5" />
+                  </div>
+                </div>
+                {errors.service && (
                   <p className="text-red-500 text-sm mt-1">
-                    {errors.subject.message}
+                    {errors.service.message}
                   </p>
                 )}
               </motion.div>

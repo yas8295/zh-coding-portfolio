@@ -10,6 +10,11 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style: inside !important;
+  padding: 0px 15px !important;
+}
+
 html {
   scroll-behavior: smooth;
   cursor: none; /* Hide default cursor for custom cursor */
