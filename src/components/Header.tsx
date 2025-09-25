@@ -26,6 +26,7 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
     { name: "خدماتنا", href: "#services" },
     { name: "أعمالنا", href: "#work" },
     { name: "فريقنا", href: "#team" },
+    { name: "الدورات", href: "#courses" },
     { name: "تواصل معنا", href: "#contact" },
   ];
 
@@ -49,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src="/public/526013071_122095654382965871_5169987176886644873_n-removebg-preview.png"
+              src="/526013071_122095654382965871_5169987176886644873_n-removebg-preview.png"
               alt="ZH Logo"
               className="w-16 h-16"
             />

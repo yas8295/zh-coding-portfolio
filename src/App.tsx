@@ -10,7 +10,7 @@ import AboutSection from "./components/AboutSection";
 import ServicesSection from "./components/ServicesSection";
 import PortfolioSection from "./components/PortfolioSection";
 import TeamSection from "./components/TeamSection";
-import BlogSection from "./components/BlogSection";
+import CoursesSection from "./components/CoursesSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import { Project } from "./components/PortfolioSection";
@@ -82,7 +82,7 @@ function App() {
             className="mb-8"
           >
             <img
-              src="/public/526013071_122095654382965871_5169987176886644873_n-removebg-preview.png"
+              src="/526013071_122095654382965871_5169987176886644873_n-removebg-preview.png"
               alt="ZH Logo"
               className="w-28 h-28 mx-auto"
             />
@@ -165,8 +165,8 @@ function App() {
           />
           {/* Team Section */}
           <TeamSection isDark={isDark} />
-          {/* Blog Section */}
-          {/* <BlogSection isDark={isDark} /> */}
+          {/* Courses Section */}
+          <CoursesSection isDark={isDark} />
           {/* Contact Section */}
           <ContactSection isDark={isDark} />
         </main>

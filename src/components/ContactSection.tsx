@@ -40,14 +40,14 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
     {
       icon: Mail,
       title: "راسلنا",
-      details: "zh-coding@gmail.com",
-      action: "mailto:zh-coding@gmail",
+      details: "info@zh-coding.com",
+      action: "mailto:info@zh-coding.com",
     },
     {
       icon: Phone,
       title: "تواصل معنا",
-      details: "201094571504+",
-      action: "https://wa.me/+201094571504",
+      details: "201557404012+",
+      action: "https://wa.me/+201557404012",
     },
     {
       icon: MapPin,
