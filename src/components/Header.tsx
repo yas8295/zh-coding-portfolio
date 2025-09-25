@@ -36,13 +36,13 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? `${
-              isDark ? "bg-gray-900/95" : "bg-white/95"
-            } backdrop-blur-md shadow-lg`
+              isDark ? "bg-gray-900/50" : "bg-white/50"
+            } backdrop-blur shadow-lg`
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <motion.div
             className="flex items-center space-x-2 space-x-reverse"
@@ -51,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
             <img
               src="/public/526013071_122095654382965871_5169987176886644873_n-removebg-preview.png"
               alt="ZH Logo"
-              className="w-10 h-10"
+              className="w-16 h-16"
             />
             <span
               className={`text-xl font-bold ${

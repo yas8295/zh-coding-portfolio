@@ -9,6 +9,7 @@ import {
   MapPin,
   ArrowUp,
   Heart,
+  Code2Icon,
 } from "lucide-react";
 
 interface FooterProps {
@@ -22,28 +23,21 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
     company: [
       { name: "من نحن", href: "#about" },
       { name: "فريقنا", href: "#team" },
-      { name: "الوظائف", href: "#careers" },
       { name: "تواصل معنا", href: "#contact" },
     ],
     services: [
       { name: "تطوير المواقع", href: "#services" },
       { name: "تطبيقات الهاتف", href: "#services" },
-      { name: "حلول الذكاء الاصطناعي", href: "#services" },
-      { name: "الخدمات السحابية", href: "#services" },
-    ],
-    resources: [
-      { name: "المدونة", href: "#blog" },
-      { name: "دراسات الحالة", href: "#work" },
-      { name: "التوثيق", href: "#docs" },
-      { name: "الدعم", href: "#support" },
+      { name: "الاستضافات والسيرفرات", href: "#services" },
+      { name: "تصميم واجهات المستخدم", href: "#services" },
     ],
   };
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
+    { icon: Github, href: "https://github.com/ZH-CODIING", label: "GitHub" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
     { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Mail, href: "mailto:hello@zhtech.com", label: "Email" },
+    { icon: Mail, href: "mailto:zh-coding@gmail.com", label: "Email" },
   ];
 
   const scrollToTop = () => {
@@ -85,7 +79,7 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
       <div className="relative z-10">
         {/* Main Footer Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
             {/* Company Info */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -100,7 +94,7 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
                 <img
                   src="/public/526013071_122095654382965871_5169987176886644873_n-removebg-preview.png"
                   alt="ZH Logo"
-                  className="w-10 h-10"
+                  className="w-16 h-16"
                 />
                 <span className="text-2xl font-bold">ZH-CODING</span>
               </motion.div>
@@ -114,15 +108,15 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
               <div className="space-y-3 text-sm text-gray-400">
                 <div className="flex items-center space-x-3">
                   <Mail className="w-4 h-4 text-purple-400" />
-                  <span>hello@zhtech.com</span>
+                  <span>zh-coding@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-4 h-4 text-purple-400" />
-                  <span>+٩٦٦ ٥٥ ١٢٣ ٤٥٦٧</span>
+                  <span>+201094571504</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-4 h-4 text-purple-400" />
-                  <span>الرياض، المملكة العربية السعودية</span>
+                  <span>السلطان حسين, أمام شركة اتصالات, الاسماعيلية</span>
                 </div>
               </div>
             </motion.div>
@@ -184,69 +178,7 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
                 ))}
               </ul>
             </motion.div>
-
-            {/* Resources Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-lg font-semibold mb-6 text-white">الموارد</h3>
-              <ul className="space-y-3">
-                {footerLinks.resources.map((link, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 + 0.4, duration: 0.4 }}
-                    viewport={{ once: true }}
-                  >
-                    <motion.a
-                      href={link.href}
-                      className="text-gray-400 hover:text-purple-400 transition-colors duration-200"
-                      whileHover={{ x: 5 }}
-                    >
-                      {link.name}
-                    </motion.a>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
           </div>
-
-          {/* Newsletter Signup */}
-          <motion.div
-            className="mt-16 pt-8 border-t border-gray-800"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="max-w-md">
-              <h3 className="text-lg font-semibold mb-4 text-white">
-                ابق على اطلاع
-              </h3>
-              <p className="text-gray-400 mb-4">
-                اشترك في نشرتنا الإخبارية للحصول على أحدث الرؤى والتحديثات
-                التقنية.
-              </p>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="أدخل بريدك الإلكتروني"
-                  className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:border-purple-500 text-white"
-                />
-                <motion.button
-                  className="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-r-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  اشترك
-                </motion.button>
-              </div>
-            </div>
-          </motion.div>
         </div>
 
         {/* Bottom Footer */}
@@ -261,14 +193,16 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
                 transition={{ delay: 0.5, duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <span>&copy; {currentYear} ZH-CODING. صُنع بـ</span>
+                <span>&copy; {currentYear} ZH-CODING. </span>
                 <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 >
-                  <Heart className="w-4 h-4 text-red-500" fill="currentColor" />
+                  <Code2Icon
+                    className="w-6 h-6 text-purple-500"
+                    fill="currentColor"
+                  />
                 </motion.div>
-                <span>في الرياض</span>
               </motion.div>
 
               {/* Social Links */}

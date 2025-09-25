@@ -1,29 +1,26 @@
 import { useQuery } from "react-query";
 
 const fetchTeam = async () => {
-  const token = JSON.parse(localStorage.getItem("token"))?.access_token;
+  // const token = JSON.parse(localStorage.getItem("token"))?.access_token;
 
-  try {
-    const response = await fetch(
-      `${import.meta.env.VITE_REACT_APP_API_URL}/api/team-members`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
+  const response = await fetch(
+    `${import.meta.env.VITE_REACT_APP_API_URL}/api/team-members`,
+    {
+      method: "GET",
+      headers: {
+        // Authorization: `Bearer ${token}`,
+      },
     }
-    return response.json();
-  } catch (error) {
-    console.log(error);
+  );
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.message || "Network response was not ok");
   }
+  return response.json();
 };
 
 export const useTeam = () => {
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: [`team`],
     queryFn: () => fetchTeam(),
   });
@@ -31,5 +28,7 @@ export const useTeam = () => {
   return {
     data,
     isLoading,
+    isError,
+    error,
   };
 };

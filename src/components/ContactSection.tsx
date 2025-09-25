@@ -40,20 +40,21 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
     {
       icon: Mail,
       title: "راسلنا",
-      details: "hello@zhtech.com",
-      action: "mailto:hello@zhtech.com",
+      details: "zh-coding@gmail.com",
+      action: "mailto:zh-coding@gmail",
     },
     {
       icon: Phone,
-      title: "اتصل بنا",
-      details: "+1 (555) 123-4567",
-      action: "tel:+15551234567",
+      title: "تواصل معنا",
+      details: "201094571504+",
+      action: "https://wa.me/+201094571504",
     },
     {
       icon: MapPin,
       title: "زرنا",
-      details: "شارع التقنية ١٢٣، سان فرانسيسكو، كاليفورنيا ٩٤١٠٥",
-      action: "https://maps.google.com",
+      details: "السلطان حسين, أمام شركة اتصالات, الاسماعيلية",
+      action:
+        "https://www.google.com/maps/place/%D9%81%D8%B1%D8%B9+%D8%A7%D8%AA%D8%B5%D8%A7%D9%84%D8%A7%D8%AA%E2%80%AD/@30.5830388,32.2731758,13z/data=!4m10!1m2!2m1!1z2YHZiNiv2KfZgdmI2YYg2KjYp9mE2YLYsdioINmF2YYg2KfZhNiz2YTYt9in2YYg2K3Ys9mK2YbYjCDYp9mE2KrZhdiz2KfYrdiMINmC2LPZhSDYo9mI2YQg2KfZhNin2LPZhdin2LnZitmE2YrYqdiMINmF2LXYsQ!3m6!1s0x14f85922854e0c0b:0x37ebd464af6adce1!8m2!3d30.5923057!4d32.2762854!15sCnnZgdmI2K_Yp9mB2YjZhiDYqNin2YTZgtix2Kgg2YXZhiDYp9mE2LPZhNi32KfZhiDYrdiz2YrZhtiMINin2YTYqtmF2LPYp9it2Iwg2YLYs9mFINij2YjZhCDYp9mE2KfYs9mF2KfYudmK2YTZitip2Iwg2YXYtdixIgOIAQFadSJz2YHZiNiv2KfZgdmI2YYg2KjYp9mE2YLYsdioINmF2YYg2KfZhNiz2YTYt9in2YYg2K3Ys9mK2YYg2KfZhNiq2YXYs9in2K0g2YLYs9mFINij2YjZhCDYp9mE2KfYs9mF2KfYudmK2YTZitipINmF2LXYsZIBI3RlbGVjb21tdW5pY2F0aW9uc19zZXJ2aWNlX3Byb3ZpZGVymgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVU5RTkRVemVtSlJFQUWqAb0BCgsvZy8xdm40azliMBABKhIiDtmB2YjYr9in2YHZiNmGKDYyHxABIhu3Mw12b2fX661k6Y8XDLxRH5wtcTr9tHZsxqUydxACInPZgdmI2K_Yp9mB2YjZhiDYqNin2YTZgtix2Kgg2YXZhiDYp9mE2LPZhNi32KfZhiDYrdiz2YrZhiDYp9mE2KrZhdiz2KfYrSDZgtiz2YUg2KPZiNmEINin2YTYp9iz2YXYp9i52YrZhNmK2Kkg2YXYtdix4AEA-gEECAAQGg!16s%2Fg%2F11gydlxkbm?entry=ttu&g_ep=EgoyMDI1MDkyMi4wIKXMDSoASAFQAw%3D%3D",
     },
   ];
 
@@ -360,6 +361,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
                 <motion.a
+                  target="_blank"
                   key={index}
                   href={info.action}
                   className={`group block p-6 rounded-2xl transition-all duration-300 ${
@@ -413,27 +415,14 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
               viewport={{ once: true }}
             >
               <div className="w-full h-full bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin
-                    className={`w-12 h-12 mx-auto mb-4 ${
-                      isDark ? "text-purple-400" : "text-purple-600"
-                    }`}
-                  />
-                  <p
-                    className={`${
-                      isDark ? "text-gray-300" : "text-gray-600"
-                    } font-medium`}
-                  >
-                    خريطة تفاعلية
-                  </p>
-                  <p
-                    className={`text-sm ${
-                      isDark ? "text-gray-400" : "text-gray-500"
-                    }`}
-                  >
-                    انقر لعرض الموقع
-                  </p>
-                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.2171096719697!2d32.273175799999995!3d30.583038799999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f85922854e0c0b%3A0x37ebd464af6adce1!2z2YHZiNiv2KfZgdmI2YYg2KjYp9mE2YLYsdioINmF2YYg2KfZhNiz2YTYt9in2YYg2K3Ys9mK2YbYjCDYp9mE2KrZhdiz2KfYrdiMINmC2LPZhSDYo9mI2YQg2KfZhNin2LPZhdin2LnZitmE2YrYqdiMINmF2LXYsQ!5e0!3m2!1sar!2seg!4v1727251500000!5m2!1sar!2seg"
+                  className="h-full w-full"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
             </motion.div>
           </motion.div>

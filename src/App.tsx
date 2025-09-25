@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { motion, AnimatePresence } from "framer-motion";
 
-
 // Components
 import AnimatedCursor from "./components/AnimatedCursor";
 import Header from "./components/Header";
@@ -20,6 +19,7 @@ import ProjectModal from "./components/ProjectModal";
 // Hooks
 import { useCursor } from "./hooks/useCursor";
 import { useScrollAnimation } from "./hooks/useScrollAnimation";
+import { useProjects } from "./hooks/projectsHooks/useProjects";
 
 function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -30,7 +30,7 @@ function App() {
     return true;
   });
 
-  const [isLoading, setIsLoading] = useState(true);
+  const { data: projects, isLoading } = useProjects();
   const { position, isVisible, isClicking } = useCursor();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
@@ -51,15 +51,6 @@ function App() {
     document.documentElement.setAttribute("dir", "rtl");
     document.documentElement.setAttribute("lang", "ar");
   }, [isDark]);
-
-  useEffect(() => {
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
@@ -93,7 +84,7 @@ function App() {
             <img
               src="/public/526013071_122095654382965871_5169987176886644873_n-removebg-preview.png"
               alt="ZH Logo"
-              className="w-20 h-20 mx-auto"
+              className="w-28 h-28 mx-auto"
             />
           </motion.div>
 

@@ -8,6 +8,7 @@ import {
   Linkedin,
   Twitter,
   Mail,
+  ServerCrash,
 } from "lucide-react";
 import { useTeam } from "../hooks/teamHooks/useTeam";
 
@@ -19,142 +20,59 @@ interface TeamMember {
   id: number;
   name: string;
   role: string;
-  image: string;
-  bio: string;
-  skills: string[];
-  social: {
+  image?: string;
+  description?: string; // Mapped to bio
+  skills?: string[];
+  social?: {
     github?: string;
     linkedin?: string;
     twitter?: string;
     email?: string;
   };
 }
+const getSkillsByRole = (role: string): string[] => {
+  const lowerCaseRole = role.toLowerCase();
+  const skills: string[] = [];
 
-const teamMembers: TeamMember[] = [
-  {
-    id: 1,
-    name: "أحمد محمد",
-    role: "مطور رئيسي",
-    image:
-      "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400",
-    bio: "مطور متكامل مع أكثر من 8 سنوات من الخبرة في بناء تطبيقات الويب القابلة للتوسع.",
-    skills: ["React", "Node.js", "Python", "AWS"],
-    social: {
-      github: "#",
-      linkedin: "#",
-      twitter: "#",
-      email: "#",
-    },
-  },
-  {
-    id: 2,
-    name: "فاطمة علي",
-    role: "مصممة واجهات المستخدم",
-    image:
-      "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400",
-    bio: "مصممة مبدعة متحمسة لإنشاء تجارب مستخدم بديهية وجميلة.",
-    skills: ["Figma", "Adobe CC", "النماذج الأولية", "بحوث المستخدم"],
-    social: {
-      github: "#",
-      linkedin: "#",
-      twitter: "#",
-      email: "#",
-    },
-  },
-  {
-    id: 3,
-    name: "محمد حسن",
-    role: "مهندس DevOps",
-    image:
-      "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=400",
-    bio: "متخصص في البنية التحتية يركز على الأتمتة والمراقبة والهندسة السحابية.",
-    skills: ["Docker", "Kubernetes", "CI/CD", "Terraform"],
-    social: {
-      github: "#",
-      linkedin: "#",
-      twitter: "#",
-      email: "#",
-    },
-  },
-  {
-    id: 4,
-    name: "نور أحمد",
-    role: "عالمة بيانات",
-    image:
-      "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400",
-    bio: "خبيرة في الذكاء الاصطناعي والتعلم الآلي متخصصة في معالجة اللغات الطبيعية والتحليلات التنبؤية.",
-    skills: ["Python", "TensorFlow", "PyTorch", "تحليل البيانات"],
-    social: {
-      github: "#",
-      linkedin: "#",
-      twitter: "#",
-      email: "#",
-    },
-  },
-  {
-    id: 5,
-    name: "عمر خالد",
-    role: "مطور تطبيقات محمولة",
-    image:
-      "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400",
-    bio: "متخصص في تطبيقات الهاتف المحمول مع خبرة في التطوير الأصلي ومتعدد المنصات.",
-    skills: ["React Native", "Flutter", "iOS", "Android"],
-    social: {
-      github: "#",
-      linkedin: "#",
-      twitter: "#",
-      email: "#",
-    },
-  },
-  {
-    id: 6,
-    name: "سارة محمود",
-    role: "مديرة المنتجات",
-    image:
-      "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400",
-    bio: "قائدة منتجات استراتيجية مع سجل حافل في إطلاق منتجات رقمية ناجحة.",
-    skills: ["استراتيجية المنتج", "Agile", "التحليلات", "بحوث المستخدم"],
-    social: {
-      github: "#",
-      linkedin: "#",
-      twitter: "#",
-      email: "#",
-    },
-  },
-  {
-    id: 7,
-    name: "يوسف عبدالله",
-    role: "مطور الخادم الخلفي",
-    image:
-      "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=400",
-    bio: "متخصص في الخادم الخلفي يركز على بناء تطبيقات خادم قوية وقابلة للتوسع.",
-    skills: ["Java", "Spring Boot", "PostgreSQL", "الخدمات المصغرة"],
-    social: {
-      github: "#",
-      linkedin: "#",
-      twitter: "#",
-      email: "#",
-    },
-  },
-  {
-    id: 8,
-    name: "ليلى حسام",
-    role: "مهندسة ضمان الجودة",
-    image:
-      "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=400",
-    bio: "خبيرة ضمان الجودة تضمن أن منتجاتنا تلبي أعلى المعايير.",
-    skills: ["أتمتة الاختبار", "Selenium", "Jest", "ضمان الجودة"],
-    social: {
-      github: "#",
-      linkedin: "#",
-      twitter: "#",
-      email: "#",
-    },
-  },
-];
+  if (lowerCaseRole.includes("front-end") || lowerCaseRole.includes("front")) {
+    skills.push("React", "Next.js", "TypeScript");
+  }
+  if (lowerCaseRole.includes("back-end") || lowerCaseRole.includes("back")) {
+    skills.push("Laravel", "mySQL", "PHP");
+  }
+  if (lowerCaseRole.includes("ui") || lowerCaseRole.includes("ux")) {
+    skills.push("Figma", "User Research");
+  }
+  if (lowerCaseRole.includes("devops")) {
+    skills.push("Docker", "Kubernetes", "CI/CD", "AWS");
+  }
+  if (lowerCaseRole.includes("data")) {
+    skills.push("Python", "TensorFlow", "PyTorch", "SQL");
+  }
+  if (lowerCaseRole.includes("mobile")) {
+    skills.push("Flutter", "Swift", "Kotlin");
+  }
+  if (lowerCaseRole.includes("product")) {
+    skills.push("Agile", "Scrum", "JIRA");
+  }
+  if (lowerCaseRole.includes("qa")) {
+    skills.push("Selenium", "Jest", "Cypress");
+  }
+
+  // Return unique skills, up to 4
+  return [...new Set(skills)].slice(0, 4);
+};
 
 const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
-  const { data: team, isLoading } = useTeam();
+  const { data: teamData, isLoading, isError, error } = useTeam();
+
+  const teamMembers =
+    teamData?.map((member: TeamMember) => ({
+      ...member,
+      skills: getSkillsByRole(member.role),
+      social: member.social || {},
+    })) || [];
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "start",
@@ -193,6 +111,63 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
     emblaApi.on("reInit", onSelect);
   }, [emblaApi, onSelect]);
 
+  if (isLoading) {
+    return (
+      <section
+        id="team"
+        className={`py-20 ${isDark ? "bg-gray-800" : "bg-gray-50"}`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-pulse">
+          <div className="text-center mb-16">
+            <div
+              className={`h-12 w-64 mx-auto rounded ${
+                isDark ? "bg-gray-700" : "bg-gray-300"
+              } mb-6`}
+            ></div>
+            <div
+              className={`h-6 w-3/4 mx-auto rounded ${
+                isDark ? "bg-gray-700" : "bg-gray-300"
+              }`}
+            ></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[...Array(4)].map((_, i) => (
+              <div
+                key={i}
+                className={`rounded-2xl overflow-hidden ${
+                  isDark ? "bg-gray-900" : "bg-white"
+                }`}
+              >
+                <div
+                  className={`h-80 ${isDark ? "bg-gray-700" : "bg-gray-300"}`}
+                ></div>
+                <div className="p-6">
+                  <div
+                    className={`h-4 w-full rounded ${
+                      isDark ? "bg-gray-700" : "bg-gray-300"
+                    } mb-4`}
+                  ></div>
+                  <div className="flex gap-2">
+                    {[...Array(3)].map((_, j) => (
+                      <div
+                        key={j}
+                        className={`h-6 w-16 rounded-full ${
+                          isDark ? "bg-gray-700" : "bg-gray-200"
+                        }`}
+                      ></div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (isError) return <div>Error: {(error as Error).message}</div>;
+
   return (
     <section
       id="team"
@@ -217,7 +192,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
             viewport={{ once: true }}
           >
             تعرف على
-            <span className="text-purple-600 ms-3">فريقنا</span>
+            <span className="text-purple-600 ms-3"> فريقنا </span>
           </motion.h2>
 
           <motion.p
@@ -311,7 +286,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                     {/* Image */}
                     <div className="relative h-80 overflow-hidden">
                       <motion.img
-                        src={member.image}
+                        src={`${member.image}`}
                         alt={member.name}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         whileHover={{ scale: 1.1 }}
@@ -331,7 +306,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                         }}
                         viewport={{ once: true }}
                       >
-                        {member.social.github && (
+                        {member.social?.github && (
                           <motion.a
                             href={member.social.github}
                             className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-200"
@@ -341,7 +316,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                             <Github className="w-4 h-4" />
                           </motion.a>
                         )}
-                        {member.social.linkedin && (
+                        {member.social?.linkedin && (
                           <motion.a
                             href={member.social.linkedin}
                             className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-200"
@@ -351,7 +326,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                             <Linkedin className="w-4 h-4" />
                           </motion.a>
                         )}
-                        {member.social.twitter && (
+                        {member.social?.twitter && (
                           <motion.a
                             href={member.social.twitter}
                             className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-200"
@@ -361,7 +336,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                             <Twitter className="w-4 h-4" />
                           </motion.a>
                         )}
-                        {member.social.email && (
+                        {member.social?.email && (
                           <motion.a
                             href={`mailto:${member.social.email}`}
                             className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-all duration-200"
@@ -418,12 +393,12 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                           isDark ? "text-gray-300" : "text-gray-600"
                         } mb-4 text-sm leading-relaxed`}
                       >
-                        {member.bio}
+                        {member.description}
                       </p>
 
                       {/* Skills */}
                       <div className="flex flex-wrap gap-2">
-                        {member.skills.map((skill) => (
+                        {member.skills?.map((skill) => (
                           <motion.span
                             key={skill}
                             className={`px-3 py-1 text-xs rounded-full ${
