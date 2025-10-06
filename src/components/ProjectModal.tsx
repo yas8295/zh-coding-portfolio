@@ -61,14 +61,14 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
             </motion.button>
 
             {/* Hero Image */}
-            <div className="relative h-80 overflow-hidden rounded-t-2xl">
+            <div className="relative overflow-hidden rounded-t-2xl">
               {project.image ? (
                 <img
                   src={`${import.meta.env.VITE_REACT_APP_API_URL}/${
                     project.image
                   }`}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full"
                 />
               ) : (
                 <div
@@ -327,7 +327,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                         </div>
                       )}
                       {project.location && (
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-3 w-full">
                           <MapPin className="w-5 h-5 text-purple-600" />
                           <div>
                             <div
@@ -337,13 +337,18 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                             >
                               الموقع
                             </div>
-                            <div
+                            <a
+                              href={project.location}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className={
-                                isDark ? "text-gray-300" : "text-gray-700"
+                                isDark
+                                  ? "text-gray-300 line-clamp-2"
+                                  : "text-gray-700 line-clamp-2"
                               }
                             >
                               {project.location}
-                            </div>
+                            </a>
                           </div>
                         </div>
                       )}

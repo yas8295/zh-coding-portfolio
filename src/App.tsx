@@ -17,9 +17,10 @@ import { Project } from "./components/PortfolioSection";
 import ProjectModal from "./components/ProjectModal";
 
 // Hooks
-import { useCursor } from "./hooks/useCursor";
-import { useScrollAnimation } from "./hooks/useScrollAnimation";
+// import { useCursor } from "./hooks/useCursor";
+// import { useScrollAnimation } from "./hooks/useScrollAnimation";
 import { useProjects } from "./hooks/projectsHooks/useProjects";
+import LinksSection from "./components/LinksSection";
 
 function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -31,12 +32,12 @@ function App() {
   });
 
   const { data: projects, isLoading } = useProjects();
-  const { position, isVisible, isClicking } = useCursor();
+  // const { position, isVisible, isClicking } = useCursor();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
 
   // Initialize scroll animations
-  useScrollAnimation();
+  // useScrollAnimation();
 
   useEffect(() => {
     localStorage.setItem("theme", isDark ? "dark" : "light");
@@ -141,11 +142,11 @@ function App() {
     <ParallaxProvider>
       <div className={`min-h-screen ${isDark ? "dark" : ""}`}>
         {/* Custom Cursor */}
-        <AnimatedCursor
+        {/* <AnimatedCursor
           isVisible={isVisible}
           position={position}
           isClicking={isClicking}
-        />
+        /> */}
 
         {/* Header */}
         <Header isDark={isDark} toggleTheme={toggleTheme} />
@@ -163,6 +164,8 @@ function App() {
             isDark={isDark}
             onProjectClick={handleProjectClick}
           />
+          {/* links Section */}
+          <LinksSection isDark={isDark} />
           {/* Team Section */}
           <TeamSection isDark={isDark} />
           {/* Courses Section */}
