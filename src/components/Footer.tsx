@@ -91,12 +91,7 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
                 className="flex items-center space-x-3 mb-6"
                 whileHover={{ scale: 1.05 }}
               >
-                <img
-                  src="/526013071_122095654382965871_5169987176886644873_n-removebg-preview.png"
-                  alt="ZH Logo"
-                  className="w-16 h-16"
-                />
-                <span className="text-2xl font-bold">ZH-CODING</span>
+                <img src="/logo_dark.jpg" alt="ZH Logo" className="w-16 h-16" />
               </motion.div>
 
               <p className="text-gray-300 mb-6 leading-relaxed">

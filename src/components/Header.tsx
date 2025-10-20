@@ -49,18 +49,11 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
             className="flex items-center space-x-2 space-x-reverse"
             whileHover={{ scale: 1.05 }}
           >
-            <img
-              src="/526013071_122095654382965871_5169987176886644873_n-removebg-preview.png"
-              alt="ZH Logo"
-              className="w-16 h-16"
-            />
-            <span
-              className={`text-xl font-bold ${
-                isDark || !isScrolled ? "text-white" : "text-gray-900"
-              }`}
-            >
-              ZH-CODING
-            </span>
+            {isDark && isScrolled ? (
+              <img src="/logo_dark.jpg" alt="ZH Logo" className="w-16 h-16" />
+            ) : (
+              <img src="/logo_light.jpg" alt="ZH Logo" className="w-16 h-16" />
+            )}
           </motion.div>
 
           {/* Desktop Navigation */}

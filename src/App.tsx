@@ -83,7 +83,7 @@ function App() {
             className="mb-8"
           >
             <img
-              src="/526013071_122095654382965871_5169987176886644873_n-removebg-preview.png"
+              src="/logo_light.jpg"
               alt="ZH Logo"
               className="w-28 h-28 mx-auto"
             />
