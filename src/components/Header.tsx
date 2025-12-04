@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogOut } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   isDark: boolean;
@@ -10,6 +11,8 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [user, setUser] = useState<{ name: string } | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,11 +23,53 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Load user from localStorage
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch (error) {
+        console.error("Failed to parse user data:", error);
+      }
+    }
+
+    // Listen for user changes
+    const handleStorageChange = () => {
+      const updatedUser = localStorage.getItem("user");
+      if (updatedUser) {
+        try {
+          setUser(JSON.parse(updatedUser));
+        } catch (error) {
+          console.error("Failed to parse user data:", error);
+        }
+      } else {
+        setUser(null);
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+    setIsOpen(false);
+    navigate("/");
+  };
+
+  const handleLoginClick = () => {
+    navigate("/login");
+    setIsOpen(false);
+  };
+
   const navItems = [
     { name: "الرئيسية", href: "#home" },
     { name: "من نحن", href: "#about" },
     { name: "خدماتنا", href: "#services" },
     { name: "أعمالنا", href: "#work" },
+    { name: "المشاريع الجاهزة", href: "#templates" },
     { name: "فريقنا", href: "#team" },
     { name: "الدورات", href: "#courses" },
     { name: "تواصل معنا", href: "#contact" },
@@ -75,8 +120,43 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
             ))}
           </nav>
 
-          {/* Theme Toggle & Mobile Menu */}
-          <div className="flex items-center space-x-2">
+          {/* Theme Toggle & Auth & Mobile Menu */}
+          <div className="flex items-center space-x-4">
+            {/* User Section */}
+            {user ? (
+              <div className="hidden md:flex items-center space-x-4">
+                <span
+                  className={`text-sm font-medium ${
+                    isDark || !isScrolled ? "text-white" : "text-black"
+                  }`}
+                >
+                  {user.name}
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="p-2 rounded-lg hover:bg-red-600/20 transition-colors"
+                  title="تسجيل الخروج"
+                >
+                  <LogOut
+                    className={`w-5 h-5 ${
+                      isDark || !isScrolled ? "text-red-400" : "text-red-600"
+                    }`}
+                  />
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={handleLoginClick}
+                className={`hidden md:block px-4 py-2 rounded-lg font-medium transition-colors ${
+                  isDark || !isScrolled
+                    ? "bg-purple-600 text-white hover:bg-purple-700"
+                    : "bg-purple-600 text-white hover:bg-purple-700"
+                }`}
+              >
+                تسجيل الدخول
+              </button>
+            )}
+
             <label className="inline-flex items-center relative">
               <input
                 className="peer hidden"
@@ -154,6 +234,38 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
                 {item.name}
               </a>
             ))}
+
+            {/* Mobile Auth Section */}
+            <div className="border-t border-gray-700 pt-2 mt-2 p-2">
+              {user ? (
+                <>
+                  <div className="px-4 py-2 text-sm font-medium">
+                    {user.name}
+                  </div>
+                  <button
+                    onClick={handleLogout}
+                    className={`block w-full text-right px-4 py-2 ${
+                      isDark
+                        ? "text-red-400 hover:bg-red-600/20"
+                        : "text-red-600 hover:bg-red-100"
+                    } rounded-lg transition-colors`}
+                  >
+                    تسجيل الخروج
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={handleLoginClick}
+                  className={`block w-full px-4 py-2 rounded-lg font-medium transition-colors ${
+                    isDark
+                      ? "bg-purple-600 text-white hover:bg-purple-700"
+                      : "bg-purple-600 text-white hover:bg-purple-700"
+                  }`}
+                >
+                  تسجيل الدخول
+                </button>
+              )}
+            </div>
           </div>
         </motion.div>
       </div>

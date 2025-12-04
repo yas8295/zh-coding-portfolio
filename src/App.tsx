@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import { ParallaxProvider } from "react-scroll-parallax";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Components
-import AnimatedCursor from "./components/AnimatedCursor";
 import Header from "./components/Header";
 import HeroSlider from "./components/HeroSlider";
 import AboutSection from "./components/AboutSection";
@@ -15,6 +15,11 @@ import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import { Project } from "./components/PortfolioSection";
 import ProjectModal from "./components/ProjectModal";
+import TemplatesSection from "./components/TemplatesSection";
+
+// Pages
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
 // Hooks
 // import { useCursor } from "./hooks/useCursor";
@@ -31,7 +36,7 @@ function App() {
     return true;
   });
 
-  const { data: projects, isLoading } = useProjects();
+  const { isLoading } = useProjects();
   // const { position, isVisible, isClicking } = useCursor();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
@@ -139,66 +144,77 @@ function App() {
   }
 
   return (
-    <ParallaxProvider>
-      <div className={`min-h-screen ${isDark ? "dark" : ""}`}>
-        {/* Custom Cursor */}
-        {/* <AnimatedCursor
-          isVisible={isVisible}
-          position={position}
-          isClicking={isClicking}
-        /> */}
+    <Routes>
+      <Route path="/login" element={<LoginPage isDark={isDark} />} />
+      <Route path="/register" element={<RegisterPage isDark={isDark} />} />
+      <Route
+        path="*"
+        element={
+          <ParallaxProvider>
+            <div className={`min-h-screen ${isDark ? "dark" : ""}`}>
+              {/* Custom Cursor */}
+              {/* <AnimatedCursor
+                isVisible={isVisible}
+                position={position}
+                isClicking={isClicking}
+              /> */}
 
-        {/* Header */}
-        <Header isDark={isDark} toggleTheme={toggleTheme} />
+              {/* Header */}
+              <Header isDark={isDark} toggleTheme={toggleTheme} />
 
-        {/* Main Content */}
-        <main className="relative">
-          {/* Hero Section */}
-          <HeroSlider isDark={isDark} />
-          {/* About Section */}
-          <AboutSection isDark={isDark} />
-          {/* Services Section */}
-          <ServicesSection isDark={isDark} />
-          {/* Portfolio Section */}
-          <PortfolioSection
-            isDark={isDark}
-            onProjectClick={handleProjectClick}
-          />
-          {/* links Section */}
-          <LinksSection isDark={isDark} />
-          {/* Team Section */}
-          <TeamSection isDark={isDark} />
-          {/* Courses Section */}
-          <CoursesSection isDark={isDark} />
-          {/* Contact Section */}
-          <ContactSection isDark={isDark} />
-        </main>
+              {/* Main Content */}
+              <main className="relative">
+                {/* Hero Section */}
+                <HeroSlider isDark={isDark} />
+                {/* About Section */}
+                <AboutSection isDark={isDark} />
+                {/* Services Section */}
+                <ServicesSection isDark={isDark} />
+                {/* Portfolio Section */}
+                <PortfolioSection
+                  isDark={isDark}
+                  onProjectClick={handleProjectClick}
+                />
+                {/* Templates Section */}
+                <TemplatesSection isDark={isDark} />
+                {/* links Section */}
+                <LinksSection isDark={isDark} />
+                {/* Team Section */}
+                <TeamSection isDark={isDark} />
+                {/* Courses Section */}
+                <CoursesSection isDark={isDark} />
+                {/* Contact Section */}
+                <ContactSection isDark={isDark} />
+              </main>
 
-        {/* Footer */}
-        <Footer isDark={isDark} />
+              {/* Footer */}
+              <Footer isDark={isDark} />
 
-        {/* Project Modal */}
-        <ProjectModal
-          project={selectedProject}
-          isOpen={isProjectModalOpen}
-          onClose={handleCloseProjectModal}
-          isDark={isDark}
-        />
+              {/* Project Modal */}
+              <ProjectModal
+                project={selectedProject}
+                isOpen={isProjectModalOpen}
+                onClose={handleCloseProjectModal}
+                isDark={isDark}
+              />
 
-        {/* Smooth Scroll Enhancement */}
-        <motion.div
-          className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 to-blue-600 z-50 origin-left"
-          style={{
-            scaleX: 0,
-          }}
-          whileInView={{
-            scaleX: 1,
-          }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.3 }}
-        />
-      </div>
-    </ParallaxProvider>
+              {/* Smooth Scroll Enhancement */}
+              <motion.div
+                className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 to-blue-600 z-50 origin-left"
+                style={{
+                  scaleX: 0,
+                }}
+                whileInView={{
+                  scaleX: 1,
+                }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
+          </ParallaxProvider>
+        }
+      />
+    </Routes>
   );
 }
 

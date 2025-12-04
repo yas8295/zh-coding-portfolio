@@ -18,11 +18,11 @@ const mutateRegister = async (data) => {
     if (res.ok) {
       return await res.json();
     }
-    let error = await res.json();
-    if (!res.ok) {
-      throw new Error(error?.email);
-    }
+    // إذا لم تكن الاستجابة ناجحة، اقرأ الخطأ كـ JSON
+    const errorData = await res.json();
+    throw new Error(errorData.message || "An unknown error occurred");
   } catch (error) {
+    // أعد رمي الخطأ لتلتقطه react-query
     throw new Error(error);
   }
 };
@@ -34,11 +34,12 @@ export const useRegister = () => {
       toast.success("تم انشاء الحساب بنجاح");
     },
 
-    onError: (data) => {
-      if (data == "Error: Error: The email has already been taken.") {
+    onError: (error) => {
+      const errorMessage = error.message.replace("Error: ", "");
+      if (errorMessage.includes("The email has already been taken.")) {
         toast.error("البريد الالكتروني مستخدم بالفعل");
       } else {
-        toast.error("حدث خطأ ، حاول مرة أخرى");
+        toast.error(errorMessage || "حدث خطأ ، حاول مرة أخرى");
       }
     },
   });

@@ -7,24 +7,20 @@ const mutateLogin = async (data) => {
     formData.append(key, data[key]);
   }
 
-  try {
-    const res = await fetch(
-      `${import.meta.env.VITE_REACT_APP_API_URL}/api/login`,
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
-    if (res.ok) {
-      return await res.json();
+  const res = await fetch(
+    `${import.meta.env.VITE_REACT_APP_API_URL}/api/login`,
+    {
+      method: "POST",
+      body: formData,
     }
-    let error = await res.json();
-    if (!res.ok) {
-      throw new Error(error?.email);
-    }
-  } catch (error) {
-    throw new Error(error);
+  );
+
+  const responseData = await res.json();
+
+  if (!res.ok) {
+    throw new Error(responseData.message || "An unknown error occurred");
   }
+  return responseData;
 };
 
 export const useLogin = () => {
@@ -36,14 +32,24 @@ export const useLogin = () => {
         "tokenExpiryTime",
         JSON.stringify(Date.now() + 3600000)
       );
+      // Save user info for header display
+      if (data.user) {
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            name: data.user.name || data.user.email || "المستخدم",
+          })
+        );
+      }
       toast.success("تم تسجيل الدخول  بنجاح");
     },
 
-    onError: (data) => {
-      if (data == "Error: Error: The email has already been taken.") {
-        toast.error("البريد الالكتروني مستخدم بالفعل");
+    onError: (error) => {
+      const errorMessage = error.message.replace("Error: ", "");
+      if (errorMessage.includes("Invalid credentials")) {
+        toast.error("البريد الإلكتروني أو كلمة المرور غير صحيحة");
       } else {
-        toast.error("حدث خطأ ، حاول مرة أخرى");
+        toast.error(errorMessage || "حدث خطأ، حاول مرة أخرى");
       }
     },
   });
