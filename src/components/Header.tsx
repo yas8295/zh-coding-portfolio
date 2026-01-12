@@ -107,10 +107,10 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className={`${
+                className={`dark:text-white ${
                   isDark || !isScrolled
-                    ? "hover:text-purple-400 text-white"
-                    : "hover:text-purple-600 text-black"
+                    ? "hover:text-purple-400"
+                    : "hover:text-purple-600"
                 } transition-colors duration-200  font-medium`}
                 whileHover={{ y: -2 }}
                 whileTap={{ y: 0 }}

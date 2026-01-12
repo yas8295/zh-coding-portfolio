@@ -104,41 +104,16 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
 
   return (
     <section id="home" className="relative h-screen overflow-hidden">
-      <div className="embla" ref={emblaRef}>
+      <div className="embla" ref={emblaRef} id="hero">
         <div className="embla__container h-screen">
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className="embla__slide relative flex-[0_0_100%]"
+              className="embla__slide flex-[0_0_100%] relative z-20"
             >
-              <div
-                className="absolute inset-0 bg-gradient-to-r"
-                style={{ background: slide.background }}
-              />
-
-              {/* Geometric overlay */}
-              <div className="absolute inset-0 opacity-20">
-                <svg
-                  className="w-full h-full"
-                  viewBox="0 0 100 100"
-                  preserveAspectRatio="none"
-                >
-                  <polygon
-                    points="0,0 100,0 80,100 0,100"
-                    fill="currentColor"
-                    className="text-white"
-                  />
-                  <polygon
-                    points="60,0 100,0 100,40 80,0"
-                    fill="currentColor"
-                    className="text-white opacity-50"
-                  />
-                </svg>
-              </div>
-
               <div className="relative z-10 flex items-center h-full">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="max-w-3xl">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                  <div className="">
                     <AnimatePresence mode="wait">
                       {selectedIndex === index && (
                         <motion.div
@@ -147,9 +122,21 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -50 }}
                           transition={{ duration: 0.8, ease: "easeOut" }}
+                          className="text-center"
                         >
+                          <motion.div
+                            className="mb-4"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.1, duration: 0.6 }}
+                          >
+                            <span className="inline-block px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-sm font-semibold border border-primary-500 dark:text-white">
+                              خدمة مميزة
+                            </span>
+                          </motion.div>
+
                           <motion.h1
-                            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-10 text-right drop-shadow-2xl"
+                            className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-center drop-shadow-2xl dark:text-white"
                             initial={{ opacity: 0, x: -100 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.2, duration: 0.8 }}
@@ -158,7 +145,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
                           </motion.h1>
 
                           <motion.div
-                            className="text-lg md:text-xl lg:text-2xl text-white/90 mb-6 h-16 text-right"
+                            className="text-xl md:text-2xl lg:text-4xl  mb-8 h-auto text-center font-light dark:text-white"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.4, duration: 0.8 }}
@@ -172,7 +159,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
                           </motion.div>
 
                           <motion.p
-                            className="text-base md:text-lg text-white/80 mb-8 max-w-2xl text-right leading-relaxed"
+                            className="text-lg md:text-xl  mb-10 max-w-2xl mx-auto text-center leading-relaxed font-light dark:text-white"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6, duration: 0.8 }}
@@ -180,19 +167,28 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
                             {slide.description}
                           </motion.p>
 
-                          <a href="#contact">
-                            {" "}
-                            <motion.button
-                              className="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold text-base md:text-lg hover:bg-purple-50 transition-all duration-300 shadow-lg hover:shadow-xl"
-                              whileHover={{ scale: 1.05, y: -2 }}
-                              whileTap={{ scale: 0.95 }}
-                              initial={{ opacity: 0, y: 20 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: 0.8, duration: 0.8 }}
-                            >
-                              {slide.cta}
-                            </motion.button>
-                          </a>
+                          <div className="flex items-center gap-6 justify-center">
+                            <a href="#contact">
+                              <motion.button
+                                className="relative px-8 py-4 rounded-xl font-semibold text-base md:text-lg overflow-hidden group border border-primary-200"
+                                whileHover={{ scale: 1.05, y: -3 }}
+                                whileTap={{ scale: 0.95 }}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.8, duration: 0.8 }}
+                                style={{
+                                  background:
+                                    "linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)",
+                                  boxShadow:
+                                    "0 10px 40px rgba(255,255,255,0.3), inset 0 -2px 10px rgba(0,0,0,0.1)",
+                                }}
+                              >
+                                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
+                                  {slide.cta}
+                                </span>
+                              </motion.button>
+                            </a>
+                          </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -205,43 +201,83 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
       </div>
 
       {/* Navigation Controls */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center space-x-4 space-x-reverse rtl:space-x-reverse">
-        <button
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-6 z-20">
+        <motion.button
           onClick={scrollNext}
-          className="p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-all duration-200"
+          className="p-4 rounded-full transition-all duration-300 dark:bg-primary-300 bg-white text-primary-600 dark:text-black"
+          whileHover={{ scale: 1.1, rotate: 10 }}
+          whileTap={{ scale: 0.9 }}
+          style={{
+            backdropFilter: "blur(10px)",
+            border: "1px solid rgba(255,255,255,0.3)",
+            boxShadow:
+              "0 8px 32px rgba(0,0,0,0.1), inset 0 -2px 10px rgba(255,255,255,0.1)",
+          }}
         >
-          <ChevronRight className="w-6 h-6" />
-        </button>
+          <ChevronRight className="w-8 h-8" />
+        </motion.button>
 
-        <div className="flex space-x-2 space-x-reverse">
+        {/* Indicator dots with enhanced styling */}
+        <div className="flex gap-3">
           {slides.map((_, index) => (
-            <button
+            <motion.button
               key={index}
               onClick={() => scrollTo(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`rounded-full transition-all duration-300 ${
                 index === selectedIndex
-                  ? "bg-white scale-125"
-                  : "bg-white/50 hover:bg-white/75"
+                  ? "w-10 h-3 dark:bg-primary-400 bg-primary-600"
+                  : "w-3 h-3 bg-white"
               }`}
+              whileHover={{
+                scale: index === selectedIndex ? 1 : 1.3,
+                boxShadow: "0 0 15px rgba(255,255,255,0.5)",
+              }}
+              animate={
+                index === selectedIndex ? { opacity: [0.8, 1, 0.8] } : {}
+              }
+              transition={{ duration: 2, repeat: Infinity }}
             />
           ))}
         </div>
 
-        <button
+        <motion.button
           onClick={scrollPrev}
-          className="p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-all duration-200"
+          className="p-4 rounded-full transition-all duration-300 dark:bg-primary-300 bg-white text-primary-600 dark:text-black"
+          whileHover={{ scale: 1.1, rotate: -10 }}
+          whileTap={{ scale: 0.9 }}
+          style={{
+            backdropFilter: "blur(10px)",
+            border: "1px solid rgba(255,255,255,0.3)",
+            boxShadow:
+              "0 8px 32px rgba(0,0,0,0.1), inset 0 -2px 10px rgba(255,255,255,0.1)",
+          }}
         >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
+          <ChevronLeft className="w-8 h-8" />
+        </motion.button>
 
-        <button
+        <motion.button
           onClick={() => setIsPlaying(!isPlaying)}
-          className="p-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-all duration-200 me-4"
+          className="p-3 rounded-full transition-all duration-300 ms-4 "
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          style={{
+            background: isPlaying
+              ? "linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(139, 92, 246, 0.4))"
+              : "rgba(255,255,255,0.2)",
+            backdropFilter: "blur(10px)",
+            border: "1px solid rgba(255,255,255,0.3)",
+            boxShadow: isPlaying
+              ? "0 0 20px rgba(59, 130, 246, 0.5)"
+              : "0 8px 32px rgba(0,0,0,0.1)",
+          }}
         >
-          <Play
-            className={`w-6 h-6 ${isPlaying ? "opacity-100" : "opacity-50"}`}
-          />
-        </button>
+          <motion.div
+            animate={isPlaying ? { rotate: [0, 360] } : {}}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            <Play className={`w-5 h-5 ${isPlaying ? "fill-white" : ""}`} />
+          </motion.div>
+        </motion.button>
       </div>
     </section>
   );
