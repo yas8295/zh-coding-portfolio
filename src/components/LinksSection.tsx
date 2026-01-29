@@ -100,7 +100,7 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
   return (
     <section
       id="links"
-      className={`py-20 ${isDark ? "bg-gray-800" : "bg-gray-50"}`}
+      className={`py-20 ${isDark ? "" : ""}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div

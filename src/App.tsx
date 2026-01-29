@@ -26,6 +26,7 @@ import RegisterPage from "./pages/RegisterPage";
 // import { useScrollAnimation } from "./hooks/useScrollAnimation";
 import { useProjects } from "./hooks/projectsHooks/useProjects";
 import LinksSection from "./components/LinksSection";
+import PackagesSection from "./components/PackagesSection";
 
 function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -161,7 +162,7 @@ function App() {
 
               {/* Header */}
               <Header isDark={isDark} toggleTheme={toggleTheme} />
-
+              <div className="bg-pattern"></div>
               {/* Main Content */}
               <main className="relative">
                 {/* Hero Section */}
@@ -177,6 +178,8 @@ function App() {
                 />
                 {/* Templates Section */}
                 <TemplatesSection isDark={isDark} />
+                {/* Packages Section */}
+                <PackagesSection isDark={isDark} />
                 {/* links Section */}
                 <LinksSection isDark={isDark} />
                 {/* Team Section */}

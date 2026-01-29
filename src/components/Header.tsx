@@ -70,6 +70,7 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
     { name: "خدماتنا", href: "#services" },
     { name: "أعمالنا", href: "#work" },
     { name: "المشاريع الجاهزة", href: "#templates" },
+    { name: "الباقات", href: "#packages" },
     { name: "فريقنا", href: "#team" },
     { name: "الدورات", href: "#courses" },
     { name: "تواصل معنا", href: "#contact" },

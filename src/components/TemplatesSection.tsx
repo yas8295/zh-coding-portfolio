@@ -108,7 +108,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
   return (
     <section
       id="templates"
-      className={`py-20 ${isDark ? "bg-gray-900" : "bg-gray-50"}`}
+      className={`py-20 ${isDark ? "bg-gray-800" : "bg-gray-50"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -185,7 +185,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                         const token = localStorage.getItem("token");
                         if (!token) {
                           toast.error(
-                            "يجب تسجيل الدخول أولاً لتتمكن من شراء الباقات"
+                            "يجب تسجيل الدخول أولاً لتتمكن من شراء الباقات",
                           );
                           return;
                         }
@@ -222,7 +222,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                     {template.type === "portfolio" && "محفظة"}
                     {template.type === "saas" && "SaaS"}
                     {!["restorant", "ecommerce", "portfolio", "saas"].includes(
-                      template.type
+                      template.type,
                     ) && template.type}
                   </span>
                 </div>
@@ -284,7 +284,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                     const token = localStorage.getItem("token");
                     if (!token) {
                       toast.error(
-                        "يجب تسجيل الدخول أولاً لتتمكن من شراء الباقات"
+                        "يجب تسجيل الدخول أولاً لتتمكن من شراء الباقات",
                       );
                       return;
                     }
@@ -437,7 +437,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                       const token = localStorage.getItem("token");
                       if (!token) {
                         toast.error(
-                          "يجب تسجيل الدخول أولاً لتتمكن من شراء الباقات"
+                          "يجب تسجيل الدخول أولاً لتتمكن من شراء الباقات",
                         );
                         return;
                       }
