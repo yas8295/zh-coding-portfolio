@@ -22,7 +22,7 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
   const filteredLinks = useMemo(() => {
     if (!links) return [];
     return links.filter((link: LinkItem) =>
-      link?.url?.toLowerCase()?.includes(searchTerm.toLowerCase())
+      link?.url?.toLowerCase()?.includes(searchTerm.toLowerCase()),
     );
   }, [links, searchTerm]);
 
@@ -32,7 +32,7 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
 
   const visibleLinks = useMemo(
     () => filteredLinks.slice(0, visibleCount),
-    [filteredLinks, visibleCount]
+    [filteredLinks, visibleCount],
   );
   const hasMore = visibleCount < filteredLinks.length;
 
@@ -98,10 +98,7 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
   }
 
   return (
-    <section
-      id="links"
-      className={`py-20 ${isDark ? "" : ""}`}
-    >
+    <section id="links" className={`py-20 ${isDark ? "" : ""}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-12"
@@ -189,13 +186,13 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
                         isDark ? "text-white" : "text-gray-800"
                       } group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors`}
                     >
-                      {link?.url}
+                      {link?.title}
                     </h3>
                   </div>
                   <span
                     className={`text-sm ${
                       isDark ? "text-gray-400" : "text-gray-500"
-                    } truncate max-w-xs`}
+                    } truncate w-full block`}
                   >
                     {link?.url}
                   </span>
