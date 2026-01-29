@@ -244,7 +244,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                   </motion.h3>
 
                   {/* Price */}
-                  <motion.div
+                  {/* <motion.div
                     className="mb-8"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -272,7 +272,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                     >
                       السعر شامل الخدمات الأساسية
                     </p>
-                  </motion.div>
+                  </motion.div> */}
 
                   {/* Features List */}
                   <motion.div
