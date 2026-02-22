@@ -91,7 +91,7 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
                 className="flex items-center space-x-3 mb-6"
                 whileHover={{ scale: 1.05 }}
               >
-                <img src="/logo_dark.jpg" alt="ZH Logo" className="w-16 h-16" />
+                <img src="/logo.png" alt="ZH Logo" className="w-44 h-auto" />
               </motion.div>
 
               <p className="text-gray-300 mb-6 leading-relaxed">
@@ -102,15 +102,15 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
               {/* Contact Info */}
               <div className="space-y-3 text-sm text-gray-400">
                 <div className="flex items-center space-x-3">
-                  <Mail className="w-4 h-4 text-purple-400" />
+                  <Mail className="w-4 h-4 text-primary-400" />
                   <span>info@zh-coding.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Phone className="w-4 h-4 text-purple-400" />
+                  <Phone className="w-4 h-4 text-primary-400" />
                   <span>+201557404012</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <MapPin className="w-4 h-4 text-purple-400" />
+                  <MapPin className="w-4 h-4 text-primary-400" />
                   <span>السلطان حسين, أمام شركة اتصالات, الاسماعيلية</span>
                 </div>
               </div>
@@ -135,7 +135,7 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
                   >
                     <motion.a
                       href={link.href}
-                      className="text-gray-400 hover:text-purple-400 transition-colors duration-200"
+                      className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
                       whileHover={{ x: 5 }}
                     >
                       {link.name}
@@ -164,7 +164,7 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
                   >
                     <motion.a
                       href={link.href}
-                      className="text-gray-400 hover:text-purple-400 transition-colors duration-200"
+                      className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
                       whileHover={{ x: 5 }}
                     >
                       {link.name}
@@ -194,7 +194,7 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
                   transition={{ duration: 1.5, repeat: Infinity }}
                 >
                   <Code2Icon
-                    className="w-6 h-6 text-purple-500"
+                    className="w-6 h-6 text-primary-500"
                     fill="currentColor"
                   />
                 </motion.div>
@@ -213,7 +213,7 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
                     key={index}
                     href={social.href}
                     aria-label={social.label}
-                    className="p-2 rounded-lg bg-gray-800 text-gray-400 hover:text-purple-400 hover:bg-gray-700 transition-all duration-200"
+                    className="p-2 rounded-lg bg-gray-800/60 text-gray-400 hover:text-primary-400 hover:bg-gray-700 transition-all duration-200"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.9 }}
                     initial={{ opacity: 0, y: 20 }}
@@ -233,7 +233,7 @@ const Footer: React.FC<FooterProps> = ({ isDark }) => {
         {window.scrollY > 500 && (
           <motion.button
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 p-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 z-50"
+            className="fixed bottom-8 right-8 p-3 bg-gradient-to-r from-primary-600 to-primary-600 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 z-50"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             whileHover={{ scale: 1.1, y: -2 }}

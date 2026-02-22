@@ -195,10 +195,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDark }) => {
   ];
 
   return (
-    <section
-      id="about"
-      className={`py-20 ${isDark ? "" : ""}`}
-    >
+    <section id="about" className={`py-20 ${isDark ? "" : ""}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
@@ -217,7 +214,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDark }) => {
               transition={{ delay: 0.2, duration: 0.8 }}
               viewport={{ once: true }}
             >
-              من <span className="text-purple-600 ms-3">نحن</span>
+              من <span className="text-primary-600 ms-3">نحن</span>
             </motion.h2>
 
             <motion.p
@@ -263,7 +260,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDark }) => {
             <Parallax translateY={[-20, 20]} className="relative z-10">
               <div
                 className={`rounded-2xl overflow-hidden shadow-2xl ${
-                  isDark ? "bg-gray-800" : "bg-gray-100"
+                  isDark ? "bg-gray-800/60" : "bg-gray-100"
                 }`}
               >
                 <img
@@ -276,12 +273,12 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDark }) => {
 
             {/* Floating elements */}
             <motion.div
-              className="absolute -top-4 -left-4 w-20 h-20 bg-purple-600 rounded-full opacity-20"
+              className="absolute -top-4 -left-4 w-20 h-20 bg-primary-600 rounded-full opacity-20"
               animate={{ y: [-10, 10, -10] }}
               transition={{ duration: 3, repeat: Infinity }}
             />
             <motion.div
-              className="absolute -bottom-6 -right-6 w-16 h-16 bg-blue-500 rounded-full opacity-20"
+              className="absolute -bottom-6 -right-6 w-16 h-16 bg-primary-500 rounded-full opacity-20"
               animate={{ y: [10, -10, 10] }}
               transition={{ duration: 4, repeat: Infinity, delay: 1 }}
             />
@@ -308,14 +305,14 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDark }) => {
             >
               <motion.div
                 className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center ${
-                  isDark ? "bg-purple-600/20" : "bg-purple-100"
+                  isDark ? "bg-primary-600/20" : "bg-primary-100"
                 }`}
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
               >
                 <stat.icon
                   className={`w-8 h-8 ${
-                    isDark ? "text-purple-400" : "text-purple-600"
+                    isDark ? "text-primary-400" : "text-primary-600"
                   }`}
                 />
               </motion.div>

@@ -24,7 +24,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
   const { data: templates, isLoading, isError } = useProjectsDemo();
   const [hoveredTemplate, setHoveredTemplate] = useState<number | null>(null);
   const [selectedTemplate, setSelectedTemplate] = useState<ProjectDemo | null>(
-    null
+    null,
   );
   const [showPackagesModal, setShowPackagesModal] = useState(false);
 
@@ -75,7 +75,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
               <div
                 key={i}
                 className={`rounded-2xl overflow-hidden ${
-                  isDark ? "bg-gray-800" : "bg-white"
+                  isDark ? "bg-gray-800/60" : "bg-white"
                 }`}
               >
                 <div
@@ -108,7 +108,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
   return (
     <section
       id="templates"
-      className={`py-20 ${isDark ? "bg-gray-800" : "bg-gray-50"}`}
+      className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -120,7 +120,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
           transition={{ duration: 0.6 }}
         >
           <h2
-            className={`text-4xl md:text-5xl font-bold mb-4 pb-5 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent`}
+            className={`text-4xl md:text-5xl font-bold mb-4 pb-5 bg-gradient-to-r from-primary-600 to-primary-600 bg-clip-text text-transparent`}
           >
             المشاريع الجاهزة
           </h2>
@@ -151,14 +151,14 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
               onMouseLeave={() => setHoveredTemplate(null)}
               className={`rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${
                 isDark
-                  ? "bg-gray-800 hover:bg-gray-750"
+                  ? "bg-gray-800/60 hover:bg-gray-750"
                   : "bg-white hover:shadow-2xl"
               } ${
                 hoveredTemplate === template.id ? "shadow-2xl" : "shadow-lg"
               }`}
             >
               {/* Image Container */}
-              <div className="relative overflow-hidden h-64 bg-gradient-to-br from-purple-500/20 to-blue-500/20">
+              <div className="relative overflow-hidden h-64 bg-gradient-to-br from-primary-500/20 to-primary-500/20">
                 <img
                   src={template.cover_image_url}
                   alt={template.name}
@@ -192,7 +192,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                         setSelectedTemplate(template);
                         setShowPackagesModal(true);
                       }}
-                      className="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors"
+                      className="flex-1 bg-primary-600 hover:bg-primary-700 text-white py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors"
                     >
                       <ShoppingCart size={18} />
                       <span className="text-sm">اشتري الآن</span>
@@ -216,7 +216,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
 
                 {/* Badge */}
                 <div className="absolute top-4 right-4">
-                  <span className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  <span className="bg-gradient-to-r from-primary-600 to-primary-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
                     {template.type === "restorant" && "مطعم"}
                     {template.type === "ecommerce" && "متجر إلكتروني"}
                     {template.type === "portfolio" && "محفظة"}
@@ -256,8 +256,8 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                       key={idx}
                       className={`text-xs px-2 py-1 rounded-full ${
                         isDark
-                          ? "bg-gray-700 text-purple-300"
-                          : "bg-purple-100 text-purple-700"
+                          ? "bg-gray-700 text-primary-300"
+                          : "bg-primary-100 text-primary-700"
                       }`}
                     >
                       {tech.split("\r\n")[0].slice(0, 20)}...
@@ -291,7 +291,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                     setSelectedTemplate(template);
                     setShowPackagesModal(true);
                   }}
-                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-primary-600 to-primary-600 text-white py-2 px-4 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
                 >
                   اطلب الآن
                 </motion.button>
@@ -317,7 +317,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
               className={`max-w-6xl w-full rounded-3xl overflow-hidden max-h-[90vh] overflow-y-auto ${
-                isDark ? "bg-gray-800" : "bg-white"
+                isDark ? "bg-gray-800/60" : "bg-white"
               }`}
             >
               {/* Backdrop */}
@@ -329,13 +329,13 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
               {/* Close Button */}
               <button
                 onClick={() => setSelectedTemplate(null)}
-                className="absolute top-6 left-6 z-10 p-2 rounded-full bg-purple-600 text-white hover:bg-purple-700 transition-colors"
+                className="absolute top-6 left-6 z-10 p-2 rounded-full bg-primary-600 text-white hover:bg-primary-700 transition-colors"
               >
                 ✕
               </button>
 
               {/* Cover Image */}
-              <div className="relative h-[500px] overflow-hidden bg-gradient-to-br from-purple-500/20 to-blue-500/20">
+              <div className="relative h-[500px] overflow-hidden bg-gradient-to-br from-primary-500/20 to-primary-500/20">
                 <img
                   src={selectedTemplate.cover_image_url}
                   alt={selectedTemplate.name}
@@ -407,8 +407,8 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                         key={idx}
                         className={`text-sm px-3 py-2 rounded-lg ${
                           isDark
-                            ? "bg-gray-700 text-purple-300"
-                            : "bg-purple-100 text-purple-700"
+                            ? "bg-gray-700 text-primary-300"
+                            : "bg-primary-100 text-primary-700"
                         }`}
                       >
                         {tech.split("\r\n")[0]}
@@ -425,7 +425,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                     href={selectedTemplate.demo_link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                    className="flex-1 bg-gradient-to-r from-primary-600 to-primary-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     <ExternalLink size={20} />
                     زيارة الديمو

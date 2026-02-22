@@ -28,7 +28,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
     return (
       <section
         id="services"
-        className={`py-20 ${isDark ? "bg-gray-800" : "bg-gray-50"}`}
+        className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-pulse">
           {/* Header Skeleton */}
@@ -107,7 +107,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
     return (
       <section
         id="services"
-        className={`py-20 ${isDark ? "bg-gray-800" : "bg-gray-50"}`}
+        className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ServerCrash
@@ -127,7 +127,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
           </p>
           <button
             onClick={() => refetch()}
-            className="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
+            className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
           >
             حاول مرة أخرى
           </button>
@@ -140,12 +140,12 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
     return (
       <section
         id="services"
-        className={`py-20 ${isDark ? "bg-gray-800" : "bg-gray-50"}`}
+        className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Info
             className={`w-16 h-16 mx-auto mb-4 ${
-              isDark ? "text-blue-400" : "text-blue-500"
+              isDark ? "text-primary-400" : "text-primary-500"
             }`}
           />
           <h2
@@ -166,7 +166,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
   return (
     <section
       id="services"
-      className={`py-20 ${isDark ? "bg-gray-800" : "bg-gray-50"}`}
+      className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -186,7 +186,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
             transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <span className="text-purple-600 me-3">خدماتنا</span>
+            <span className="text-primary-600 me-3">خدماتنا</span>
           </motion.h2>
 
           <motion.p
@@ -228,7 +228,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
 
                 {/* Icon */}
                 <motion.div
-                  className={`w-24 h-24 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center mb-6`}
+                  className={`w-24 h-24 rounded-xl bg-gradient-to-r from-primary-600 to-primary-600 flex items-center justify-center mb-6`}
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
@@ -297,7 +297,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
 
                 {/* Hover Effect */}
                 <motion.div
-                  className="absolute top-0 right-0 w-20 h-20 rounded-full bg-purple-600/10 -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500"
+                  className="absolute top-0 right-0 w-20 h-20 rounded-full bg-primary-600/10 -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500"
                   initial={{ scale: 0 }}
                   whileHover={{ scale: 1 }}
                 />
@@ -316,7 +316,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
             viewport={{ once: true }}
           >
             <motion.button
-              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="bg-gradient-to-r from-primary-600 to-primary-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-primary-700 hover:to-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >

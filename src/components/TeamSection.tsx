@@ -115,7 +115,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
     return (
       <section
         id="team"
-        className={`py-20 ${isDark ? "bg-gray-800" : "bg-gray-50"}`}
+        className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-pulse">
           <div className="text-center mb-16">
@@ -171,7 +171,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
   return (
     <section
       id="team"
-      className={`py-20 ${isDark ? "bg-gray-800" : "bg-gray-50"}`}
+      className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -192,7 +192,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
             viewport={{ once: true }}
           >
             تعرف على
-            <span className="text-purple-600 ms-3"> فريقنا </span>
+            <span className="text-primary-600 ms-3"> فريقنا </span>
           </motion.h2>
 
           <motion.p
@@ -222,13 +222,13 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                     onClick={() => emblaApi?.scrollTo(index * 4)}
                     className={`w-3 h-3 rounded-full transition-all duration-200 ${
                       Math.floor(selectedIndex / 4) === index
-                        ? "bg-purple-600 scale-125"
+                        ? "bg-primary-600 scale-125"
                         : isDark
-                        ? "bg-gray-600 hover:bg-gray-500"
-                        : "bg-gray-300 hover:bg-gray-400"
+                          ? "bg-gray-600 hover:bg-gray-500"
+                          : "bg-gray-300 hover:bg-gray-400"
                     }`}
                   />
-                )
+                ),
               )}
             </div>
             <div className="flex space-x-4">
@@ -363,7 +363,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                           {member.name}
                         </motion.h3>
                         <motion.p
-                          className="text-purple-300 font-medium"
+                          className="text-primary-300 font-medium"
                           initial={{ opacity: 0, y: 10 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{
@@ -403,8 +403,8 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                             key={skill}
                             className={`px-3 py-1 text-xs rounded-full ${
                               isDark
-                                ? "bg-purple-600/20 text-purple-300"
-                                : "bg-purple-100 text-purple-600"
+                                ? "bg-primary-600/20 text-primary-300"
+                                : "bg-primary-100 text-primary-600"
                             }`}
                             whileHover={{ scale: 1.05 }}
                           >
@@ -416,7 +416,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
 
                     {/* Hover Effect */}
                     <motion.div
-                      className="absolute top-0 right-0 w-20 h-20 rounded-full bg-purple-600/10 -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500"
+                      className="absolute top-0 right-0 w-20 h-20 rounded-full bg-primary-600/10 -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500"
                       initial={{ scale: 0 }}
                       whileHover={{ scale: 1 }}
                     />

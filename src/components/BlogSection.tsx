@@ -81,7 +81,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
             viewport={{ once: true }}
           >
             أحدث
-            <span className="text-purple-600 ms-3">مقالات المدونة</span>
+            <span className="text-primary-600 ms-3">مقالات المدونة</span>
           </motion.h2>
 
           <motion.p
@@ -101,7 +101,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
         {/* Featured Post */}
         <motion.div
           className={`rounded-2xl overflow-hidden shadow-2xl mb-16 ${
-            isDark ? "bg-gray-800" : "bg-white"
+            isDark ? "bg-gray-800/60" : "bg-white"
           }`}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
                 transition={{ duration: 0.6 }}
               />
               <div className="absolute top-4 left-4">
-                <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                <span className="bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                   مميز
                 </span>
               </div>
@@ -126,7 +126,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
 
             <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
               <motion.div
-                className="text-purple-600 font-medium text-sm mb-2"
+                className="text-primary-600 font-medium text-sm mb-2"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
@@ -185,7 +185,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
               </motion.div>
 
               <motion.button
-                className="inline-flex items-center text-purple-600 font-semibold hover:text-purple-500 transition-colors duration-200"
+                className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-500 transition-colors duration-200"
                 whileHover={{ x: 5 }}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -205,7 +205,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
             <motion.article
               key={post.id}
               className={`group rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ${
-                isDark ? "bg-gray-800" : "bg-white"
+                isDark ? "bg-gray-800/60" : "bg-white"
               }`}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -237,7 +237,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
               {/* Content */}
               <div className="p-6">
                 <motion.h3
-                  className={`text-xl font-bold mb-3 group-hover:text-purple-600 transition-colors duration-300 ${
+                  className={`text-xl font-bold mb-3 group-hover:text-primary-600 transition-colors duration-300 ${
                     isDark ? "text-white" : "text-gray-900"
                   }`}
                   initial={{ opacity: 0, y: 10 }}
@@ -290,7 +290,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
                   viewport={{ once: true }}
                 >
                   <motion.button
-                    className="inline-flex items-center text-purple-600 font-medium hover:text-purple-500 transition-colors duration-200"
+                    className="inline-flex items-center text-primary-600 font-medium hover:text-primary-500 transition-colors duration-200"
                     whileHover={{ x: 3 }}
                   >
                     اقرأ المقال
@@ -313,8 +313,8 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
           <motion.button
             className={`px-8 py-4 rounded-lg font-semibold transition-all duration-300 border-2 ${
               isDark
-                ? "border-purple-600 text-purple-400 hover:bg-purple-600 hover:text-white"
-                : "border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white"
+                ? "border-primary-600 text-primary-400 hover:bg-primary-600 hover:text-white"
+                : "border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white"
             }`}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}

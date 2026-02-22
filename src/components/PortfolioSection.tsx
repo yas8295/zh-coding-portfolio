@@ -77,7 +77,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
               <div
                 key={i}
                 className={`h-12 w-28 rounded-full ${
-                  isDark ? "bg-gray-800" : "bg-gray-200"
+                  isDark ? "bg-gray-800/60" : "bg-gray-200"
                 }`}
               ></div>
             ))}
@@ -88,7 +88,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
               <div
                 key={i}
                 className={`rounded-2xl overflow-hidden ${
-                  isDark ? "bg-gray-800" : "bg-white"
+                  isDark ? "bg-gray-800/60" : "bg-white"
                 }`}
               >
                 <div
@@ -158,7 +158,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
           </p>
           <button
             onClick={() => refetch()}
-            className="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
+            className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
           >
             حاول مرة أخرى
           </button>
@@ -171,7 +171,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
     projects?.filter(
       (project) =>
         selectedCategory === "الكل" ||
-        project.project_type === categoryMapping[selectedCategory]
+        project.project_type === categoryMapping[selectedCategory],
     ) || [];
 
   const displayedProjects = filteredProjects.slice(0, visibleProjects);
@@ -195,7 +195,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Info
             className={`w-16 h-16 mx-auto mb-4 ${
-              isDark ? "text-blue-400" : "text-blue-500"
+              isDark ? "text-primary-400" : "text-primary-500"
             }`}
           />
           <h2
@@ -214,10 +214,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   }
 
   return (
-    <section
-      id="work"
-      className={`py-20 ${isDark ? "" : ""}`}
-    >
+    <section id="work" className={`py-20 ${isDark ? "" : ""}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -236,7 +233,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
             transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <span className="text-purple-600 me-3">أعمالنا</span>
+            <span className="text-primary-600 me-3">أعمالنا</span>
           </motion.h2>
 
           <motion.p
@@ -267,10 +264,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
               onClick={() => handleCategoryChange(category)}
               className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                 selectedCategory === category
-                  ? "bg-purple-600 text-white shadow-lg"
+                  ? "bg-primary-600 text-white shadow-lg"
                   : isDark
-                  ? "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    ? "bg-gray-600/60 text-gray-300 hover:bg-gray-700 border border-primary-900/50"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-primary-200"
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -292,7 +289,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className={`group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl cursor-pointer ${
-                  isDark ? "bg-gray-800" : "bg-white"
+                  isDark ? "bg-gray-800/60" : "bg-white"
                 }`}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
@@ -319,7 +316,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 
                   {/* Overlay */}
                   <motion.div
-                    className="absolute inset-0 bg-purple-900/80 flex items-center justify-center"
+                    className="absolute inset-0 bg-primary-900/80 flex items-center justify-center"
                     initial={{ opacity: 0 }}
                     animate={{
                       opacity: hoveredProject === project.id ? 1 : 0,
@@ -367,7 +364,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                 {/* Content */}
                 <div className="p-6">
                   <motion.div
-                    className="text-sm text-purple-600 font-medium mb-2"
+                    className="text-sm text-primary-600 font-medium mb-2 bg-primary-100 inline-block px-4 py-2 rounded-full"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: index * 0.1 + 0.2 }}
@@ -420,8 +417,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                       <span
                         className={`px-3 py-1 text-xs rounded-full ${
                           isDark
-                            ? "bg-purple-600/20 text-purple-300"
-                            : "bg-purple-100 text-purple-600"
+                            ? "bg-primary-600/20 text-primary-300"
+                            : "bg-primary-100 text-primary-600"
                         }`}
                       >
                         +{project.technologies.length - 4}
@@ -447,8 +444,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
               onClick={handleViewMore}
               className={`px-8 py-4 rounded-lg font-semibold transition-all duration-300 border-2 ${
                 isDark
-                  ? "border-purple-600 text-purple-400 hover:bg-purple-600 hover:text-white"
-                  : "border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white"
+                  ? "border-primary-600 text-primary-400 hover:bg-primary-600 hover:text-white"
+                  : "border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white"
               }`}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}

@@ -40,7 +40,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ isDark }) => {
         onSuccess: () => {
           navigate("/dashboard");
         },
-      }
+      },
     );
   };
 
@@ -53,7 +53,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ isDark }) => {
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute -top-1/2 -left-1/2 w-full h-full rounded-full bg-gradient-to-r from-purple-600/10 to-blue-600/10"
+          className="absolute -top-1/2 -left-1/2 w-full h-full rounded-full bg-gradient-to-r from-primary-600/10 to-primary-600/10"
           animate={{
             x: [0, 50, 0],
             y: [0, 50, 0],
@@ -65,7 +65,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ isDark }) => {
           }}
         />
         <motion.div
-          className="absolute -bottom-1/2 -right-1/2 w-full h-full rounded-full bg-gradient-to-l from-purple-600/10 to-pink-600/10"
+          className="absolute -bottom-1/2 -right-1/2 w-full h-full rounded-full bg-gradient-to-l from-primary-600/10 to-primary-600/10"
           animate={{
             x: [0, -50, 0],
             y: [0, -50, 0],
@@ -94,14 +94,12 @@ const LoginPage: React.FC<LoginPageProps> = ({ isDark }) => {
         >
           <Link to="/">
             <img
-              src="/logo_light.jpg"
+              src="/logo.png"
               alt="ZH Logo"
-              className="w-20 h-20 mx-auto mb-4"
+              className="w-auto h-auto mx-auto mb-4 dark:invert-0 dark:brightness-100 invert-0 brightness-0"
             />
           </Link>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-            ZH-CODING
-          </h1>
+
           <p className={`mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
             مرحباً بك في منصتنا
           </p>
@@ -114,7 +112,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ isDark }) => {
           transition={{ delay: 0.3, duration: 0.6 }}
           className={`space-y-6 p-8 rounded-2xl backdrop-blur-sm ${
             isDark
-              ? "bg-gray-800/50 border border-gray-700"
+              ? "bg-gray-800/60 border border-gray-700"
               : "bg-white/50 border border-gray-200"
           }`}
         >
@@ -130,7 +128,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ isDark }) => {
             </label>
             <div className="relative">
               <Mail
-                className={`absolute right-4 top-3.5 w-5 h-5 ${
+                className={`absolute start-4 top-3.5 w-5 h-5 ${
                   isDark ? "text-gray-500" : "text-gray-400"
                 }`}
               />
@@ -144,9 +142,9 @@ const LoginPage: React.FC<LoginPageProps> = ({ isDark }) => {
                 placeholder="أدخل بريدك الالكتروني"
                 className={`w-full pr-12 pl-4 py-3 rounded-xl border-2 transition-all duration-300 ${
                   isDark
-                    ? "bg-gray-700 border-gray-600 text-white placeholder-gray-500 focus:border-purple-500 focus:bg-gray-600"
-                    : "bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-purple-500 focus:bg-gray-50"
-                } focus:outline-none focus:ring-2 focus:ring-purple-500/20`}
+                    ? "bg-gray-800 border-gray-600 text-white placeholder-gray-500 focus:border-primary-500 focus:bg-gray-600"
+                    : "bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-primary-500 focus:bg-gray-50"
+                } focus:outline-none focus:ring-2 focus:ring-primary-500/20`}
               />
             </div>
           </div>
@@ -163,7 +161,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ isDark }) => {
             </label>
             <div className="relative">
               <Lock
-                className={`absolute right-4 top-3.5 w-5 h-5 ${
+                className={`absolute start-4 top-3.5 w-5 h-5 ${
                   isDark ? "text-gray-500" : "text-gray-400"
                 }`}
               />
@@ -177,14 +175,14 @@ const LoginPage: React.FC<LoginPageProps> = ({ isDark }) => {
                 placeholder="أدخل كلمة المرور"
                 className={`w-full pr-12 pl-12 py-3 rounded-xl border-2 transition-all duration-300 ${
                   isDark
-                    ? "bg-gray-700 border-gray-600 text-white placeholder-gray-500 focus:border-purple-500 focus:bg-gray-600"
-                    : "bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-purple-500 focus:bg-gray-50"
-                } focus:outline-none focus:ring-2 focus:ring-purple-500/20`}
+                    ? "bg-gray-800 border-gray-600 text-white placeholder-gray-500 focus:border-primary-500 focus:bg-gray-600"
+                    : "bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-primary-500 focus:bg-gray-50"
+                } focus:outline-none focus:ring-2 focus:ring-primary-500/20`}
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className={`absolute left-4 top-3.5 ${
+                className={`absolute end-4 top-4 ${
                   isDark
                     ? "text-gray-500 hover:text-gray-300"
                     : "text-gray-400 hover:text-gray-600"
@@ -205,7 +203,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ isDark }) => {
             disabled={isLoading}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full py-3 px-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-3 px-4 bg-gradient-to-r from-primary-600 to-primary-600 hover:from-primary-700 hover:to-primary-700 text-white font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? (
               <>
@@ -232,7 +230,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ isDark }) => {
           ليس لديك حساب؟{" "}
           <Link
             to="/register"
-            className="text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 font-semibold transition-colors"
+            className="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 font-semibold transition-colors"
           >
             إنشاء حساب جديد
           </Link>

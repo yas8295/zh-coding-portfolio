@@ -14,7 +14,7 @@ const CoursesSection: React.FC<CoursesSectionProps> = ({ isDark }) => {
       description:
         "تعلم بناء واجهات مستخدم تفاعلية وعصرية باستخدام React و Next.js.",
       tags: ["React", "Next.js", "TypeScript", "TailwindCSS"],
-      gradient: "from-purple-500 to-indigo-500",
+      gradient: "from-primary-500 to-primary-500",
     },
     {
       icon: Server,
@@ -30,7 +30,7 @@ const CoursesSection: React.FC<CoursesSectionProps> = ({ isDark }) => {
       description:
         "تعمق في تطوير الويب باستخدام Python و Django لبناء تطبيقات آمنة وفعالة.",
       tags: ["Python", "Django", "PostgreSQL", "REST API"],
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-primary-500 to-cyan-500",
     },
     {
       icon: Smartphone,
@@ -38,7 +38,7 @@ const CoursesSection: React.FC<CoursesSectionProps> = ({ isDark }) => {
       description:
         "طور تطبيقات جميلة وعالية الأداء لمنصتي iOS و Android من قاعدة كود واحدة.",
       tags: ["Flutter", "Dart", "Firebase", "Mobile UI/UX"],
-      gradient: "from-sky-500 to-blue-500",
+      gradient: "from-sky-500 to-primary-500",
     },
     {
       icon: Megaphone,
@@ -51,10 +51,7 @@ const CoursesSection: React.FC<CoursesSectionProps> = ({ isDark }) => {
   ];
 
   return (
-    <section
-      id="courses"
-      className={`py-20 ${isDark ? "" : ""}`}
-    >
+    <section id="courses" className={`py-20 ${isDark ? "" : ""}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -68,7 +65,7 @@ const CoursesSection: React.FC<CoursesSectionProps> = ({ isDark }) => {
               isDark ? "text-white" : "text-gray-900"
             }`}
           >
-            دوراتنا <span className="text-purple-600">التدريبية</span>
+            دوراتنا <span className="text-primary-600">التدريبية</span>
           </h2>
           <p
             className={`text-lg max-w-3xl mx-auto ${
@@ -86,11 +83,11 @@ const CoursesSection: React.FC<CoursesSectionProps> = ({ isDark }) => {
               key={index}
               className={`relative group rounded-2xl p-8 overflow-hidden transition-all duration-500 ${
                 isDark
-                  ? "bg-gray-800 hover:bg-gray-700"
+                  ? "bg-gray-800/60 hover:bg-gray-700"
                   : "bg-gray-50 hover:bg-white"
               } border ${
                 isDark ? "border-gray-700" : "border-gray-200"
-              } hover:shadow-2xl hover:border-purple-500/50`}
+              } hover:shadow-2xl hover:border-primary-500/50`}
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
@@ -102,7 +99,7 @@ const CoursesSection: React.FC<CoursesSectionProps> = ({ isDark }) => {
               <div className="relative z-10">
                 <course.icon
                   className={`w-12 h-12 mb-6 ${
-                    isDark ? "text-purple-400" : "text-purple-600"
+                    isDark ? "text-primary-400" : "text-primary-600"
                   }`}
                 />
                 <h3
@@ -125,8 +122,8 @@ const CoursesSection: React.FC<CoursesSectionProps> = ({ isDark }) => {
                       key={tag}
                       className={`px-3 py-1 text-xs rounded-full ${
                         isDark
-                          ? "bg-purple-600/20 text-purple-300"
-                          : "bg-purple-100 text-purple-700"
+                          ? "bg-primary-600/20 text-primary-300"
+                          : "bg-primary-100 text-primary-700"
                       }`}
                     >
                       {tag}

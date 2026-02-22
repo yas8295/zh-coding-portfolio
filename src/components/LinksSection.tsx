@@ -47,7 +47,7 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
     return (
       <section
         id="links"
-        className={`py-20 ${isDark ? "bg-gray-800" : "bg-gray-50"}`}
+        className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 animate-pulse">
           <div className="h-10 w-1/2 mx-auto bg-gray-300 dark:bg-gray-700 rounded-md mb-12"></div>
@@ -68,7 +68,7 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
     return (
       <section
         id="links"
-        className={`py-20 ${isDark ? "bg-gray-800" : "bg-gray-50"}`}
+        className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ServerCrash
@@ -88,7 +88,7 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
           </p>
           <button
             onClick={() => refetch()}
-            className="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
+            className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
           >
             حاول مرة أخرى
           </button>
@@ -112,7 +112,7 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
               isDark ? "text-white" : "text-gray-900"
             }`}
           >
-            روابط <span className="text-purple-600">لاعمالنا</span>
+            روابط <span className="text-primary-600">لاعمالنا</span>
           </h2>
           <p
             className={`text-lg max-w-3xl mx-auto ${
@@ -142,8 +142,8 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
             className={`w-full pl-12 ps-10 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none ${
               isDark
-                ? "border-gray-700 bg-gray-900 text-white focus:border-purple-500"
-                : "border-gray-300 bg-white text-gray-900 focus:border-purple-500"
+                ? "border-gray-700 bg-gray-900 text-white focus:border-primary-500"
+                : "border-gray-300 bg-white text-gray-900 focus:border-primary-500"
             }`}
           />
         </motion.div>
@@ -158,11 +158,11 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
                 rel="noopener noreferrer"
                 className={`group block p-6 rounded-lg transition-all duration-300 ${
                   isDark
-                    ? "bg-gray-900 hover:bg-gray-800"
+                    ? "bg-gray-900 hover:bg-gray-800/60"
                     : "bg-white hover:bg-gray-50"
                 } border ${
                   isDark ? "border-gray-700" : "border-gray-200"
-                } hover:shadow-lg hover:border-purple-500/50`}
+                } hover:shadow-lg hover:border-primary-500/50`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -172,19 +172,19 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
                   <div className="flex items-center space-x-4 flex-wrap gap-2">
                     <div
                       className={`p-3 rounded-full ${
-                        isDark ? "bg-gray-800" : "bg-gray-100"
-                      } group-hover:bg-purple-100 dark:group-hover:bg-purple-900/30 transition-colors`}
+                        isDark ? "bg-gray-800/60" : "bg-gray-100"
+                      } group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 transition-colors`}
                     >
                       <Link
                         className={`w-6 h-6 text-wrap ${
-                          isDark ? "text-purple-400" : "text-purple-600"
+                          isDark ? "text-primary-400" : "text-primary-600"
                         } transition-colors`}
                       />
                     </div>
                     <h3
                       className={`text-lg font-semibold ${
                         isDark ? "text-white" : "text-gray-800"
-                      } group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors`}
+                      } group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors`}
                     >
                       {link?.title}
                     </h3>
@@ -207,7 +207,7 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
             >
               <Info
                 className={`w-12 h-12 mx-auto mb-4 ${
-                  isDark ? "text-blue-400" : "text-blue-500"
+                  isDark ? "text-primary-400" : "text-primary-500"
                 }`}
               />
               <p
@@ -225,7 +225,7 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
           <div className="text-center mt-12">
             <motion.button
               onClick={() => setVisibleCount((prev) => prev + LINKS_PER_PAGE)}
-              className="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+              className="bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

@@ -1,6 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap");
+@font-face {
+  font-family: "cofianda";
+  src: url("/public/fonts/alfont_com_خط-كوفياندا.ttf") format("truetype");
+  font-display: swap;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -31,19 +33,7 @@ html {
 }
 
 body {
-  font-family:
-    "Cairo",
-    "Tajawal",
-    "Inter",
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    "Roboto",
-    "Oxygen",
-    "Ubuntu",
-    "Cantarell",
-    sans-serif;
+  font-family: "cofianda", sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -62,19 +52,6 @@ body {
 [dir="rtl"] .ltr {
   direction: ltr;
   text-align: left;
-}
-
-/* RTL Flexbox adjustments */
-[dir="rtl"] .flex {
-  flex-direction: row;
-}
-
-[dir="rtl"] .flex-row {
-  flex-direction: row-reverse;
-}
-
-[dir="rtl"] .flex-row-reverse {
-  flex-direction: row;
 }
 
 /* RTL spacing adjustments */
@@ -165,11 +142,6 @@ body {
   right: 1rem;
 }
 
-[dir="rtl"] .right-4 {
-  right: auto;
-  left: 1rem;
-}
-
 [dir="rtl"] .left-8 {
   left: auto;
   right: 2rem;
@@ -191,27 +163,17 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #7bffa7 0%, #1cbb59 100%);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+  background: linear-gradient(135deg, #29b865 0%, #109e47 100%);
 }
 
 /* Dark mode scrollbar */
 .dark ::-webkit-scrollbar-track {
   background: #1f2937;
-}
-
-/* Firefox scrollbar */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #8b5cf6 #f1f5f9;
-}
-
-.dark * {
-  scrollbar-color: #8b5cf6 #1f2937;
 }
 
 /* Custom utility classes */
@@ -287,8 +249,8 @@ body {
 }
 
 /* Focus styles for accessibility */
-.focus\:outline-purple:focus {
-  outline: 2px solid #8b5cf6;
+.focus\:outline-primary:focus {
+  outline: 2px solid #5cf69c;
   outline-offset: 2px;
 }
 
@@ -327,12 +289,12 @@ body {
 
 /* Selection styles */
 ::selection {
-  background-color: #8b5cf6;
+  background-color: #5cf67d;
   color: white;
 }
 
 ::-moz-selection {
-  background-color: #8b5cf6;
+  background-color: #5cf676;
   color: white;
 }
 
@@ -364,7 +326,7 @@ body {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #5cf697 0%, #15b645 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -385,12 +347,12 @@ body {
 /* Custom radio and checkbox styles */
 input[type="radio"],
 input[type="checkbox"] {
-  accent-color: #8b5cf6;
+  accent-color: #5cf68f;
 }
 
 /* Better focus indicators */
 *:focus-visible {
-  outline: 2px solid #8b5cf6;
+  outline: 2px solid #5cf69c;
   outline-offset: 2px;
 }
 
@@ -420,7 +382,7 @@ textarea {
 }
 
 :root.dark {
-  --background: #111827;
+  --background: #040a18;
   --background2: #2c2540;
 }
 .bg-pattern {
@@ -432,7 +394,7 @@ textarea {
   background: radial-gradient(
     125% 125% at 50% 10%,
     var(--background) 40%,
-    rgb(165, 133, 255) 110%
+    rgba(133, 255, 204, 0.781) 110%
   );
   z-index: 0;
 }

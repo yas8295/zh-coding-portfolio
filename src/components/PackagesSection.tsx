@@ -51,7 +51,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
               <div
                 key={i}
                 className={`rounded-2xl p-8 ${
-                  isDark ? "bg-gray-800" : "bg-gray-50"
+                  isDark ? "bg-gray-800/60" : "bg-gray-50"
                 }`}
               >
                 <div
@@ -106,7 +106,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
           </p>
           <button
             onClick={() => refetch()}
-            className="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors"
+            className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
           >
             حاول مرة أخرى
           </button>
@@ -124,7 +124,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Info
             className={`w-16 h-16 mx-auto mb-4 ${
-              isDark ? "text-blue-400" : "text-blue-500"
+              isDark ? "text-primary-400" : "text-primary-500"
             }`}
           />
           <h2
@@ -143,10 +143,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
   }
 
   return (
-    <section
-      id="packages"
-      className={`py-20 ${isDark ? "" : ""}`}
-    >
+    <section id="packages" className={`py-20 ${isDark ? "" : ""}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -165,7 +162,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
             transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-600">
               باقاتنا المميزة
             </span>
           </motion.h2>
@@ -193,10 +190,10 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                 className={`relative group rounded-2xl overflow-hidden ${
                   isPopular
                     ? isDark
-                      ? "bg-gradient-to-br from-purple-900 to-blue-900 ring-2 ring-purple-600"
-                      : "bg-gradient-to-br from-purple-50 to-blue-50 ring-2 ring-purple-600"
+                      ? "bg-gradient-to-br from-primary-900 to-primary-900 ring-2 ring-primary-600"
+                      : "bg-gradient-to-br from-primary-50 to-primary-50 ring-2 ring-primary-600"
                     : isDark
-                      ? "bg-gray-800"
+                      ? "bg-gray-800/60"
                       : "bg-gray-50"
                 } shadow-xl hover:shadow-2xl transition-all duration-500`}
                 initial={{ opacity: 0, y: 50 }}
@@ -207,7 +204,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
               >
                 {/* Background Gradient Effect */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/5 to-blue-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  className="absolute inset-0 bg-gradient-to-r from-primary-600/0 via-primary-600/5 to-primary-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   initial={{ scale: 0 }}
                   whileHover={{ scale: 1 }}
                   transition={{ duration: 0.6 }}
@@ -222,7 +219,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                     transition={{ delay: index * 0.15 + 0.3, duration: 0.6 }}
                     viewport={{ once: true }}
                   >
-                    <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-1.5 rounded-full font-semibold text-sm shadow-lg">
+                    <div className="bg-gradient-to-r from-primary-600 to-primary-600 text-white px-6 py-1.5 rounded-full font-semibold text-sm shadow-lg">
                       الخيار الأفضل
                     </div>
                   </motion.div>
@@ -253,7 +250,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                   >
                     <div className="flex items-baseline gap-2">
                       <span
-                        className={`text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent`}
+                        className={`text-4xl font-bold bg-gradient-to-r from-primary-600 to-primary-600 bg-clip-text text-transparent`}
                       >
                         ${parseFloat(pkg.price).toFixed(0)}
                       </span>
@@ -295,7 +292,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                         viewport={{ once: true }}
                       >
                         <motion.div
-                          className="w-5 h-5 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5"
+                          className="w-5 h-5 rounded-full bg-gradient-to-r from-primary-600 to-primary-600 flex items-center justify-center flex-shrink-0 mt-0.5"
                           whileHover={{ scale: 1.2, rotate: 360 }}
                           transition={{ duration: 0.4 }}
                         >
@@ -320,7 +317,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                           expandedPackage === pkg.id ? null : pkg.id,
                         )
                       }
-                      className="text-purple-600 font-semibold mb-6 text-sm hover:text-purple-700 transition-colors"
+                      className="text-primary-600 font-semibold mb-6 text-sm hover:text-primary-700 transition-colors"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: index * 0.15 + 0.6, duration: 0.6 }}
@@ -356,7 +353,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                             }}
                           >
                             <motion.div
-                              className="w-5 h-5 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5"
+                              className="w-5 h-5 rounded-full bg-gradient-to-r from-primary-600 to-primary-600 flex items-center justify-center flex-shrink-0 mt-0.5"
                               whileHover={{ scale: 1.2, rotate: 360 }}
                               transition={{ duration: 0.4 }}
                             >
@@ -380,7 +377,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                     href="#contact"
                     className={`block text-center py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
                       isPopular
-                        ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700"
+                        ? "bg-gradient-to-r from-primary-600 to-primary-600 text-white hover:from-primary-700 hover:to-primary-700"
                         : isDark
                           ? "bg-gray-700 text-white hover:bg-gray-600"
                           : "bg-gray-200 text-gray-900 hover:bg-gray-300"
@@ -401,7 +398,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
 
                 {/* Hover Effect Glow */}
                 <motion.div
-                  className="absolute top-0 right-0 w-32 h-32 rounded-full bg-purple-600/20 -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500 blur-3xl"
+                  className="absolute top-0 right-0 w-32 h-32 rounded-full bg-primary-600/20 -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500 blur-3xl"
                   initial={{ scale: 0 }}
                   whileHover={{ scale: 1 }}
                 />
@@ -427,7 +424,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
           </p>
           <motion.a
             href="#contact"
-            className="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-block bg-gradient-to-r from-primary-600 to-primary-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-primary-700 hover:to-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >

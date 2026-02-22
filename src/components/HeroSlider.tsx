@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { toast } from "react-toastify";
+import ProjectsMarquee from "./ProjectsMarquee";
 
 interface SlideData {
   id: number;
@@ -78,7 +79,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
     (index: number) => {
       if (emblaApi) emblaApi.scrollTo(index);
     },
-    [emblaApi]
+    [emblaApi],
   );
 
   const onSelect = useCallback(() => {
@@ -103,9 +104,12 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
   }, [emblaApi, isPlaying]);
 
   return (
-    <section id="home" className="relative h-screen overflow-hidden">
-      <div className="embla" ref={emblaRef} id="hero">
-        <div className="embla__container h-screen">
+    <section
+      id="home"
+      className="relative overflow-hidden h-screen lg:mt-5 mt-24"
+    >
+      <div className="embla h-[65%]" ref={emblaRef} id="hero">
+        <div className="embla__container h-full">
           {slides.map((slide, index) => (
             <div
               key={slide.id}
@@ -170,20 +174,14 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
                           <div className="flex items-center gap-6 justify-center">
                             <a href="#contact">
                               <motion.button
-                                className="relative px-8 py-4 rounded-xl font-semibold text-base md:text-lg overflow-hidden group border border-primary-200"
+                                className="relative px-8 py-4 rounded-full font-semibold text-base md:text-lg overflow-hidden group border border-primary-400 bg-gradient-to-l from-primary-800 to-primary-900"
                                 whileHover={{ scale: 1.05, y: -3 }}
                                 whileTap={{ scale: 0.95 }}
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.8, duration: 0.8 }}
-                                style={{
-                                  background:
-                                    "linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)",
-                                  boxShadow:
-                                    "0 10px 40px rgba(255,255,255,0.3), inset 0 -2px 10px rgba(0,0,0,0.1)",
-                                }}
                               >
-                                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
+                                <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-l from-white to-primary-100 flex items-center justify-center">
                                   {slide.cta}
                                 </span>
                               </motion.button>
@@ -200,9 +198,12 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
         </div>
       </div>
 
+      {/* Projects marquee (fetched from API) - placed below the embla */}
+      <ProjectsMarquee isDark={isDark} />
+
       {/* Navigation Controls */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-6 z-20">
-        <motion.button
+      {/*<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center gap-6 z-20">
+         <motion.button
           onClick={scrollNext}
           className="p-4 rounded-full transition-all duration-300 dark:bg-primary-300 bg-white text-primary-600 dark:text-black"
           whileHover={{ scale: 1.1, rotate: 10 }}
@@ -215,10 +216,10 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
           }}
         >
           <ChevronRight className="w-8 h-8" />
-        </motion.button>
+        </motion.button> */}
 
-        {/* Indicator dots with enhanced styling */}
-        <div className="flex gap-3">
+      {/* Indicator dots with enhanced styling */}
+      {/* <div className="flex gap-3">
           {slides.map((_, index) => (
             <motion.button
               key={index}
@@ -238,9 +239,9 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
               transition={{ duration: 2, repeat: Infinity }}
             />
           ))}
-        </div>
+        </div> */}
 
-        <motion.button
+      {/* <motion.button
           onClick={scrollPrev}
           className="p-4 rounded-full transition-all duration-300 dark:bg-primary-300 bg-white text-primary-600 dark:text-black"
           whileHover={{ scale: 1.1, rotate: -10 }}
@@ -262,7 +263,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
           whileTap={{ scale: 0.9 }}
           style={{
             background: isPlaying
-              ? "linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(139, 92, 246, 0.4))"
+              ? "linear-gradient(135deg, #63ffcf, #136b50)"
               : "rgba(255,255,255,0.2)",
             backdropFilter: "blur(10px)",
             border: "1px solid rgba(255,255,255,0.3)",
@@ -277,8 +278,8 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
           >
             <Play className={`w-5 h-5 ${isPlaying ? "fill-white" : ""}`} />
           </motion.div>
-        </motion.button>
-      </div>
+        </motion.button> 
+      </div>*/}
     </section>
   );
 };

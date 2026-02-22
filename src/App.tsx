@@ -89,9 +89,9 @@ function App() {
             className="mb-8"
           >
             <img
-              src="/logo_light.jpg"
+              src="/logo.png"
               alt="ZH Logo"
-              className="w-28 h-28 mx-auto"
+              className="w-auto h-auto mx-auto"
             />
           </motion.div>
 
@@ -125,7 +125,7 @@ function App() {
               {[0, 1, 2].map((i) => (
                 <motion.div
                   key={i}
-                  className="w-3 h-3 bg-purple-600 rounded-full"
+                  className="w-3 h-3 bg-primary-600 rounded-full"
                   animate={{
                     scale: [1, 1.5, 1],
                     opacity: [0.5, 1, 0.5],
@@ -149,6 +149,7 @@ function App() {
       <Route path="/login" element={<LoginPage isDark={isDark} />} />
       <Route path="/register" element={<RegisterPage isDark={isDark} />} />
       <Route
+        index
         path="*"
         element={
           <ParallaxProvider>
@@ -202,17 +203,6 @@ function App() {
               />
 
               {/* Smooth Scroll Enhancement */}
-              <motion.div
-                className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 to-blue-600 z-50 origin-left"
-                style={{
-                  scaleX: 0,
-                }}
-                whileInView={{
-                  scaleX: 1,
-                }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.3 }}
-              />
             </div>
           </ParallaxProvider>
         }

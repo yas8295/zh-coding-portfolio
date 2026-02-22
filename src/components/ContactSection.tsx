@@ -61,7 +61,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
   return (
     <section
       id="contact"
-      className={`py-20 ${isDark ? "bg-gray-800" : "bg-gray-50"}`}
+      className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -82,7 +82,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
             viewport={{ once: true }}
           >
             تواصل
-            <span className="text-purple-600 ms-3"> معنا </span>
+            <span className="text-primary-600 ms-3"> معنا </span>
           </motion.h2>
 
           <motion.p
@@ -144,8 +144,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                     errors.name
                       ? "border-red-500"
                       : isDark
-                      ? "border-gray-700 bg-gray-800 text-white focus:border-purple-500"
-                      : "border-gray-300 bg-white text-gray-900 focus:border-purple-500"
+                        ? "border-primary-900 bg-gray-800/60 text-white focus:border-primary-500"
+                        : "border-gray-300 bg-white text-gray-900 focus:border-primary-500"
                   }`}
                   placeholder="اسمك الكامل"
                 />
@@ -183,8 +183,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                     errors.email
                       ? "border-red-500"
                       : isDark
-                      ? "border-gray-700 bg-gray-800 text-white focus:border-purple-500"
-                      : "border-gray-300 bg-white text-gray-900 focus:border-purple-500"
+                        ? "border-primary-900 bg-gray-800/60 text-white focus:border-primary-500"
+                        : "border-gray-300 bg-white text-gray-900 focus:border-primary-500"
                   }`}
                   placeholder="your.email@example.com"
                 />
@@ -222,8 +222,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                     errors.phone
                       ? "border-red-500"
                       : isDark
-                      ? "border-gray-700 bg-gray-800 text-white focus:border-purple-500"
-                      : "border-gray-300 bg-white text-gray-900 focus:border-purple-500"
+                        ? "border-primary-900 bg-gray-800/60 text-white focus:border-primary-500"
+                        : "border-gray-300 bg-white text-gray-900 focus:border-primary-500"
                   }`}
                   placeholder="رقم هاتفك"
                 />
@@ -256,8 +256,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                       errors.service
                         ? "border-red-500"
                         : isDark
-                        ? "border-gray-700 bg-gray-800 text-white focus:border-purple-500"
-                        : "border-gray-300 bg-white text-gray-900 focus:border-purple-500"
+                          ? "border-primary-900 bg-gray-800/60 text-white focus:border-primary-500"
+                          : "border-gray-300 bg-white text-gray-900 focus:border-primary-500"
                     }`}
                   >
                     <option value="">
@@ -303,8 +303,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                     errors.message
                       ? "border-red-500"
                       : isDark
-                      ? "border-gray-700 bg-gray-800 text-white focus:border-purple-500"
-                      : "border-gray-300 bg-white text-gray-900 focus:border-purple-500"
+                        ? "border-primary-900 bg-gray-800/60 text-white focus:border-primary-500"
+                        : "border-gray-300 bg-white text-gray-900 focus:border-primary-500"
                   }`}
                   placeholder="أخبرنا عن مشروعك..."
                 />
@@ -319,7 +319,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4 px-8 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                className="w-full bg-gradient-to-r from-primary-600 to-primary-600 text-white py-4 px-8 rounded-lg font-semibold hover:from-primary-700 hover:to-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                 whileHover={{ scale: 1.02, y: -1 }}
                 whileTap={{ scale: 0.98 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -366,7 +366,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                   href={info.action}
                   className={`group block p-6 rounded-2xl transition-all duration-300 ${
                     isDark
-                      ? "bg-gray-900 hover:bg-gray-800"
+                      ? "bg-gray-900 hover:bg-gray-800/60"
                       : "bg-white hover:bg-gray-50"
                   } shadow-lg hover:shadow-xl`}
                   initial={{ opacity: 0, y: 30 }}
@@ -377,7 +377,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                 >
                   <div className="flex items-center space-x-4">
                     <motion.div
-                      className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center"
+                      className="w-12 h-12 bg-gradient-to-r from-primary-600 to-primary-600 rounded-lg flex items-center justify-center"
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
                     >
@@ -394,7 +394,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                       <p
                         className={`${
                           isDark ? "text-gray-300" : "text-gray-600"
-                        } group-hover:text-purple-600 transition-colors duration-200`}
+                        } group-hover:text-primary-600 transition-colors duration-200`}
                       >
                         {info.details}
                       </p>
@@ -414,7 +414,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
               transition={{ delay: 0.5, duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="w-full h-full bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center">
+              <div className="w-full h-full bg-gradient-to-br from-primary-600/20 to-primary-600/20 flex items-center justify-center">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.2171096719697!2d32.273175799999995!3d30.583038799999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f85922854e0c0b%3A0x37ebd464af6adce1!2z2YHZiNiv2KfZgdmI2YYg2KjYp9mE2YLYsdioINmF2YYg2KfZhNiz2YTYt9in2YYg2K3Ys9mK2YbYjCDYp9mE2KrZhdiz2KfYrdiMINmC2LPZhSDYo9mI2YQg2KfZhNin2LPZhdin2LnZitmE2YrYqdiMINmF2LXYsQ!5e0!3m2!1sar!2seg!4v1727251500000!5m2!1sar!2seg"
                   className="h-full w-full"
