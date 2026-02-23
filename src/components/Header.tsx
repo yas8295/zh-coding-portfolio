@@ -79,12 +79,9 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
 
   const navItems = [
     { name: "الرئيسية", href: "#home" },
-    { name: "من نحن", href: "#about" },
     { name: "خدماتنا", href: "#services" },
     { name: "أعمالنا", href: "#work" },
-    { name: "المشاريع الجاهزة", href: "#templates" },
     { name: "الباقات", href: "#packages" },
-    { name: "فريقنا", href: "#team" },
     { name: "الدورات", href: "#courses" },
     { name: "تواصل معنا", href: "#contact" },
   ];
@@ -101,7 +98,9 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
     >
       <div className="flex justify-between items-center">
         {/* Logo */}
-        <motion.div
+        <motion.a
+          href="#home"
+          onClick={() => setActiveHref("#home")}
           className="flex items-center space-x-2 space-x-reverse"
           whileHover={{ scale: 1.05 }}
         >
@@ -114,33 +113,22 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
               className="w-44 h-auto invert-0 brightness-0 dark:invert-0 dark:brightness-100"
             />
           )}
-        </motion.div>
+        </motion.a>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-8 space-x-reverse">
           {navItems.map((item) => {
             const isActive = activeHref === item.href;
             return (
-              <div key={item.name} className="relative">
-                {isActive && (
-                  <motion.span
-                    layoutId="nav-active"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    className={`absolute inset-0 rounded-full -z-10 ${
-                      isDark || !isScrolled
-                        ? "bg-primary-600"
-                        : "bg-primary-600"
-                    }`}
-                  />
-                )}
-
+              <>
+                {" "}
                 <motion.a
                   href={item.href}
-                  className={`dark:text-white ${isActive ? "text-white px-6" : ""} ${
+                  className={`dark:text-white text-lg relative py-2 ${isActive ? "px-6 text-primary-800 dark:text-primary-300 font-bold" : ""} ${
                     isDark || !isScrolled
                       ? "hover:text-primary-400"
                       : "hover:text-primary-600"
-                  } transition-colors duration-200  font-medium px-3 relative z-10`}
+                  } transition-colors duration-200 px-3 relative z-10`}
                   whileHover={{ y: -2 }}
                   whileTap={{ y: 0 }}
                   onClick={() => {
@@ -149,8 +137,25 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
                   }}
                 >
                   {item.name}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-active-desktop"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 30,
+                      }}
+                      className={`absolute inset-0 rounded-full -z-10 shadow-xl ${
+                        isDark || !isScrolled
+                          ? "border-b-4 border-primary-600"
+                          : "border-b-4 border-primary-600"
+                      }`}
+                    />
+                  )}
                 </motion.a>
-              </div>
+              </>
             );
           })}
         </nav>
@@ -228,7 +233,7 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 rounded-lg ${
+            className={`md:hidden p-2 rounded-lg bg-white dark:bg-gray-800 border shadow-xl dark:border-gray-600 ${
               isDark
                 ? "text-white hover:bg-gray-800/60"
                 : "text-gray-900 hover:bg-gray-100"
@@ -257,22 +262,21 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
                   <motion.span
                     layoutId="nav-active"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    className={`absolute inset-0 rounded-lg -z-10 ${
-                      isDark ? "bg-primary-600/10" : "bg-primary-600/10"
+                    className={`absolute inset-0 rounded-lg -z-10  ${
+                      isDark ? "bg-primary-600/80" : "bg-primary-600/90"
                     }`}
                   />
                 )}
 
                 <a
                   href={item.href}
-                  className={`block px-4 py-2 ${
+                  className={`block px-4 py-2 text-lg ${
                     isDark
-                      ? "text-gray-300 hover:text-primary-400 hover:bg-gray-800/60"
+                      ? "text-gray-200 hover:text-primary-400 hover:bg-gray-800/60"
                       : "text-gray-700 hover:text-primary-600 hover:bg-gray-100"
                   } rounded-lg transition-colors duration-200 relative z-10`}
                   onClick={() => {
                     setActiveHref(item.href);
-                    setIsOpen(false);
                   }}
                 >
                   {item.name}

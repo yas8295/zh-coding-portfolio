@@ -206,7 +206,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDark }) => {
             viewport={{ once: true }}
           >
             <motion.h2
-              className={`text-4xl md:text-5xl font-bold mb-6 ${
+              className={`text-4xl md:text-5xl mb-6 ${
                 isDark ? "text-white" : "text-gray-900"
               }`}
               initial={{ opacity: 0, y: 20 }}
@@ -329,7 +329,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDark }) => {
               </motion.div>
               <div
                 className={`text-center ${
-                  isDark ? "text-gray-400" : "text-gray-600"
+                  isDark ? "text-gray-300" : "text-gray-600"
                 } font-medium`}
               >
                 {stat.label}

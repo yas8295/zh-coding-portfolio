@@ -100,7 +100,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ isDark }) => {
             />
           </Link>
 
-          <p className={`mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+          <p className={`mt-2 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
             مرحباً بك في منصتنا
           </p>
         </motion.div>
@@ -224,7 +224,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ isDark }) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.6 }}
           className={`text-center mt-8 ${
-            isDark ? "text-gray-400" : "text-gray-600"
+            isDark ? "text-gray-300" : "text-gray-600"
           }`}
         >
           ليس لديك حساب؟{" "}

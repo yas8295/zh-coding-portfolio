@@ -3,6 +3,15 @@
   src: url("/public/fonts/alfont_com_خط-كوفياندا.ttf") format("truetype");
   font-display: swap;
 }
+
+@font-face {
+  font-family: "cofianda2";
+  src: url("/public/fonts/cofianda.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -41,6 +50,11 @@ body {
   text-align: right;
   overflow-x: hidden;
   width: 100vw;
+}
+
+h1,
+h2 {
+  font-family: "cofianda2", sans-serif;
 }
 
 /* RTL Support */
@@ -382,8 +396,8 @@ textarea {
 }
 
 :root.dark {
-  --background: #040a18;
-  --background2: #2c2540;
+  --background: rgb(26, 26, 26);
+  --background2: #1f1d24;
 }
 .bg-pattern {
   position: fixed;

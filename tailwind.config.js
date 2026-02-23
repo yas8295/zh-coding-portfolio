@@ -33,6 +33,7 @@ export default {
       fontFamily: {
         sans: ["Cairo", "Tajawal", "Inter", "system-ui", "sans-serif"],
         arabic: ["Cairo", "Tajawal", "system-ui", "sans-serif"],
+        cofianda: ["cofianda2"],
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",

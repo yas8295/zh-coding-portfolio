@@ -35,10 +35,10 @@ const getSkillsByRole = (role: string): string[] => {
   const skills: string[] = [];
 
   if (lowerCaseRole.includes("front-end") || lowerCaseRole.includes("front")) {
-    skills.push("React", "Next.js", "TypeScript");
+    skills.push("React", "Next.js", "TypeScript", "React-Native");
   }
   if (lowerCaseRole.includes("back-end") || lowerCaseRole.includes("back")) {
-    skills.push("Laravel", "mySQL", "PHP");
+    skills.push("Laravel", "mySQL", "PHP", "GO");
   }
   if (lowerCaseRole.includes("ui") || lowerCaseRole.includes("ux")) {
     skills.push("Figma", "User Research");
@@ -57,6 +57,12 @@ const getSkillsByRole = (role: string): string[] => {
   }
   if (lowerCaseRole.includes("qa")) {
     skills.push("Selenium", "Jest", "Cypress");
+  }
+  if (lowerCaseRole.includes("content") || lowerCaseRole.includes("social")) {
+    skills.push("Content Strategy", "SEO", "Copywriting", "Analytics");
+  }
+  if (lowerCaseRole.includes("graphic")) {
+    skills.push("Photoshop", "Illustrator", "After Effects", "Branding");
   }
 
   // Return unique skills, up to 4

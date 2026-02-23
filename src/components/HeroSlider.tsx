@@ -5,6 +5,8 @@ import { TypeAnimation } from "react-type-animation";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { toast } from "react-toastify";
 import ProjectsMarquee from "./ProjectsMarquee";
+import HeroBg from "./HeroBg";
+import HeroBg2 from "./HeroBg2";
 
 interface SlideData {
   id: number;
@@ -106,8 +108,36 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
   return (
     <section
       id="home"
-      className="relative overflow-hidden h-screen lg:mt-5 mt-24"
+      className="relative overflow-hidden h-screen lg:pt-5 pt-24"
     >
+      {isDark ? (
+        <HeroBg
+          speed={0.3}
+          backgroundColor={"#00121e"}
+          glowColor={"#1becac"}
+          isDark={isDark}
+          frequency={1}
+          amplitude={0.2}
+          intensity={0.07}
+          rotation={0}
+          translateX={0}
+          translateY={-0.1}
+        />
+      ) : (
+        <HeroBg2
+          speed={0.5}
+          backgroundColor={"#ffffff"}
+          translateX={0}
+          translateY={3.5}
+          zoom={0.11}
+          intensity={1}
+          roadWidth={0.3}
+          waveFrequency={0.8}
+          glowColor={"#146d52"}
+          rotation={0}
+        />
+      )}
+
       <div className="embla h-[65%]" ref={emblaRef} id="hero">
         <div className="embla__container h-full">
           {slides.map((slide, index) => (
@@ -128,19 +158,8 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
                           transition={{ duration: 0.8, ease: "easeOut" }}
                           className="text-center"
                         >
-                          <motion.div
-                            className="mb-4"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.1, duration: 0.6 }}
-                          >
-                            <span className="inline-block px-4 py-2 rounded-full bg-white/20 backdrop-blur-md text-sm font-semibold border border-primary-500 dark:text-white">
-                              خدمة مميزة
-                            </span>
-                          </motion.div>
-
                           <motion.h1
-                            className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-center drop-shadow-2xl dark:text-white"
+                            className="text-5xl md:text-7xl mb-6 leading-tight text-center drop-shadow-2xl dark:text-white"
                             initial={{ opacity: 0, x: -100 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.2, duration: 0.8 }}
@@ -174,7 +193,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
                           <div className="flex items-center gap-6 justify-center">
                             <a href="#contact">
                               <motion.button
-                                className="relative px-8 py-4 rounded-full font-semibold text-base md:text-lg overflow-hidden group border border-primary-400 bg-gradient-to-l from-primary-800 to-primary-900"
+                                className="relative px-8 py-4 rounded-full text-base md:text-xl font-bold overflow-hidden group border border-primary-400 bg-gradient-to-l from-primary-800 to-primary-900"
                                 whileHover={{ scale: 1.05, y: -3 }}
                                 whileTap={{ scale: 0.95 }}
                                 initial={{ opacity: 0, y: 20 }}
