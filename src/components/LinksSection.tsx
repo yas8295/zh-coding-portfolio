@@ -108,7 +108,7 @@ const LinksSection: React.FC<LinksSectionProps> = ({ isDark }) => {
           viewport={{ once: true }}
         >
           <h2
-            className={`text-4xl md:text-5xl font-bold mb-6 ${
+            className={`text-4xl md:text-5xl mb-6 ${
               isDark ? "text-white" : "text-gray-900"
             }`}
           >

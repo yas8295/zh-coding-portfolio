@@ -120,7 +120,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
           transition={{ duration: 0.6 }}
         >
           <h2
-            className={`text-4xl md:text-5xl font-bold mb-4 pb-5 bg-gradient-to-r from-primary-600 to-primary-600 bg-clip-text text-transparent`}
+            className={`text-4xl md:text-5xl mb-4 pb-5 bg-gradient-to-r from-primary-600 to-primary-600 bg-clip-text text-transparent`}
           >
             المشاريع الجاهزة
           </h2>

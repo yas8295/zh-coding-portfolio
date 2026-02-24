@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Smartphone, Brain, ServerCrash, Info } from "lucide-react";
+import { ServerCrash, Info } from "lucide-react";
 import { useServices } from "../hooks/servicesHooks/useServices";
+import ServicesCardBg from "./ServicesCardBg";
 
 interface ServicesSectionProps {
   isDark: boolean;
@@ -14,12 +15,6 @@ interface Service {
   features: string[];
   gradient: string;
 }
-
-const iconMap: { [key: string]: React.ElementType } = {
-  Code,
-  Smartphone,
-  Brain,
-};
 
 const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
   const { data: services, isLoading, isError, error, refetch } = useServices();
@@ -178,7 +173,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
           viewport={{ once: true }}
         >
           <motion.h2
-            className={`text-4xl md:text-5xl font-bold mb-6 ${
+            className={`text-4xl md:text-5xl mb-6 ${
               isDark ? "text-white" : "text-gray-900"
             }`}
             initial={{ opacity: 0, y: 20 }}
@@ -206,19 +201,28 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services?.map((service: Service, index: number) => {
-            const IconComponent = iconMap[service.icon];
+            // hover glow gradient adapts to mode with green tones
+            const glowGradient = isDark
+              ? "from-primary-800 to-primary-600"
+              : "from-primary-200 to-primary-100";
+            const iconRing = isDark
+              ? "ring-white/40 group-hover:ring-primary-700/30"
+              : "ring-white/60 group-hover:ring-primary-200/40";
             return (
               <motion.div
                 key={index}
-                className={`relative group rounded-2xl p-8 cursor-pointer overflow-hidden ${
-                  isDark ? "bg-gray-900" : "bg-white"
-                } shadow-xl hover:shadow-2xl transition-all duration-500`}
+                className={`relative group rounded-3xl p-5 cursor-pointer overflow-hidden transform transition-all duration-500
+                  ${isDark ? "bg-gray-900/70 backdrop-blur-sm" : "bg-white/70 backdrop-blur-sm"}
+                  shadow-2xl hover:shadow-3xl hover:-translate-y-2`}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.8 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -10 }}
               >
+                {/* modern gradient glow overlay */}
+                <div
+                  className={`absolute inset-0 -z-10 bg-gradient-to-r ${glowGradient} opacity-0 group-hover:opacity-25 transition-opacity duration-500 blur-lg`}
+                />
                 <motion.div
                   className={`absolute inset-0 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                   initial={{ scale: 0 }}
@@ -228,16 +232,29 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
 
                 {/* Icon */}
                 <motion.div
-                  className={`w-24 h-24 rounded-xl bg-gradient-to-r from-primary-600 to-primary-600 flex items-center justify-center mb-6`}
-                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  className={`w-full h-64 rounded-2xl relative flex items-center justify-center mb-6 ring-4 ${iconRing} transition-all duration-500 overflow-hidden`}
                   transition={{ duration: 0.6 }}
                 >
+                  <ServicesCardBg
+                    speed={1}
+                    frequency={6}
+                    intensity={50}
+                    theme={"aurora"}
+                    shape={"hexagon"}
+                    scale={0.4}
+                    offsetX={0}
+                    offsetY={0}
+                    colorShift={[1, 0.5, 76]} /* subtle green shift */
+                    transparent={true}
+                    haloColors={["#21263b"]}
+                  />
+
                   <img
                     src={`${import.meta.env.VITE_REACT_APP_API_URL}/${
                       service.icon
                     }`}
                     alt={service.title}
-                    className="w-16 h-16 text-white"
+                    className="w-24 h-24 text-white"
                   />
                 </motion.div>
 
@@ -297,7 +314,12 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
 
                 {/* Hover Effect */}
                 <motion.div
-                  className="absolute top-0 right-0 w-20 h-20 rounded-full bg-primary-600/10 -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500"
+                  className="absolute top-0 right-0 w-20 h-20 rounded-full -translate-y-10 translate-x-10 group-hover:scale-150 transition-transform duration-500"
+                  style={{
+                    background:
+                      "conic-gradient(#1febab, #1a1d25, #21263b, #dc6600)",
+                    opacity: 0.1,
+                  }}
                   initial={{ scale: 0 }}
                   whileHover={{ scale: 1 }}
                 />

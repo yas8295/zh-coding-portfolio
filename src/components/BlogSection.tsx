@@ -72,7 +72,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
           viewport={{ once: true }}
         >
           <motion.h2
-            className={`text-4xl md:text-5xl font-bold mb-6 ${
+            className={`text-4xl md:text-5xl mb-6 ${
               isDark ? "text-white" : "text-gray-900"
             }`}
             initial={{ opacity: 0, y: 20 }}
