@@ -1,327 +1,196 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowRight, User } from "lucide-react";
+import { Calendar, ArrowRight, User } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useBlogs } from "../hooks/blogHooks/useBlogs";
 
 interface BlogSectionProps {
   isDark: boolean;
 }
 
-interface BlogPost {
-  id: number;
-  title: string;
-  excerpt: string;
-  author: string;
-  date: string;
-  readTime: string;
-  image: string;
-  category: string;
-}
-
-const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "مستقبل الذكاء الاصطناعي في تطوير البرمجيات",
-    excerpt:
-      "استكشاف كيف يُحدث الذكاء الاصطناعي ثورة في طريقة بناء ونشر التطبيقات البرمجية.",
-    author: "أحمد محمد",
-    date: "2024-01-15",
-    readTime: "٥ دقائق قراءة",
-    image:
-      "https://images.pexels.com/photos/3861943/pexels-photo-3861943.jpeg?auto=compress&cs=tinysrgb&w=800",
-    category: "الذكاء الاصطناعي والتعلم الآلي",
-  },
-  {
-    id: 2,
-    title: "أفضل الممارسات لأداء React",
-    excerpt:
-      "تعلم التقنيات الأساسية لتحسين تطبيقات React للحصول على أداء أفضل وتجربة مستخدم محسنة.",
-    author: "فاطمة علي",
-    date: "2024-01-12",
-    readTime: "٧ دقائق قراءة",
-    image:
-      "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800",
-    category: "تطوير المواقع",
-  },
-  {
-    id: 3,
-    title: "أنماط الهندسة السحابية للشركات الناشئة",
-    excerpt:
-      "اكتشف أنماط الهندسة السحابية القابلة للتوسع التي تساعد الشركات الناشئة في بناء حلول قوية وفعالة من حيث التكلفة.",
-    author: "محمد حسن",
-    date: "2024-01-10",
-    readTime: "٦ دقائق قراءة",
-    image:
-      "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=800",
-    category: "الهندسة السحابية",
-  },
-];
-
 const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
+  const { blogs, loading, error } = useBlogs();
+
+  if (loading) {
+    return (
+      <section
+        id="blog"
+        className={`py-24 relative ${isDark ? "bg-gray-900" : "bg-gray-50"}`}
+      >
+        <div className="container mx-auto px-6 text-center">
+          <div className="animate-pulse space-y-4">
+            <div className="h-8 bg-gray-300 rounded w-1/4 mx-auto"></div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="h-64 bg-gray-300 rounded"></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section
+        id="blog"
+        className={`py-24 relative ${isDark ? "bg-gray-900" : "bg-gray-50"}`}
+      >
+        <div className="container mx-auto px-6 text-center">
+          <p className={`text-lg ${isDark ? "text-red-400" : "text-red-600"}`}>
+            خطأ: {error}
+          </p>
+        </div>
+      </section>
+    );
+  }
+
+  const recentBlogs = blogs.slice(0, 3);
+
   return (
     <section
       id="blog"
-      className={`py-20 ${isDark ? "bg-gray-900" : "bg-white"}`}
+      className={`py-24 relative overflow-hidden ${
+        isDark
+          ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+          : "bg-gradient-to-br from-white via-gray-50 to-gray-100"
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Animated background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-20 left-20 w-96 h-96 bg-primary-500 rounded-full opacity-5 blur-3xl"
+          animate={{ y: [-50, 50, -50] }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          <motion.h2
+          <h2
             className={`text-4xl md:text-5xl mb-6 ${
               isDark ? "text-white" : "text-gray-900"
             }`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            viewport={{ once: true }}
           >
-            أحدث
-            <span className="text-primary-600 ms-3">مقالات المدونة</span>
-          </motion.h2>
-
-          <motion.p
-            className={`text-lg max-w-3xl mx-auto ${
+            آخر المقالات
+          </h2>
+          <p
+            className={`text-lg md:text-xl ${
               isDark ? "text-gray-300" : "text-gray-600"
             }`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            viewport={{ once: true }}
           >
-            ابق على اطلاع بأحدث رؤانا ودروسنا واتجاهات الصناعة في تطوير
-            البرمجيات والتكنولوجيا.
-          </motion.p>
+            تابع أحدث الأخبار والمقالات المفيدة في مجال التكنولوجيا
+          </p>
         </motion.div>
 
-        {/* Featured Post */}
-        <motion.div
-          className={`rounded-2xl overflow-hidden shadow-2xl mb-16 ${
-            isDark ? "bg-gray-800/60" : "bg-white"
-          }`}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="md:flex">
-            <div className="md:w-1/2 relative">
-              <motion.img
-                src={blogPosts[0].image}
-                alt={blogPosts[0].title}
-                className="w-full h-64 md:h-full object-cover"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.6 }}
-              />
-              <div className="absolute top-4 left-4">
-                <span className="bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                  مميز
-                </span>
-              </div>
-            </div>
-
-            <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
-              <motion.div
-                className="text-primary-600 font-medium text-sm mb-2"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                {blogPosts[0].category}
-              </motion.div>
-
-              <motion.h3
-                className={`text-2xl md:text-3xl font-bold mb-4 ${
-                  isDark ? "text-white" : "text-gray-900"
-                }`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                {blogPosts[0].title}
-              </motion.h3>
-
-              <motion.p
-                className={`${
-                  isDark ? "text-gray-300" : "text-gray-600"
-                } mb-6 text-lg leading-relaxed`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                {blogPosts[0].excerpt}
-              </motion.p>
-
-              <motion.div
-                className={`flex items-center space-x-6 mb-6 text-sm ${
-                  isDark ? "text-gray-400" : "text-gray-500"
-                }`}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex items-center space-x-2">
-                  <User className="w-4 h-4" />
-                  <span>{blogPosts[0].author}</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Calendar className="w-4 h-4" />
-                  <span>
-                    {new Date(blogPosts[0].date).toLocaleDateString()}
-                  </span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Clock className="w-4 h-4" />
-                  <span>{blogPosts[0].readTime}</span>
-                </div>
-              </motion.div>
-
-              <motion.button
-                className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-500 transition-colors duration-200"
-                whileHover={{ x: 5 }}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.7, duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                اقرأ المزيد
-                <ArrowRight className="w-5 h-5 me-2 group-hover:translate-x-1 transition-transform duration-200" />
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Blog Posts Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {blogPosts.slice(1).map((post, index) => (
-            <motion.article
-              key={post.id}
-              className={`group rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ${
-                isDark ? "bg-gray-800/60" : "bg-white"
-              }`}
-              initial={{ opacity: 0, y: 50 }}
+        {/* Blog Grid */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
+          {recentBlogs?.slice(0, 3).map((blog, index) => (
+            <motion.div
+              key={blog.id}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 + 0.2, duration: 0.8 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className={`rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 ${
+                isDark
+                  ? "bg-gray-800 border border-gray-700"
+                  : "bg-white border border-gray-200"
+              }`}
             >
               {/* Image */}
-              <div className="relative h-48 overflow-hidden">
-                <motion.img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  whileHover={{ scale: 1.1 }}
+              <div className="relative overflow-hidden h-48">
+                <img
+                  src={`${import.meta.env.VITE_REACT_APP_API_URL}${blog.image}`}
+                  alt={blog.title}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src =
+                      "https://via.placeholder.com/400x300?text=Blog+Post";
+                  }}
                 />
-                <div className="absolute top-4 left-4">
-                  <span
-                    className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      isDark
-                        ? "bg-gray-900/80 text-white"
-                        : "bg-white/90 text-gray-900"
-                    }`}
-                  >
-                    {post.category}
-                  </span>
-                </div>
               </div>
 
               {/* Content */}
               <div className="p-6">
-                <motion.h3
-                  className={`text-xl font-bold mb-3 group-hover:text-primary-600 transition-colors duration-300 ${
+                <Link
+                  to={`/blog/${blog.id}`}
+                  className={`text-lg font-bold mb-2 line-clamp-2 hover:text-primary-500 ${
                     isDark ? "text-white" : "text-gray-900"
                   }`}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 + 0.4, duration: 0.6 }}
-                  viewport={{ once: true }}
                 >
-                  {post.title}
-                </motion.h3>
+                  {blog.title}
+                </Link>
 
-                <motion.p
-                  className={`${
+                <p
+                  className={`text-sm mb-4 line-clamp-2 ${
                     isDark ? "text-gray-300" : "text-gray-600"
-                  } mb-4 leading-relaxed`}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 + 0.5, duration: 0.6 }}
-                  viewport={{ once: true }}
+                  }`}
                 >
-                  {post.excerpt}
-                </motion.p>
+                  {blog.description}
+                </p>
 
-                <motion.div
-                  className={`flex items-center justify-between text-sm ${
+                {/* Meta Info */}
+                <div
+                  className={`flex items-center justify-between text-xs mb-4 ${
                     isDark ? "text-gray-400" : "text-gray-500"
                   }`}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: index * 0.1 + 0.6, duration: 0.6 }}
-                  viewport={{ once: true }}
                 >
-                  <div className="flex items-center space-x-4">
-                    <div className="flex items-center space-x-1">
-                      <User className="w-4 h-4" />
-                      <span>{post.author}</span>
-                    </div>
-                    <div className="flex items-center space-x-1">
-                      <Clock className="w-4 h-4" />
-                      <span>{post.readTime}</span>
-                    </div>
+                  <div className="flex items-center gap-2">
+                    <User className="w-4 h-4" />
+                    <span>{blog.user.name}</span>
                   </div>
-                  <span>{new Date(post.date).toLocaleDateString()}</span>
-                </motion.div>
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4" />
+                    <span>
+                      {new Date(blog.created_at).toLocaleDateString("en-GB")}
+                    </span>
+                  </div>
+                </div>
 
-                <motion.div
-                  className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ delay: index * 0.1 + 0.7, duration: 0.6 }}
-                  viewport={{ once: true }}
+                {/* Read More Button */}
+                <Link
+                  to={`/blog/${blog.id}`}
+                  className={`inline-flex items-center gap-2 font-medium transition-all duration-300 ${
+                    isDark
+                      ? "text-primary-400 hover:text-primary-300"
+                      : "text-primary-600 hover:text-primary-700"
+                  }`}
                 >
-                  <motion.button
-                    className="inline-flex items-center text-primary-600 font-medium hover:text-primary-500 transition-colors duration-200"
-                    whileHover={{ x: 3 }}
-                  >
-                    اقرأ المقال
-                    <ArrowRight className="w-4 h-4 me-2 group-hover:translate-x-1 transition-transform duration-200" />
-                  </motion.button>
-                </motion.div>
+                  اقرأ المزيد
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
-            </motion.article>
+            </motion.div>
           ))}
         </div>
 
-        {/* View All Blog Posts */}
-        <motion.div
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.button
-            className={`px-8 py-4 rounded-lg font-semibold transition-all duration-300 border-2 ${
-              isDark
-                ? "border-primary-600 text-primary-400 hover:bg-primary-600 hover:text-white"
-                : "border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white"
-            }`}
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
+        {/* View All Button */}
+        {blogs.length > 3 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center"
           >
-            عرض جميع مقالات المدونة
-          </motion.button>
-        </motion.div>
+            <Link
+              to="/blog"
+              className={`inline-block px-8 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 ${
+                isDark
+                  ? "bg-primary-600 hover:bg-primary-700 text-white"
+                  : "bg-primary-600 text-white hover:bg-primary-700"
+              }`}
+            >
+              عرض جميع المقالات
+            </Link>
+          </motion.div>
+        )}
       </div>
     </section>
   );

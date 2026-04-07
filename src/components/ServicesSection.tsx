@@ -23,24 +23,24 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
     return (
       <section
         id="services"
-        className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
+        className={`py-20 ${isDark ? "bg-neutral-800/60" : "bg-neutral-50"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-pulse">
           {/* Header Skeleton */}
           <div className="text-center mb-16">
             <div
               className={`h-12 w-48 mx-auto rounded ${
-                isDark ? "bg-gray-700" : "bg-gray-300"
+                isDark ? "bg-neutral-700" : "bg-neutral-300"
               } mb-6`}
             ></div>
             <div
               className={`h-6 w-3/4 mx-auto rounded ${
-                isDark ? "bg-gray-700" : "bg-gray-300"
+                isDark ? "bg-neutral-700" : "bg-neutral-300"
               } mb-4`}
             ></div>
             <div
               className={`h-6 w-1/2 mx-auto rounded ${
-                isDark ? "bg-gray-700" : "bg-gray-300"
+                isDark ? "bg-neutral-700" : "bg-neutral-300"
               }`}
             ></div>
           </div>
@@ -50,43 +50,43 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
               <div
                 key={i}
                 className={`rounded-2xl p-8 ${
-                  isDark ? "bg-gray-900" : "bg-white"
+                  isDark ? "bg-neutral-900" : "bg-white"
                 }`}
               >
                 <div
                   className={`w-16 h-16 rounded-xl mb-6 ${
-                    isDark ? "bg-gray-700" : "bg-gray-300"
+                    isDark ? "bg-neutral-700" : "bg-neutral-300"
                   }`}
                 ></div>
                 <div
                   className={`h-6 w-3/4 rounded ${
-                    isDark ? "bg-gray-700" : "bg-gray-300"
+                    isDark ? "bg-neutral-700" : "bg-neutral-300"
                   } mb-4`}
                 ></div>
                 <div
                   className={`h-4 w-full rounded ${
-                    isDark ? "bg-gray-700" : "bg-gray-300"
+                    isDark ? "bg-neutral-700" : "bg-neutral-300"
                   } mb-2`}
                 ></div>
                 <div
                   className={`h-4 w-5/6 rounded ${
-                    isDark ? "bg-gray-700" : "bg-gray-300"
+                    isDark ? "bg-neutral-700" : "bg-neutral-300"
                   } mb-6`}
                 ></div>
                 <div className="space-y-3">
                   <div
                     className={`h-4 w-1/2 rounded ${
-                      isDark ? "bg-gray-700" : "bg-gray-300"
+                      isDark ? "bg-neutral-700" : "bg-neutral-300"
                     }`}
                   ></div>
                   <div
                     className={`h-4 w-2/3 rounded ${
-                      isDark ? "bg-gray-700" : "bg-gray-300"
+                      isDark ? "bg-neutral-700" : "bg-neutral-300"
                     }`}
                   ></div>
                   <div
                     className={`h-4 w-1/2 rounded ${
-                      isDark ? "bg-gray-700" : "bg-gray-300"
+                      isDark ? "bg-neutral-700" : "bg-neutral-300"
                     }`}
                   ></div>
                 </div>
@@ -102,7 +102,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
     return (
       <section
         id="services"
-        className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
+        className={`py-20 ${isDark ? "bg-neutral-800/60" : "bg-neutral-50"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ServerCrash
@@ -112,12 +112,14 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
           />
           <h2
             className={`text-3xl font-bold mb-4 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-neutral-900"
             }`}
           >
             حدث خطأ
           </h2>
-          <p className={`mb-6 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+          <p
+            className={`mb-6 ${isDark ? "text-neutral-300" : "text-neutral-600"}`}
+          >
             {(error as Error).message || "لم نتمكن من تحميل الخدمات."}
           </p>
           <button
@@ -135,7 +137,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
     return (
       <section
         id="services"
-        className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
+        className={`py-20 ${isDark ? "bg-neutral-800/60" : "bg-neutral-50"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Info
@@ -145,12 +147,12 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
           />
           <h2
             className={`text-3xl font-bold mb-4 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-neutral-900"
             }`}
           >
             لا توجد خدمات
           </h2>
-          <p className={`${isDark ? "text-gray-300" : "text-gray-600"}`}>
+          <p className={`${isDark ? "text-neutral-300" : "text-neutral-600"}`}>
             لا توجد خدمات متاحة حالياً.
           </p>
         </div>
@@ -161,7 +163,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
   return (
     <section
       id="services"
-      className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
+      className={`py-20 ${isDark ? "bg-neutral-800/60" : "bg-neutral-50"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -174,7 +176,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
         >
           <motion.h2
             className={`text-4xl md:text-5xl mb-6 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-neutral-900"
             }`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -186,7 +188,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
 
           <motion.p
             className={`text-lg max-w-3xl mx-auto ${
-              isDark ? "text-gray-300" : "text-gray-600"
+              isDark ? "text-neutral-300" : "text-neutral-600"
             }`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -212,7 +214,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
               <motion.div
                 key={index}
                 className={`relative group rounded-3xl p-5 cursor-pointer overflow-hidden transform transition-all duration-500
-                  ${isDark ? "bg-gray-900/70 backdrop-blur-sm" : "bg-white/70 backdrop-blur-sm"}
+                  ${isDark ? "bg-neutral-900/70 backdrop-blur-sm" : "bg-white/70 backdrop-blur-sm"}
                   shadow-2xl hover:shadow-3xl hover:-translate-y-2`}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -261,7 +263,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
                 {/* Content */}
                 <motion.h3
                   className={`text-xl font-bold mb-4 ${
-                    isDark ? "text-white" : "text-gray-900"
+                    isDark ? "text-white" : "text-neutral-900"
                   }`}
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -274,7 +276,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
                 <motion.p
                   dangerouslySetInnerHTML={{ __html: service.description }}
                   className={`${
-                    isDark ? "text-gray-300" : "text-gray-600"
+                    isDark ? "text-neutral-300" : "text-neutral-600"
                   } mb-6`}
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -294,7 +296,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
                     <motion.li
                       key={featureIndex}
                       className={`text-sm ${
-                        isDark ? "text-gray-400" : "text-gray-500"
+                        isDark ? "text-neutral-400" : "text-neutral-500"
                       } flex items-center`}
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}

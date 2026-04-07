@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, LogOut } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   isDark: boolean;
@@ -9,6 +9,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
+  const { pathname } = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [user, setUser] = useState<{ name: string } | null>(null);
@@ -86,14 +87,18 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
     { name: "تواصل معنا", href: "#contact" },
   ];
 
+  if (pathname.startsWith("/blog")) {
+    return null;
+  }
+
   return (
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed md:max-w-[95%] lg:max-w-[90%] xl:max-w-[80%] w-[96%] mx-auto py-4 px-6  top-4 left-0 right-0 z-50 transition-all duration-300 border border-primary-600 backdrop-blur ${isOpen ? "rounded-3xl" : "rounded-full"} ${
         isScrolled
-          ? `${isDark ? "bg-gray-700/50" : "bg-primary-200/30"}  shadow-lg`
-          : "dark:bg-gray-700/50 bg-primary-200/20"
+          ? `${isDark ? "bg-neutral-700/50" : "bg-primary-200/30"}  shadow-lg`
+          : "dark:bg-neutral-700/50 bg-primary-200/20"
       }`}
     >
       <div className="flex justify-between items-center">
@@ -233,10 +238,10 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 rounded-lg bg-white dark:bg-gray-800 border shadow-xl dark:border-gray-600 ${
+            className={`md:hidden p-2 rounded-lg bg-white dark:bg-neutral-800 border shadow-xl dark:border-neutral-600 ${
               isDark
-                ? "text-white hover:bg-gray-800/60"
-                : "text-gray-900 hover:bg-gray-100"
+                ? "text-white hover:bg-neutral-800/60"
+                : "text-neutral-900 hover:bg-neutral-100"
             }`}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -272,8 +277,8 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
                   href={item.href}
                   className={`block px-4 py-2 text-lg ${
                     isDark
-                      ? "text-gray-200 hover:text-primary-400 hover:bg-gray-800/60"
-                      : "text-gray-700 hover:text-primary-600 hover:bg-gray-100"
+                      ? "text-neutral-200 hover:text-primary-400 hover:bg-neutral-800/60"
+                      : "text-neutral-700 hover:text-primary-600 hover:bg-neutral-100"
                   } rounded-lg transition-colors duration-200 relative z-10`}
                   onClick={() => {
                     setActiveHref(item.href);
@@ -286,7 +291,7 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
           })}
 
           {/* Mobile Auth Section */}
-          <div className="border-t border-gray-700 pt-2 mt-2 p-2">
+          <div className="border-t border-neutral-700 pt-2 mt-2 p-2">
             {user ? (
               <>
                 <div className="px-4 py-2 text-sm font-medium">{user.name}</div>

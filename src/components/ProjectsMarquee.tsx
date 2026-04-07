@@ -15,7 +15,7 @@ const ProjectsMarquee: React.FC = ({ isDark }) => {
               key={i}
               className="h-96 w-[500px] rounded-xl bg-white/5 p-2 flex-shrink-0"
             >
-              <div className="w-full h-full bg-gray-300 dark:bg-gray-700 rounded-md animate-pulse" />
+              <div className="w-full h-full bg-neutral-300 dark:bg-neutral-700 rounded-md animate-pulse" />
             </div>
           ))}
         </div>

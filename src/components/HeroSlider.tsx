@@ -59,6 +59,24 @@ const slides: SlideData[] = [
     cta: "احجز سيرفرك الآن",
     background: "linear-gradient(135deg, #16222a 0%, #3a6073 100%)",
   },
+  {
+    id: 5,
+    title: "أتمتة العمليات",
+    subtitle: "حلول ذكية توفر الوقت والتكلفة",
+    description:
+      "نقدم حلول أتمتة متطورة تقلل التكاليف وتوفر الوقت وتزيد من الكفاءة، باستخدام تقنيات الذكاء الاصطناعي والأتمتة الحديثة لتحسين عمليات عملك.",
+    cta: "اكتشف حلول الأتمتة",
+    background: "linear-gradient(135deg, #7f39fb 0%, #ec4899 100%)",
+  },
+  {
+    id: 6,
+    title: "التسويق الرقمي",
+    subtitle: "وصل إلى جمهورك بكفاءة عالية",
+    description:
+      "نطبق استراتيجيات تسويق رقمية متكاملة تشمل SEO و SEM والإعلانات الممولة ووسائل التواصل الاجتماعي لزيادة ظهورك وتحقيق أهدافك.",
+    cta: "ابدأ حملتك التسويقية",
+    background: "linear-gradient(135deg, #1e3a8a 0%, #059669 100%)",
+  },
 ];
 
 const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
@@ -108,7 +126,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ isDark }) => {
   return (
     <section
       id="home"
-      className="relative overflow-hidden h-screen lg:pt-5 pt-24"
+      className="relative overflow-hidden h-screen lg:pt-16 pt-24"
     >
       {isDark ? (
         <HeroBg

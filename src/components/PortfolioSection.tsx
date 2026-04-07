@@ -50,24 +50,24 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
     return (
       <section
         id="work"
-        className={`py-20 ${isDark ? "bg-gray-900" : "bg-white"}`}
+        className={`py-20 ${isDark ? "bg-neutral-900" : "bg-white"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-pulse">
           {/* Header Skeleton */}
           <div className="text-center mb-16">
             <div
               className={`h-12 w-48 mx-auto rounded ${
-                isDark ? "bg-gray-700" : "bg-gray-300"
+                isDark ? "bg-neutral-700" : "bg-neutral-300"
               } mb-6`}
             ></div>
             <div
               className={`h-6 w-3/4 mx-auto rounded ${
-                isDark ? "bg-gray-700" : "bg-gray-300"
+                isDark ? "bg-neutral-700" : "bg-neutral-300"
               } mb-4`}
             ></div>
             <div
               className={`h-6 w-1/2 mx-auto rounded ${
-                isDark ? "bg-gray-700" : "bg-gray-300"
+                isDark ? "bg-neutral-700" : "bg-neutral-300"
               }`}
             ></div>
           </div>
@@ -77,7 +77,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
               <div
                 key={i}
                 className={`h-12 w-28 rounded-full ${
-                  isDark ? "bg-gray-800/60" : "bg-gray-200"
+                  isDark ? "bg-neutral-800/60" : "bg-neutral-200"
                 }`}
               ></div>
             ))}
@@ -88,31 +88,31 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
               <div
                 key={i}
                 className={`rounded-2xl overflow-hidden ${
-                  isDark ? "bg-gray-800/60" : "bg-white"
+                  isDark ? "bg-neutral-800/60" : "bg-white"
                 }`}
               >
                 <div
-                  className={`h-64 ${isDark ? "bg-gray-700" : "bg-gray-300"}`}
+                  className={`h-64 ${isDark ? "bg-neutral-700" : "bg-neutral-300"}`}
                 ></div>
                 <div className="p-6">
                   <div
                     className={`h-4 w-1/3 rounded ${
-                      isDark ? "bg-gray-700" : "bg-gray-300"
+                      isDark ? "bg-neutral-700" : "bg-neutral-300"
                     } mb-4`}
                   ></div>
                   <div
                     className={`h-6 w-3/4 rounded ${
-                      isDark ? "bg-gray-700" : "bg-gray-300"
+                      isDark ? "bg-neutral-700" : "bg-neutral-300"
                     } mb-3`}
                   ></div>
                   <div
                     className={`h-4 w-full rounded ${
-                      isDark ? "bg-gray-700" : "bg-gray-300"
+                      isDark ? "bg-neutral-700" : "bg-neutral-300"
                     } mb-1`}
                   ></div>
                   <div
                     className={`h-4 w-5/6 rounded ${
-                      isDark ? "bg-gray-700" : "bg-gray-300"
+                      isDark ? "bg-neutral-700" : "bg-neutral-300"
                     } mb-4`}
                   ></div>
                   <div className="flex flex-wrap gap-2">
@@ -120,7 +120,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                       <div
                         key={j}
                         className={`h-6 w-16 rounded-full ${
-                          isDark ? "bg-gray-700" : "bg-gray-200"
+                          isDark ? "bg-neutral-700" : "bg-neutral-200"
                         }`}
                       ></div>
                     ))}
@@ -138,7 +138,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
     return (
       <section
         id="work"
-        className={`py-20 ${isDark ? "bg-gray-900" : "bg-white"}`}
+        className={`py-20 ${isDark ? "bg-neutral-900" : "bg-white"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ServerCrash
@@ -148,12 +148,14 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
           />
           <h2
             className={`text-3xl font-bold mb-4 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-neutral-900"
             }`}
           >
             حدث خطأ
           </h2>
-          <p className={`mb-6 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+          <p
+            className={`mb-6 ${isDark ? "text-neutral-300" : "text-neutral-600"}`}
+          >
             {(error as Error).message || "لم نتمكن من تحميل المشاريع."}
           </p>
           <button
@@ -190,7 +192,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
     return (
       <section
         id="work"
-        className={`py-20 ${isDark ? "bg-gray-900" : "bg-white"}`}
+        className={`py-20 ${isDark ? "bg-neutral-900" : "bg-white"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Info
@@ -200,12 +202,12 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
           />
           <h2
             className={`text-3xl font-bold mb-4 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-neutral-900"
             }`}
           >
             لا توجد مشاريع
           </h2>
-          <p className={`${isDark ? "text-gray-300" : "text-gray-600"}`}>
+          <p className={`${isDark ? "text-neutral-300" : "text-neutral-600"}`}>
             لا توجد مشاريع لعرضها في الوقت الحالي.
           </p>
         </div>
@@ -226,7 +228,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
         >
           <motion.h2
             className={`text-4xl md:text-5xl mb-6 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-neutral-900"
             }`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -238,7 +240,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 
           <motion.p
             className={`text-lg max-w-3xl mx-auto ${
-              isDark ? "text-gray-300" : "text-gray-600"
+              isDark ? "text-neutral-300" : "text-neutral-600"
             }`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -266,8 +268,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                 selectedCategory === category
                   ? "bg-primary-600 text-white shadow-lg"
                   : isDark
-                    ? "bg-gray-600/60 text-gray-300 hover:bg-gray-700 border border-primary-900/50"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-primary-200"
+                    ? "bg-neutral-600/60 text-neutral-300 hover:bg-neutral-700 border border-primary-900/50"
+                    : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 border border-primary-200"
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -289,7 +291,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className={`group relative rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl cursor-pointer ${
-                  isDark ? "bg-gray-800/60" : "bg-white"
+                  isDark ? "bg-neutral-800/60" : "bg-white"
                 }`}
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
@@ -309,7 +311,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                   ) : (
                     <div
                       className={`w-full h-full ${
-                        isDark ? "bg-gray-700" : "bg-gray-300"
+                        isDark ? "bg-neutral-700" : "bg-neutral-300"
                       }`}
                     />
                   )}
@@ -374,7 +376,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 
                   <motion.h3
                     className={`text-xl font-bold mb-3 ${
-                      isDark ? "text-white" : "text-gray-900"
+                      isDark ? "text-white" : "text-neutral-900"
                     }`}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -385,7 +387,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
 
                   <motion.p
                     className={`${
-                      isDark ? "text-gray-300" : "text-gray-600"
+                      isDark ? "text-neutral-300" : "text-neutral-600"
                     } mb-4 text-sm leading-relaxed`}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -406,8 +408,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
                         key={tech}
                         className={`px-3 py-1 text-xs rounded-full ${
                           isDark
-                            ? "bg-gray-700 text-gray-300"
-                            : "bg-gray-100 text-gray-600"
+                            ? "bg-neutral-700 text-neutral-300"
+                            : "bg-neutral-100 text-neutral-600"
                         }`}
                       >
                         {tech}
@@ -469,8 +471,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
               onClick={() => setVisibleProjects(PROJECTS_PER_PAGE)}
               className={`px-8 py-4 rounded-lg font-semibold transition-all duration-300 border-2 ${
                 isDark
-                  ? "border-gray-600 text-gray-400 hover:bg-gray-600 hover:text-white"
-                  : "border-gray-400 text-gray-600 hover:bg-gray-400 hover:text-white"
+                  ? "border-neutral-600 text-neutral-400 hover:bg-neutral-600 hover:text-white"
+                  : "border-neutral-400 text-neutral-600 hover:bg-neutral-400 hover:text-white"
               }`}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}

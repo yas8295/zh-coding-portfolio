@@ -55,18 +55,18 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
     return (
       <section
         id="templates"
-        className={`py-20 ${isDark ? "bg-gray-900" : "bg-gray-50"}`}
+        className={`py-20 ${isDark ? "bg-neutral-900" : "bg-neutral-50"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-pulse">
           <div className="text-center mb-16">
             <div
               className={`h-12 w-48 mx-auto rounded ${
-                isDark ? "bg-gray-700" : "bg-gray-300"
+                isDark ? "bg-neutral-700" : "bg-neutral-300"
               } mb-6`}
             ></div>
             <div
               className={`h-6 w-3/4 mx-auto rounded ${
-                isDark ? "bg-gray-700" : "bg-gray-300"
+                isDark ? "bg-neutral-700" : "bg-neutral-300"
               }`}
             ></div>
           </div>
@@ -75,21 +75,21 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
               <div
                 key={i}
                 className={`rounded-2xl overflow-hidden ${
-                  isDark ? "bg-gray-800/60" : "bg-white"
+                  isDark ? "bg-neutral-800/60" : "bg-white"
                 }`}
               >
                 <div
-                  className={`h-64 ${isDark ? "bg-gray-700" : "bg-gray-300"}`}
+                  className={`h-64 ${isDark ? "bg-neutral-700" : "bg-neutral-300"}`}
                 ></div>
                 <div className="p-6 space-y-4">
                   <div
                     className={`h-4 w-1/3 rounded ${
-                      isDark ? "bg-gray-700" : "bg-gray-300"
+                      isDark ? "bg-neutral-700" : "bg-neutral-300"
                     }`}
                   ></div>
                   <div
                     className={`h-4 w-full rounded ${
-                      isDark ? "bg-gray-700" : "bg-gray-300"
+                      isDark ? "bg-neutral-700" : "bg-neutral-300"
                     }`}
                   ></div>
                 </div>
@@ -108,7 +108,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
   return (
     <section
       id="templates"
-      className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
+      className={`py-20 ${isDark ? "bg-neutral-800/60" : "bg-neutral-50"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -126,7 +126,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
           </h2>
           <p
             className={`text-lg ${
-              isDark ? "text-gray-400" : "text-gray-600"
+              isDark ? "text-neutral-400" : "text-neutral-600"
             } max-w-2xl mx-auto`}
           >
             استعرض مجموعتنا الحصرية من التمبلاتس والمشاريع الجاهزة للاستخدام
@@ -151,7 +151,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
               onMouseLeave={() => setHoveredTemplate(null)}
               className={`rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${
                 isDark
-                  ? "bg-gray-800/60 hover:bg-gray-750"
+                  ? "bg-neutral-800/60 hover:bg-neutral-750"
                   : "bg-white hover:shadow-2xl"
               } ${
                 hoveredTemplate === template.id ? "shadow-2xl" : "shadow-lg"
@@ -169,7 +169,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                 <div
                   className={`absolute inset-0 bg-gradient-to-t ${
                     isDark
-                      ? "from-gray-900 via-transparent"
+                      ? "from-neutral-900 via-transparent"
                       : "from-black/40 via-transparent"
                   } transition-opacity duration-300 ${
                     hoveredTemplate === template.id
@@ -205,7 +205,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                       rel="noopener noreferrer"
                       className={`py-2 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors ${
                         isDark
-                          ? "bg-gray-700 hover:bg-gray-600 text-white"
+                          ? "bg-neutral-700 hover:bg-neutral-600 text-white"
                           : "bg-white/20 hover:bg-white/30 text-white"
                       }`}
                     >
@@ -232,7 +232,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
               <div className="p-6">
                 <h3
                   className={`text-xl font-bold mb-2 ${
-                    isDark ? "text-white" : "text-gray-900"
+                    isDark ? "text-white" : "text-neutral-900"
                   }`}
                 >
                   {template.name
@@ -243,7 +243,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
 
                 <p
                   className={`text-sm mb-4 line-clamp-2 ${
-                    isDark ? "text-gray-400" : "text-gray-600"
+                    isDark ? "text-neutral-400" : "text-neutral-600"
                   }`}
                 >
                   {template.description}
@@ -256,7 +256,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                       key={idx}
                       className={`text-xs px-2 py-1 rounded-full ${
                         isDark
-                          ? "bg-gray-700 text-primary-300"
+                          ? "bg-neutral-700 text-primary-300"
                           : "bg-primary-100 text-primary-700"
                       }`}
                     >
@@ -267,8 +267,8 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                     <span
                       className={`text-xs px-2 py-1 rounded-full ${
                         isDark
-                          ? "bg-gray-700 text-gray-300"
-                          : "bg-gray-200 text-gray-700"
+                          ? "bg-neutral-700 text-neutral-300"
+                          : "bg-neutral-200 text-neutral-700"
                       }`}
                     >
                       +{template.technologies.length - 2} more
@@ -317,7 +317,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
               className={`max-w-6xl w-full rounded-3xl overflow-hidden max-h-[90vh] overflow-y-auto ${
-                isDark ? "bg-gray-800/60" : "bg-white"
+                isDark ? "bg-neutral-800/60" : "bg-white"
               }`}
             >
               {/* Backdrop */}
@@ -347,7 +347,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
               <div className="p-8">
                 <h2
                   className={`text-3xl font-bold mb-4 ${
-                    isDark ? "text-white" : "text-gray-900"
+                    isDark ? "text-white" : "text-neutral-900"
                   }`}
                 >
                   {selectedTemplate.name
@@ -358,7 +358,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
 
                 <p
                   className={`text-lg mb-6 ${
-                    isDark ? "text-gray-300" : "text-gray-700"
+                    isDark ? "text-neutral-300" : "text-neutral-700"
                   }`}
                 >
                   {selectedTemplate.description}
@@ -370,7 +370,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                     <div className="mb-8">
                       <h3
                         className={`text-xl font-bold mb-4 ${
-                          isDark ? "text-white" : "text-gray-900"
+                          isDark ? "text-white" : "text-neutral-900"
                         }`}
                       >
                         صور العمل
@@ -379,7 +379,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                         {selectedTemplate.images.slice(0, 4).map((img, idx) => (
                           <div
                             key={idx}
-                            className="rounded-lg overflow-hidden h-72 w-full bg-gray-300"
+                            className="rounded-lg overflow-hidden h-72 w-full bg-neutral-300"
                           >
                             <img
                               src={img}
@@ -396,7 +396,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                 <div className="mb-8">
                   <h3
                     className={`text-xl font-bold mb-4 ${
-                      isDark ? "text-white" : "text-gray-900"
+                      isDark ? "text-white" : "text-neutral-900"
                     }`}
                   >
                     التقنيات المستخدمة
@@ -407,7 +407,7 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                         key={idx}
                         className={`text-sm px-3 py-2 rounded-lg ${
                           isDark
-                            ? "bg-gray-700 text-primary-300"
+                            ? "bg-neutral-700 text-primary-300"
                             : "bg-primary-100 text-primary-700"
                         }`}
                       >
@@ -445,8 +445,8 @@ const TemplatesSection: React.FC<TemplatesSectionProps> = ({ isDark }) => {
                     }}
                     className={`flex-1 py-3 px-6 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
                       isDark
-                        ? "bg-gray-700 text-white hover:bg-gray-600"
-                        : "bg-gray-200 text-gray-900 hover:bg-gray-300"
+                        ? "bg-neutral-700 text-white hover:bg-neutral-600"
+                        : "bg-neutral-200 text-neutral-900 hover:bg-neutral-300"
                     }`}
                   >
                     <ShoppingCart size={20} />

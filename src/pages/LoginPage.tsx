@@ -38,7 +38,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ isDark }) => {
       { data: formData },
       {
         onSuccess: () => {
-          navigate("/dashboard");
+          navigate(-1);
         },
       },
     );

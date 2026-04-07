@@ -62,14 +62,14 @@ const CoursesSection: React.FC<CoursesSectionProps> = ({ isDark }) => {
         >
           <h2
             className={`text-4xl md:text-5xl mb-6 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-neutral-900"
             }`}
           >
             دوراتنا <span className="text-primary-600">التدريبية</span>
           </h2>
           <p
             className={`text-lg max-w-3xl mx-auto ${
-              isDark ? "text-gray-300" : "text-gray-600"
+              isDark ? "text-neutral-300" : "text-neutral-600"
             }`}
           >
             انضم إلى دوراتنا المتخصصة والمصممة لتزويدك بالمهارات العملية التي
@@ -83,10 +83,10 @@ const CoursesSection: React.FC<CoursesSectionProps> = ({ isDark }) => {
               key={index}
               className={`relative group rounded-2xl p-8 overflow-hidden transition-all duration-500 ${
                 isDark
-                  ? "bg-gray-800/60 hover:bg-gray-700"
-                  : "bg-gray-50 hover:bg-white"
+                  ? "bg-neutral-800/60 hover:bg-neutral-700"
+                  : "bg-neutral-50 hover:bg-white"
               } border ${
-                isDark ? "border-gray-700" : "border-gray-200"
+                isDark ? "border-neutral-700" : "border-neutral-200"
               } hover:shadow-2xl hover:border-primary-500/50`}
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -104,14 +104,14 @@ const CoursesSection: React.FC<CoursesSectionProps> = ({ isDark }) => {
                 />
                 <h3
                   className={`text-xl font-bold mb-3 ${
-                    isDark ? "text-white" : "text-gray-900"
+                    isDark ? "text-white" : "text-neutral-900"
                   }`}
                 >
                   {course.title}
                 </h3>
                 <p
                   className={`mb-6 ${
-                    isDark ? "text-gray-300" : "text-gray-600"
+                    isDark ? "text-neutral-300" : "text-neutral-600"
                   }`}
                 >
                   {course.description}

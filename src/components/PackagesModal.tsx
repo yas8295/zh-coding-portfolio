@@ -89,7 +89,7 @@ const PackagesModal: React.FC<PackagesModalProps> = ({
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
             className={`max-w-4xl w-full rounded-3xl max-h-[90vh] overflow-y-auto ${
-              isDark ? "bg-gray-800/60" : "bg-white"
+              isDark ? "bg-neutral-800/60" : "bg-white"
             }`}
           >
             {/* Close Button */}
@@ -101,17 +101,17 @@ const PackagesModal: React.FC<PackagesModalProps> = ({
             </button>
 
             {/* Header */}
-            <div className="p-8 border-b border-gray-700">
+            <div className="p-8 border-b border-neutral-700">
               <h2
                 className={`text-3xl font-bold ${
-                  isDark ? "text-white" : "text-gray-900"
+                  isDark ? "text-white" : "text-neutral-900"
                 }`}
               >
                 اختر باقتك
               </h2>
               <p
                 className={`text-lg mt-2 ${
-                  isDark ? "text-gray-400" : "text-gray-600"
+                  isDark ? "text-neutral-400" : "text-neutral-600"
                 }`}
               >
                 {selectedTemplate?.name}
@@ -137,13 +137,13 @@ const PackagesModal: React.FC<PackagesModalProps> = ({
                           selectedPackage === pkg.id
                             ? "border-primary-600 bg-primary-600/10"
                             : isDark
-                              ? "border-gray-700 bg-gray-700/50"
-                              : "border-gray-200 bg-gray-50"
+                              ? "border-neutral-700 bg-neutral-700/50"
+                              : "border-neutral-200 bg-neutral-50"
                         }`}
                       >
                         <h3
                           className={`text-xl font-bold mb-2 ${
-                            isDark ? "text-white" : "text-gray-900"
+                            isDark ? "text-white" : "text-neutral-900"
                           }`}
                         >
                           {pkg.name}
@@ -154,7 +154,7 @@ const PackagesModal: React.FC<PackagesModalProps> = ({
                           </span>
                           <span
                             className={`text-sm ml-2 ${
-                              isDark ? "text-gray-400" : "text-gray-600"
+                              isDark ? "text-neutral-400" : "text-neutral-600"
                             }`}
                           >
                             ر.س
@@ -165,7 +165,7 @@ const PackagesModal: React.FC<PackagesModalProps> = ({
                             <li
                               key={idx}
                               className={`flex items-start gap-2 text-sm ${
-                                isDark ? "text-gray-300" : "text-gray-700"
+                                isDark ? "text-neutral-300" : "text-neutral-700"
                               }`}
                             >
                               <Check
@@ -206,8 +206,8 @@ const PackagesModal: React.FC<PackagesModalProps> = ({
                       onClick={onClose}
                       className={`flex-1 py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
                         isDark
-                          ? "bg-gray-700 text-white hover:bg-gray-600"
-                          : "bg-gray-200 text-gray-900 hover:bg-gray-300"
+                          ? "bg-neutral-700 text-white hover:bg-neutral-600"
+                          : "bg-neutral-200 text-neutral-900 hover:bg-neutral-300"
                       }`}
                     >
                       إغلاق

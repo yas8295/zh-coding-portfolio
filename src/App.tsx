@@ -20,6 +20,8 @@ import TemplatesSection from "./components/TemplatesSection";
 // Pages
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import BlogPage from "./pages/BlogPage";
+import BlogDetailPage from "./pages/BlogDetailPage";
 
 // Hooks
 // import { useCursor } from "./hooks/useCursor";
@@ -27,6 +29,8 @@ import RegisterPage from "./pages/RegisterPage";
 import { useProjects } from "./hooks/projectsHooks/useProjects";
 import LinksSection from "./components/LinksSection";
 import PackagesSection from "./components/PackagesSection";
+import JobsSection from "./components/JobsSection";
+import BlogSection from "./components/BlogSection";
 
 function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -103,7 +107,7 @@ function App() {
               isDark ? "text-white" : "text-gray-900"
             }`}
           >
-            ZH-CODING
+            ZH-innovation
           </motion.h1>
 
           <motion.p
@@ -149,6 +153,14 @@ function App() {
       <Route path="/login" element={<LoginPage isDark={isDark} />} />
       <Route path="/register" element={<RegisterPage isDark={isDark} />} />
       <Route
+        path="/blog"
+        element={<BlogPage isDark={isDark} toggleTheme={toggleTheme} />}
+      />
+      <Route
+        path="/blog/:id"
+        element={<BlogDetailPage isDark={isDark} toggleTheme={toggleTheme} />}
+      />
+      <Route
         index
         path="*"
         element={
@@ -187,6 +199,10 @@ function App() {
                 <TeamSection isDark={isDark} />
                 {/* Courses Section */}
                 <CoursesSection isDark={isDark} />
+                {/* Jobs Section */}
+                <JobsSection isDark={isDark} />
+                {/* Blog Section */}
+                <BlogSection isDark={isDark} />
                 {/* Contact Section */}
                 <ContactSection isDark={isDark} />
               </main>

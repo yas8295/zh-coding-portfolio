@@ -40,8 +40,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
     {
       icon: Mail,
       title: "راسلنا",
-      details: "info@zh-coding.com",
-      action: "mailto:info@zh-coding.com",
+      details: "info@zh-innovation.com",
+      action: "mailto:info@zh-innovation.com",
     },
     {
       icon: Phone,
@@ -61,7 +61,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
   return (
     <section
       id="contact"
-      className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
+      className={`py-20 ${isDark ? "bg-neutral-800/60" : "bg-neutral-50"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -74,7 +74,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
         >
           <motion.h2
             className={`text-4xl md:text-5xl mb-6 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-neutral-900"
             }`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
 
           <motion.p
             className={`text-lg max-w-3xl mx-auto ${
-              isDark ? "text-gray-300" : "text-gray-600"
+              isDark ? "text-neutral-300" : "text-neutral-600"
             }`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -103,7 +103,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
           {/* Contact Form */}
           <motion.div
             className={`${
-              isDark ? "bg-gray-900" : "bg-white"
+              isDark ? "bg-neutral-900" : "bg-white"
             } rounded-2xl p-8 shadow-xl`}
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -112,7 +112,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
           >
             <motion.h3
               className={`text-2xl font-bold mb-6 ${
-                isDark ? "text-white" : "text-gray-900"
+                isDark ? "text-white" : "text-neutral-900"
               }`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -132,7 +132,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
               >
                 <label
                   className={`block text-sm font-medium mb-2 ${
-                    isDark ? "text-gray-300" : "text-gray-700"
+                    isDark ? "text-neutral-300" : "text-neutral-700"
                   }`}
                 >
                   الاسم *
@@ -144,8 +144,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                     errors.name
                       ? "border-red-500"
                       : isDark
-                        ? "border-primary-900 bg-gray-800/60 text-white focus:border-primary-500"
-                        : "border-gray-300 bg-white text-gray-900 focus:border-primary-500"
+                        ? "border-primary-900 bg-neutral-800/60 text-white focus:border-primary-500"
+                        : "border-neutral-300 bg-white text-neutral-900 focus:border-primary-500"
                   }`}
                   placeholder="اسمك الكامل"
                 />
@@ -165,7 +165,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
               >
                 <label
                   className={`block text-sm font-medium mb-2 ${
-                    isDark ? "text-gray-300" : "text-gray-700"
+                    isDark ? "text-neutral-300" : "text-neutral-700"
                   }`}
                 >
                   البريد الإلكتروني *
@@ -183,8 +183,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                     errors.email
                       ? "border-red-500"
                       : isDark
-                        ? "border-primary-900 bg-gray-800/60 text-white focus:border-primary-500"
-                        : "border-gray-300 bg-white text-gray-900 focus:border-primary-500"
+                        ? "border-primary-900 bg-neutral-800/60 text-white focus:border-primary-500"
+                        : "border-neutral-300 bg-white text-neutral-900 focus:border-primary-500"
                   }`}
                   placeholder="your.email@example.com"
                 />
@@ -204,7 +204,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
               >
                 <label
                   className={`block text-sm font-medium mb-2 ${
-                    isDark ? "text-gray-300" : "text-gray-700"
+                    isDark ? "text-neutral-300" : "text-neutral-700"
                   }`}
                 >
                   رقم الهاتف *
@@ -222,8 +222,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                     errors.phone
                       ? "border-red-500"
                       : isDark
-                        ? "border-primary-900 bg-gray-800/60 text-white focus:border-primary-500"
-                        : "border-gray-300 bg-white text-gray-900 focus:border-primary-500"
+                        ? "border-primary-900 bg-neutral-800/60 text-white focus:border-primary-500"
+                        : "border-neutral-300 bg-white text-neutral-900 focus:border-primary-500"
                   }`}
                   placeholder="رقم هاتفك"
                 />
@@ -243,7 +243,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
               >
                 <label
                   className={`block text-sm font-medium mb-2 ${
-                    isDark ? "text-gray-300" : "text-gray-700"
+                    isDark ? "text-neutral-300" : "text-neutral-700"
                   }`}
                 >
                   الخدمة المطلوبة *
@@ -256,8 +256,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                       errors.service
                         ? "border-red-500"
                         : isDark
-                          ? "border-primary-900 bg-gray-800/60 text-white focus:border-primary-500"
-                          : "border-gray-300 bg-white text-gray-900 focus:border-primary-500"
+                          ? "border-primary-900 bg-neutral-800/60 text-white focus:border-primary-500"
+                          : "border-neutral-300 bg-white text-neutral-900 focus:border-primary-500"
                     }`}
                   >
                     <option value="">
@@ -271,7 +271,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                       </option>
                     ))}
                   </select>
-                  <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center px-3 text-gray-400">
+                  <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center px-3 text-neutral-400">
                     <ChevronDown className="h-5 w-5" />
                   </div>
                 </div>
@@ -291,7 +291,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
               >
                 <label
                   className={`block text-sm font-medium mb-2 ${
-                    isDark ? "text-gray-300" : "text-gray-700"
+                    isDark ? "text-neutral-300" : "text-neutral-700"
                   }`}
                 >
                   الرسالة *
@@ -303,8 +303,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                     errors.message
                       ? "border-red-500"
                       : isDark
-                        ? "border-primary-900 bg-gray-800/60 text-white focus:border-primary-500"
-                        : "border-gray-300 bg-white text-gray-900 focus:border-primary-500"
+                        ? "border-primary-900 bg-neutral-800/60 text-white focus:border-primary-500"
+                        : "border-neutral-300 bg-white text-neutral-900 focus:border-primary-500"
                   }`}
                   placeholder="أخبرنا عن مشروعك..."
                 />
@@ -366,8 +366,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                   href={info.action}
                   className={`group block p-6 rounded-2xl transition-all duration-300 ${
                     isDark
-                      ? "bg-gray-900 hover:bg-gray-800/60"
-                      : "bg-white hover:bg-gray-50"
+                      ? "bg-neutral-900 hover:bg-neutral-800/60"
+                      : "bg-white hover:bg-neutral-50"
                   } shadow-lg hover:shadow-xl`}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -386,14 +386,14 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
                     <div>
                       <h4
                         className={`font-semibold ${
-                          isDark ? "text-white" : "text-gray-900"
+                          isDark ? "text-white" : "text-neutral-900"
                         }`}
                       >
                         {info.title}
                       </h4>
                       <p
                         className={`${
-                          isDark ? "text-gray-300" : "text-gray-600"
+                          isDark ? "text-neutral-300" : "text-neutral-600"
                         } group-hover:text-primary-600 transition-colors duration-200`}
                       >
                         {info.details}
@@ -407,7 +407,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDark }) => {
             {/* Map Placeholder */}
             <motion.div
               className={`h-64 rounded-2xl overflow-hidden ${
-                isDark ? "bg-gray-900" : "bg-gray-200"
+                isDark ? "bg-neutral-900" : "bg-neutral-200"
               } shadow-lg`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

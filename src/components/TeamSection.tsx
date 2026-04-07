@@ -121,18 +121,18 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
     return (
       <section
         id="team"
-        className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
+        className={`py-20 ${isDark ? "bg-neutral-800/60" : "bg-neutral-50"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-pulse">
           <div className="text-center mb-16">
             <div
               className={`h-12 w-64 mx-auto rounded ${
-                isDark ? "bg-gray-700" : "bg-gray-300"
+                isDark ? "bg-neutral-700" : "bg-neutral-300"
               } mb-6`}
             ></div>
             <div
               className={`h-6 w-3/4 mx-auto rounded ${
-                isDark ? "bg-gray-700" : "bg-gray-300"
+                isDark ? "bg-neutral-700" : "bg-neutral-300"
               }`}
             ></div>
           </div>
@@ -141,16 +141,16 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
               <div
                 key={i}
                 className={`rounded-2xl overflow-hidden ${
-                  isDark ? "bg-gray-900" : "bg-white"
+                  isDark ? "bg-neutral-900" : "bg-white"
                 }`}
               >
                 <div
-                  className={`h-80 ${isDark ? "bg-gray-700" : "bg-gray-300"}`}
+                  className={`h-80 ${isDark ? "bg-neutral-700" : "bg-neutral-300"}`}
                 ></div>
                 <div className="p-6">
                   <div
                     className={`h-4 w-full rounded ${
-                      isDark ? "bg-gray-700" : "bg-gray-300"
+                      isDark ? "bg-neutral-700" : "bg-neutral-300"
                     } mb-4`}
                   ></div>
                   <div className="flex gap-2">
@@ -158,7 +158,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                       <div
                         key={j}
                         className={`h-6 w-16 rounded-full ${
-                          isDark ? "bg-gray-700" : "bg-gray-200"
+                          isDark ? "bg-neutral-700" : "bg-neutral-200"
                         }`}
                       ></div>
                     ))}
@@ -177,7 +177,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
   return (
     <section
       id="team"
-      className={`py-20 ${isDark ? "bg-gray-800/60" : "bg-gray-50"}`}
+      className={`py-20 ${isDark ? "bg-neutral-800/60" : "bg-neutral-50"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -190,7 +190,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
         >
           <motion.h2
             className={`text-4xl md:text-5xl mb-6 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-neutral-900"
             }`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -203,7 +203,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
 
           <motion.p
             className={`text-lg max-w-3xl mx-auto ${
-              isDark ? "text-gray-300" : "text-gray-600"
+              isDark ? "text-neutral-300" : "text-neutral-600"
             }`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -230,8 +230,8 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                       Math.floor(selectedIndex / 4) === index
                         ? "bg-primary-600 scale-125"
                         : isDark
-                          ? "bg-gray-600 hover:bg-gray-500"
-                          : "bg-gray-300 hover:bg-gray-400"
+                          ? "bg-neutral-600 hover:bg-neutral-500"
+                          : "bg-neutral-300 hover:bg-neutral-400"
                     }`}
                   />
                 ),
@@ -244,9 +244,9 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                 className={`p-3 rounded-full transition-all duration-200 ${
                   canScrollNext
                     ? isDark
-                      ? "bg-gray-700 text-white hover:bg-gray-600"
-                      : "bg-white text-gray-900 hover:bg-gray-100 shadow-lg"
-                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                      ? "bg-neutral-700 text-white hover:bg-neutral-600"
+                      : "bg-white text-neutral-900 hover:bg-neutral-100 shadow-lg"
+                    : "bg-neutral-300 text-neutral-500 cursor-not-allowed"
                 }`}
                 whileHover={canScrollNext ? { scale: 1.05 } : {}}
                 whileTap={canScrollNext ? { scale: 0.95 } : {}}
@@ -259,9 +259,9 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                 className={`p-3 rounded-full transition-all duration-200 ${
                   canScrollPrev
                     ? isDark
-                      ? "bg-gray-700 text-white hover:bg-gray-600"
-                      : "bg-white text-gray-900 hover:bg-gray-100 shadow-lg"
-                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                      ? "bg-neutral-700 text-white hover:bg-neutral-600"
+                      : "bg-white text-neutral-900 hover:bg-neutral-100 shadow-lg"
+                    : "bg-neutral-300 text-neutral-500 cursor-not-allowed"
                 }`}
                 whileHover={canScrollPrev ? { scale: 1.05 } : {}}
                 whileTap={canScrollPrev ? { scale: 0.95 } : {}}
@@ -281,7 +281,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                 >
                   <motion.div
                     className={`group relative rounded-2xl overflow-hidden h-full ${
-                      isDark ? "bg-gray-900" : "bg-white"
+                      isDark ? "bg-neutral-900" : "bg-white"
                     } shadow-xl hover:shadow-2xl transition-all duration-500`}
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -396,7 +396,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isDark }) => {
                     >
                       <p
                         className={`${
-                          isDark ? "text-gray-300" : "text-gray-600"
+                          isDark ? "text-neutral-300" : "text-neutral-600"
                         } mb-4 text-sm leading-relaxed`}
                       >
                         {member.description}

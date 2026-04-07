@@ -24,24 +24,24 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
     return (
       <section
         id="packages"
-        className={`py-20 ${isDark ? "bg-gray-900" : "bg-white"}`}
+        className={`py-20 ${isDark ? "bg-neutral-900" : "bg-white"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-pulse">
           {/* Header Skeleton */}
           <div className="text-center mb-16">
             <div
               className={`h-12 w-48 mx-auto rounded ${
-                isDark ? "bg-gray-700" : "bg-gray-300"
+                isDark ? "bg-neutral-700" : "bg-neutral-300"
               } mb-6`}
             ></div>
             <div
               className={`h-6 w-3/4 mx-auto rounded ${
-                isDark ? "bg-gray-700" : "bg-gray-300"
+                isDark ? "bg-neutral-700" : "bg-neutral-300"
               } mb-4`}
             ></div>
             <div
               className={`h-6 w-1/2 mx-auto rounded ${
-                isDark ? "bg-gray-700" : "bg-gray-300"
+                isDark ? "bg-neutral-700" : "bg-neutral-300"
               }`}
             ></div>
           </div>
@@ -51,17 +51,17 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
               <div
                 key={i}
                 className={`rounded-2xl p-8 ${
-                  isDark ? "bg-gray-800/60" : "bg-gray-50"
+                  isDark ? "bg-neutral-800/60" : "bg-neutral-50"
                 }`}
               >
                 <div
                   className={`h-8 w-2/3 rounded ${
-                    isDark ? "bg-gray-700" : "bg-gray-300"
+                    isDark ? "bg-neutral-700" : "bg-neutral-300"
                   } mb-4`}
                 ></div>
                 <div
                   className={`h-10 w-1/2 rounded ${
-                    isDark ? "bg-gray-700" : "bg-gray-300"
+                    isDark ? "bg-neutral-700" : "bg-neutral-300"
                   } mb-6`}
                 ></div>
                 <div className="space-y-3">
@@ -69,7 +69,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                     <div
                       key={j}
                       className={`h-4 w-full rounded ${
-                        isDark ? "bg-gray-700" : "bg-gray-300"
+                        isDark ? "bg-neutral-700" : "bg-neutral-300"
                       }`}
                     ></div>
                   ))}
@@ -86,7 +86,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
     return (
       <section
         id="packages"
-        className={`py-20 ${isDark ? "bg-gray-900" : "bg-white"}`}
+        className={`py-20 ${isDark ? "bg-neutral-900" : "bg-white"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ServerCrash
@@ -96,12 +96,14 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
           />
           <h2
             className={`text-3xl font-bold mb-4 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-neutral-900"
             }`}
           >
             حدث خطأ
           </h2>
-          <p className={`mb-6 ${isDark ? "text-gray-300" : "text-gray-600"}`}>
+          <p
+            className={`mb-6 ${isDark ? "text-neutral-300" : "text-neutral-600"}`}
+          >
             {(error as Error).message || "لم نتمكن من تحميل الباقات."}
           </p>
           <button
@@ -119,7 +121,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
     return (
       <section
         id="packages"
-        className={`py-20 ${isDark ? "bg-gray-900" : "bg-white"}`}
+        className={`py-20 ${isDark ? "bg-neutral-900" : "bg-white"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Info
@@ -129,12 +131,12 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
           />
           <h2
             className={`text-3xl font-bold mb-4 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-neutral-900"
             }`}
           >
             لا توجد باقات
           </h2>
-          <p className={`${isDark ? "text-gray-300" : "text-gray-600"}`}>
+          <p className={`${isDark ? "text-neutral-300" : "text-neutral-600"}`}>
             لا توجد باقات متاحة حالياً.
           </p>
         </div>
@@ -155,7 +157,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
         >
           <motion.h2
             className={`text-4xl md:text-5xl mb-6 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-neutral-900"
             }`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -169,7 +171,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
 
           <motion.p
             className={`text-lg max-w-3xl mx-auto ${
-              isDark ? "text-gray-300" : "text-gray-600"
+              isDark ? "text-neutral-300" : "text-neutral-600"
             }`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -193,8 +195,8 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                       ? "bg-gradient-to-br from-primary-900 to-primary-900 ring-2 ring-primary-600"
                       : "bg-gradient-to-br from-primary-50 to-primary-50 ring-2 ring-primary-600"
                     : isDark
-                      ? "bg-gray-800/60"
-                      : "bg-gray-50"
+                      ? "bg-neutral-800/60"
+                      : "bg-neutral-50"
                 } shadow-xl hover:shadow-2xl transition-all duration-500`}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -230,7 +232,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                   {/* Package Title */}
                   <motion.h3
                     className={`text-2xl font-bold mb-4 ${
-                      isDark ? "text-white" : "text-gray-900"
+                      isDark ? "text-white" : "text-neutral-900"
                     }`}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -256,7 +258,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                       </span>
                       <span
                         className={`text-lg font-semibold ${
-                          isDark ? "text-gray-300" : "text-gray-600"
+                          isDark ? "text-neutral-300" : "text-neutral-600"
                         }`}
                       >
                         دولار
@@ -264,7 +266,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                     </div>
                     <p
                       className={`text-sm mt-2 ${
-                        isDark ? "text-gray-400" : "text-gray-500"
+                        isDark ? "text-neutral-400" : "text-neutral-500"
                       }`}
                     >
                       السعر شامل الخدمات الأساسية
@@ -300,7 +302,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                         </motion.div>
                         <span
                           className={`text-sm leading-relaxed ${
-                            isDark ? "text-gray-200" : "text-gray-700"
+                            isDark ? "text-neutral-200" : "text-neutral-700"
                           }`}
                         >
                           {feature}
@@ -334,7 +336,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                   <AnimatePresence>
                     {expandedPackage === pkg.id && pkg.features.length > 5 && (
                       <motion.div
-                        className="space-y-3 mb-8 pt-6 border-t border-gray-600/30"
+                        className="space-y-3 mb-8 pt-6 border-t border-neutral-600/30"
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
@@ -361,7 +363,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                             </motion.div>
                             <span
                               className={`text-sm leading-relaxed ${
-                                isDark ? "text-gray-200" : "text-gray-700"
+                                isDark ? "text-neutral-200" : "text-neutral-700"
                               }`}
                             >
                               {feature}
@@ -379,8 +381,8 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
                       isPopular
                         ? "bg-gradient-to-r from-primary-600 to-primary-600 text-white hover:from-primary-700 hover:to-primary-700"
                         : isDark
-                          ? "bg-gray-700 text-white hover:bg-gray-600"
-                          : "bg-gray-200 text-gray-900 hover:bg-gray-300"
+                          ? "bg-neutral-700 text-white hover:bg-neutral-600"
+                          : "bg-neutral-200 text-neutral-900 hover:bg-neutral-300"
                     }`}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -417,7 +419,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ isDark }) => {
         >
           <p
             className={`text-lg mb-6 ${
-              isDark ? "text-gray-300" : "text-gray-600"
+              isDark ? "text-neutral-300" : "text-neutral-600"
             }`}
           >
             هل تريد باقة مخصصة تناسب احتياجات مشروعك؟

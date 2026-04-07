@@ -39,7 +39,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
           {/* Modal Content */}
           <motion.div
             className={`relative w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-2xl ${
-              isDark ? "bg-gray-900" : "bg-white"
+              isDark ? "bg-neutral-900" : "bg-white"
             } shadow-2xl`}
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -51,8 +51,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
               onClick={onClose}
               className={`absolute top-4 right-4 z-10 p-2 rounded-full ${
                 isDark
-                  ? "bg-gray-800/60 text-white hover:bg-gray-700"
-                  : "bg-white text-gray-900 hover:bg-gray-100"
+                  ? "bg-neutral-800/60 text-white hover:bg-neutral-700"
+                  : "bg-white text-neutral-900 hover:bg-neutral-100"
               } shadow-lg transition-colors duration-200`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -73,7 +73,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
               ) : (
                 <div
                   className={`w-full h-full ${
-                    isDark ? "bg-gray-800/60" : "bg-gray-200"
+                    isDark ? "bg-neutral-800/60" : "bg-neutral-200"
                   }`}
                 />
               )}
@@ -151,14 +151,14 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                   >
                     <h2
                       className={`text-2xl font-bold mb-4 ${
-                        isDark ? "text-white" : "text-gray-900"
+                        isDark ? "text-white" : "text-neutral-900"
                       }`}
                     >
                       نظرة عامة على المشروع
                     </h2>
                     <p
                       className={`text-lg leading-relaxed ${
-                        isDark ? "text-gray-300" : "text-gray-600"
+                        isDark ? "text-neutral-300" : "text-neutral-600"
                       }`}
                     >
                       {project.description}
@@ -175,7 +175,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                     >
                       <h3
                         className={`text-xl font-bold mb-4 ${
-                          isDark ? "text-white" : "text-gray-900"
+                          isDark ? "text-white" : "text-neutral-900"
                         }`}
                       >
                         الميزات الرئيسية
@@ -185,7 +185,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                           <motion.div
                             key={index}
                             className={`flex items-center space-x-3 p-3 rounded-lg ${
-                              isDark ? "bg-gray-800/60" : "bg-gray-50"
+                              isDark ? "bg-neutral-800/60" : "bg-neutral-50"
                             }`}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -194,7 +194,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                             <div className="w-2 h-2 bg-primary-600 rounded-full" />
                             <span
                               className={
-                                isDark ? "text-gray-300" : "text-gray-700"
+                                isDark ? "text-neutral-300" : "text-neutral-700"
                               }
                             >
                               {feature}
@@ -215,7 +215,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                     >
                       <h3
                         className={`text-xl font-bold mb-4 ${
-                          isDark ? "text-white" : "text-gray-900"
+                          isDark ? "text-white" : "text-neutral-900"
                         }`}
                       >
                         التحديات التقنية
@@ -225,7 +225,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                           <motion.div
                             key={index}
                             className={`p-4 rounded-lg border-l-4 border-orange-500 ${
-                              isDark ? "bg-gray-800/60" : "bg-orange-50"
+                              isDark ? "bg-neutral-800/60" : "bg-orange-50"
                             }`}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -233,7 +233,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                           >
                             <span
                               className={
-                                isDark ? "text-gray-300" : "text-gray-700"
+                                isDark ? "text-neutral-300" : "text-neutral-700"
                               }
                             >
                               {challenge}
@@ -253,7 +253,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                     >
                       <h3
                         className={`text-xl font-bold mb-4 ${
-                          isDark ? "text-white" : "text-gray-900"
+                          isDark ? "text-white" : "text-neutral-900"
                         }`}
                       >
                         النتائج والتأثير
@@ -263,7 +263,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                           <motion.div
                             key={index}
                             className={`p-4 rounded-lg border-l-4 border-green-500 ${
-                              isDark ? "bg-gray-800/60" : "bg-green-50"
+                              isDark ? "bg-neutral-800/60" : "bg-green-50"
                             }`}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -273,7 +273,9 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                               <Award className="w-5 h-5 text-green-500" />
                               <span
                                 className={
-                                  isDark ? "text-gray-300" : "text-gray-700"
+                                  isDark
+                                    ? "text-neutral-300"
+                                    : "text-neutral-700"
                                 }
                               >
                                 {result}
@@ -291,7 +293,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                   {/* Project Info */}
                   <motion.div
                     className={`p-6 rounded-2xl ${
-                      isDark ? "bg-gray-800/60" : "bg-gray-50"
+                      isDark ? "bg-neutral-800/60" : "bg-neutral-50"
                     } mb-6`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -299,7 +301,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                   >
                     <h3
                       className={`text-lg font-bold mb-4 ${
-                        isDark ? "text-white" : "text-gray-900"
+                        isDark ? "text-white" : "text-neutral-900"
                       }`}
                     >
                       تفاصيل المشروع
@@ -311,14 +313,14 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                           <div>
                             <div
                               className={`text-sm ${
-                                isDark ? "text-gray-400" : "text-gray-500"
+                                isDark ? "text-neutral-400" : "text-neutral-500"
                               }`}
                             >
                               المدة
                             </div>
                             <div
                               className={
-                                isDark ? "text-gray-300" : "text-gray-700"
+                                isDark ? "text-neutral-300" : "text-neutral-700"
                               }
                             >
                               {project.duration}
@@ -332,7 +334,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                           <div>
                             <div
                               className={`text-sm ${
-                                isDark ? "text-gray-400" : "text-gray-500"
+                                isDark ? "text-neutral-400" : "text-neutral-500"
                               }`}
                             >
                               الموقع
@@ -343,8 +345,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                               rel="noopener noreferrer"
                               className={
                                 isDark
-                                  ? "text-gray-300 line-clamp-2"
-                                  : "text-gray-700 line-clamp-2"
+                                  ? "text-neutral-300 line-clamp-2"
+                                  : "text-neutral-700 line-clamp-2"
                               }
                             >
                               {project.location}
@@ -358,14 +360,14 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                           <div>
                             <div
                               className={`text-sm ${
-                                isDark ? "text-gray-400" : "text-gray-500"
+                                isDark ? "text-neutral-400" : "text-neutral-500"
                               }`}
                             >
                               تاريخ الانتهاء
                             </div>
                             <div
                               className={
-                                isDark ? "text-gray-300" : "text-gray-700"
+                                isDark ? "text-neutral-300" : "text-neutral-700"
                               }
                             >
                               {new Date(project.end_date).toLocaleDateString(
@@ -387,7 +389,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                   {project.images && project.images.length > 1 && (
                     <motion.div
                       className={`p-6 rounded-2xl ${
-                        isDark ? "bg-gray-800/60" : "bg-gray-50"
+                        isDark ? "bg-neutral-800/60" : "bg-neutral-50"
                       }`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -395,7 +397,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({
                     >
                       <h3
                         className={`text-lg font-bold mb-4 ${
-                          isDark ? "text-white" : "text-gray-900"
+                          isDark ? "text-white" : "text-neutral-900"
                         }`}
                       >
                         معرض المشروع
