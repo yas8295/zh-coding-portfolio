@@ -25,8 +25,6 @@ const BlogPage: React.FC<BlogPageProps> = ({ isDark, toggleTheme }) => {
 
   return (
     <div className={`min-h-screen dark:bg-neutral-900 ${isDark ? "dark" : ""}`}>
-      <Header isDark={isDark} toggleTheme={toggleTheme} />
-
       {/* Hero Section */}
       <section
         className={`py-20 ${isDark ? "bg-gradient-to-br from-neutral-900 to-neutral-800" : "bg-gradient-to-br from-neutral-900 to-neutral-800 relative"}`}

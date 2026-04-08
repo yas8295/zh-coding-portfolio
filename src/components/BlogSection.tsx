@@ -15,14 +15,14 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
     return (
       <section
         id="blog"
-        className={`py-24 relative ${isDark ? "bg-gray-900" : "bg-gray-50"}`}
+        className={`py-24 relative ${isDark ? "bg-neutral-900" : "bg-neutral-50"}`}
       >
         <div className="container mx-auto px-6 text-center">
           <div className="animate-pulse space-y-4">
-            <div className="h-8 bg-gray-300 rounded w-1/4 mx-auto"></div>
+            <div className="h-8 bg-neutral-300 rounded w-1/4 mx-auto"></div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="h-64 bg-gray-300 rounded"></div>
+                <div key={i} className="h-64 bg-neutral-300 rounded"></div>
               ))}
             </div>
           </div>
@@ -35,7 +35,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
     return (
       <section
         id="blog"
-        className={`py-24 relative ${isDark ? "bg-gray-900" : "bg-gray-50"}`}
+        className={`py-24 relative ${isDark ? "bg-neutral-900" : "bg-neutral-50"}`}
       >
         <div className="container mx-auto px-6 text-center">
           <p className={`text-lg ${isDark ? "text-red-400" : "text-red-600"}`}>
@@ -53,8 +53,8 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
       id="blog"
       className={`py-24 relative overflow-hidden ${
         isDark
-          ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
-          : "bg-gradient-to-br from-white via-gray-50 to-gray-100"
+          ? "bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900"
+          : "bg-gradient-to-br from-white via-neutral-50 to-neutral-100"
       }`}
     >
       {/* Animated background */}
@@ -76,14 +76,14 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
         >
           <h2
             className={`text-4xl md:text-5xl mb-6 ${
-              isDark ? "text-white" : "text-gray-900"
+              isDark ? "text-white" : "text-neutral-900"
             }`}
           >
             آخر المقالات
           </h2>
           <p
             className={`text-lg md:text-xl ${
-              isDark ? "text-gray-300" : "text-gray-600"
+              isDark ? "text-neutral-300" : "text-neutral-600"
             }`}
           >
             تابع أحدث الأخبار والمقالات المفيدة في مجال التكنولوجيا
@@ -100,8 +100,8 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className={`rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 ${
                 isDark
-                  ? "bg-gray-800 border border-gray-700"
-                  : "bg-white border border-gray-200"
+                  ? "bg-neutral-800 border border-neutral-700"
+                  : "bg-white border border-neutral-200"
               }`}
             >
               {/* Image */}
@@ -122,7 +122,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
                 <Link
                   to={`/blog/${blog.id}`}
                   className={`text-lg font-bold mb-2 line-clamp-2 hover:text-primary-500 ${
-                    isDark ? "text-white" : "text-gray-900"
+                    isDark ? "text-white" : "text-neutral-900"
                   }`}
                 >
                   {blog.title}
@@ -130,7 +130,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
 
                 <p
                   className={`text-sm mb-4 line-clamp-2 ${
-                    isDark ? "text-gray-300" : "text-gray-600"
+                    isDark ? "text-neutral-300" : "text-neutral-600"
                   }`}
                 >
                   {blog.description}
@@ -139,7 +139,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ isDark }) => {
                 {/* Meta Info */}
                 <div
                   className={`flex items-center justify-between text-xs mb-4 ${
-                    isDark ? "text-gray-400" : "text-gray-500"
+                    isDark ? "text-neutral-400" : "text-neutral-500"
                   }`}
                 >
                   <div className="flex items-center gap-2">

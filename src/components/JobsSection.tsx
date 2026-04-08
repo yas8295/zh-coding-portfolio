@@ -73,7 +73,7 @@ const JobsSection: React.FC<JobsSectionProps> = ({ isDark }) => {
   return (
     <section
       id="jobs"
-      className={`py-24 relative overflow-hidden ${
+      className={`py-32 relative overflow-hidden grow ${
         isDark
           ? "bg-gradient-to-br from-neutral-900/40 via-neutral-800/40 to-neutral-900/40"
           : "bg-gradient-to-br from-white via-neutral-50 to-neutral-100"
