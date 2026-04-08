@@ -237,19 +237,20 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ isDark }) => {
                   className={`w-full h-64 rounded-2xl relative flex items-center justify-center mb-6 ring-4 ${iconRing} transition-all duration-500 overflow-hidden`}
                   transition={{ duration: 0.6 }}
                 >
-                  <ServicesCardBg
-                    speed={1}
-                    frequency={6}
-                    intensity={50}
-                    theme={"aurora"}
-                    shape={"hexagon"}
-                    scale={0.4}
-                    offsetX={0}
-                    offsetY={0}
-                    colorShift={[1, 0.5, 76]} /* subtle green shift */
-                    transparent={true}
-                    haloColors={["#21263b"]}
-                  />
+                  {isDark && (
+                    <ServicesCardBg
+                      speed={1}
+                      frequency={2}
+                      intensity={100}
+                      theme={"monochrome"}
+                      shape={"hexagon"}
+                      scale={0.3}
+                      offsetX={0}
+                      offsetY={0}
+                      colorShift={[1, 0.5, 76]}
+                      transparent={true}
+                    />
+                  )}
 
                   <img
                     src={`${import.meta.env.VITE_REACT_APP_API_URL}/${

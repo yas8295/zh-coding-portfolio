@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, LogOut } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   isDark: boolean;
@@ -123,7 +123,9 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-8 space-x-reverse">
           {navItems.map((item) => {
-            const isActive = activeHref === item.href;
+            const isActive = item.href.startsWith("#")
+              ? activeHref === item.href
+              : pathname === item.href;
             return (
               <>
                 {" "}
@@ -163,6 +165,16 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
               </>
             );
           })}
+          <Link
+            to={"/jobs"}
+            className={`dark:text-white text-lg relative py-2 ${
+              isDark || !isScrolled
+                ? "hover:text-primary-400"
+                : "hover:text-primary-600"
+            } transition-colors duration-200 px-3 relative z-10`}
+          >
+            الوظائف
+          </Link>
         </nav>
 
         {/* Theme Toggle & Auth & Mobile Menu */}
@@ -260,7 +272,9 @@ const Header: React.FC<HeaderProps> = ({ isDark, toggleTheme }) => {
       >
         <div className="py-4 space-y-2">
           {navItems.map((item) => {
-            const isActive = activeHref === item.href;
+            const isActive = item.href.startsWith("#")
+              ? activeHref === item.href
+              : pathname === item.href;
             return (
               <div key={item.name} className="relative">
                 {isActive && (

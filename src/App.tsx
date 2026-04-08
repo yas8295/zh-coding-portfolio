@@ -22,6 +22,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import BlogPage from "./pages/BlogPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
+import JobsPage from "./pages/JobsPage";
 
 // Hooks
 // import { useCursor } from "./hooks/useCursor";
@@ -29,7 +30,6 @@ import BlogDetailPage from "./pages/BlogDetailPage";
 import { useProjects } from "./hooks/projectsHooks/useProjects";
 import LinksSection from "./components/LinksSection";
 import PackagesSection from "./components/PackagesSection";
-import JobsSection from "./components/JobsSection";
 import BlogSection from "./components/BlogSection";
 
 function App() {
@@ -161,6 +161,10 @@ function App() {
         element={<BlogDetailPage isDark={isDark} toggleTheme={toggleTheme} />}
       />
       <Route
+        path="/jobs"
+        element={<JobsPage isDark={isDark} toggleTheme={toggleTheme} />}
+      />
+      <Route
         index
         path="*"
         element={
@@ -199,8 +203,6 @@ function App() {
                 <TeamSection isDark={isDark} />
                 {/* Courses Section */}
                 <CoursesSection isDark={isDark} />
-                {/* Jobs Section */}
-                <JobsSection isDark={isDark} />
                 {/* Blog Section */}
                 <BlogSection isDark={isDark} />
                 {/* Contact Section */}
